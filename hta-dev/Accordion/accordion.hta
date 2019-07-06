@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+	"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="ja">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<TITLE>ＡＬＳＯＫ ＧＣシステム開発Ｗｅｂページ</TITLE>
+<script language="javascript" src="./lib/prototype.js"></script>
+<script language="javascript" src="./lib/rico.js"></script>
+<script language="javascript">
+function accord() {
+	//new Rico.Accordion( $('accordionDiv'));
+}
+</script>
+</HEAD>
+<BODY onload="javascript:bodyonload();">
+<script>
+var onloads = new Array();
+function bodyonload() {
+	for(var i=0; i < onloads.length ; i++) {
+		onloads[i]();
+	}
+}
+function accord() {
+	new Rico.Accordion('accordionDiv', { panelHeight:227} );
+}
+</script>
+<div id="accordionDiv">
+	<div id="panel">
+		<div id="title1">
+			概要
+		</div>
+		<div id="title2">
+			ここに処理概要を記述する。
+		</div>
+	</div>
+	<div id="panel2">
+		<div id="title1">
+			コード
+		</div>
+		<div id="title2">
+			ここにコードを記述する。
+		</div>
+	</div>
+</div>
+<script>onloads.push( accord );</script>
+</BODY>
+</HTML>
