@@ -1,0 +1,3 @@
+ren D:\vr-records\0015\DVD_RTAV\VR_MANGR.IFO _VR_MANGR.IFO
+
+copy D:\vr-records\0015\DVD_RTAV\VR_MANGR.BUP D:\vr-records\0015\DVD_RTAV\VR_MANGR.IFO

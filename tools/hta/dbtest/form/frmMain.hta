@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>html application template</title>
+<HTA:APPLICATION ID="oHTA"
+     APPLICATIONNAME="HtaApp"
+/>
+	<!--
+	 BORDER="thin"
+     BORDERSTYLE="normal"
+     CAPTION="yes"
+     ICON=""
+     MAXIMIZEBUTTON="no"
+     MINIMIZEBUTTON="no"
+     SHOWINTASKBAR="yes"
+     SINGLEINSTANCE="no"
+     SYSMENU="yes"
+     VERSION="1.0"
+     WINDOWSTATE="normal"
+     -->
+<meta http-equiv="ContenType" content="text/html;charset=shift_jis"/>
+<link type="text/css" href="../css/default.css" rel="stylesheet"></link>
+<script language="vbscript" src="../../lib/lib_window.vbs"></script>
+<script language="vbscript" src="../../lib/lib_form.vbs"></script>
+<script language="vbscript" src="../../lib/lib_dhtml.vbs"></script>
+<script language="vbscript" src="../../lib/lib_fso.vbs"></script>
+<script language="vbscript" src="../../lib/lib_adodb.vbs"></script>
+<script language="vbscript" src="../script/profile.vbs"></script>
+<script language="vbscript" src="../script/frmMain.vbs"></script>
+</head>
+<body>
+<div>
+<select name="f_ddl_connstr_types" onchange="">
+	<option value="-">-- connectionstrings --</option>
+	<option value="udl">udl</option>
+	<option value="csv">csv</option>
+	<option value="access">access</option>
+	<option value="excel">excel</option>
+	<option value="sqlite">sqlite</option>
+	<option value="mysql">mysql</option>
+	<option value="postgresql">postgresql</option>
+	<option value="oracle">oracle</option>
+	<option value="sqlserver">sqlserver</option>
+</select>
+<select name="f_ddl_file_paths">
+<!--option value="path">name</option-->
+<option value="-">-- file paths --</option>
+<option value="J:\mydata\db\csv">csv-share1</option>
+<option value="L:\mydata\db\csv">csv-share2</option>
+<option value="csv">csv-local</option>
+</select><br/>
+<textarea name="f_txa_sql_command" rows="5" cols="80">
+select top 10 * from sample.csv;
+</textarea><br/>
+<button onclick="cmdExecSqlCommand_Click 'query', f_txa_sql_command.value">query-sql</button>
+<button onclick="cmdExecSqlCommand_Click 'execute', f_txa_sql_command.value">execute-sql</button>
+<select name="f_ddl_action_events" onclick="cmdActionCommand_Click f_ddl_action_events">
+	<option value="-">-- action events --</option>
+	<option value="SuccessCopy">success-vr-copy</option>
+	<option value="SuccessEdit">success-vr-edit</option>
+</select>
+<select name="f_ddl_functions" onclick="cmdFunctionCommand_Click f_ddl_functions">
+	<!--option value="sql_id">execute function</option-->
+	<option value="-">-- functions --</option>
+	<option value="1">list vr-copy</option>
+	<option value="2">list vr-edit</option>
+	<option value="3">list cprm-keys</option>
+	<option value="4">list mmedia-files</option>
+</select>
+</div>
+<span id="id_view_result"></span>
+<div id="id_view_debug" style="display:none;">
+<textarea name="f_txa_view_debug" rows="5" cols="80" title="view debug logs"></textarea>
+</div>
+</body>
+</html>

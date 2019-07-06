@@ -1,0 +1,17 @@
+<job id="getDriveAvailableSpace">
+<script language="vbscript" src="getDriveAvailableSpace.vbs"></script>
+<script language="vbscript">
+Option Explicit
+Dim objArgs
+
+Set objArgs = WScript.Arguments
+
+If objArgs.Count <> 1 Then
+	Msgbox "Usage:" & WScript.ScriptName & " " & "[drive-name]",vbCritical
+	WScript.Quit
+End If
+
+msgbox "Drive:" & String(2,vbTab) & UCase(objArgs(0)) & vbCrLf & _
+	"AvailableSpace:" & vbTab & FormatNumber(getDriveAvalilableSpace(objArgs(0))/(1024*1024),0) & "/MB"
+</script>
+</job>

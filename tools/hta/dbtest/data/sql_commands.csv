@@ -1,0 +1,5 @@
+id,name,sql_command
+1,"get vr_copy_logs","select top 10 a.*,b.ended from vr_copy_logs.csv a left join vr_copy_log_statuses.csv b on a.id = b.id order by a.id desc;"
+2,"get vr_edit_logs","select top 10 a.*,b.ended from vr_edit_logs.csv a left join vr_edit_log_statuses.csv b on a.id = b.id order by a.id desc;"
+3,"get cprm_keys","select top 10 * from cprm_keys.csv order by id desc;"
+4,"get mmedia_file_lists.csv","select top 10 * from mmedia_file_lists.csv where vol_name like '%%';"
