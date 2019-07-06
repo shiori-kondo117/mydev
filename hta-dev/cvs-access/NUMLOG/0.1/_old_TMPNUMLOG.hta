@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>番号採番ログ検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="番号採番ログ検索"
+   >
+   <SCRIPT LANGUAGE="VBScript">
+Const adOpenStatic = 3
+Const adLockOptimistic = 3
+Const adCmdText = &H0001
+Const DC_CSVFILE_PATH = "D:\temp\"
+
+On Error Resume Next
+
+Private Sub cmdSearch_Click
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+	strPathtoTextFile = DC_CSVFILE_PATH
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+	'//-- キー選択チェック
+	for each x in SELECT_KEY
+		if (x.checked) then
+			strSelectType = x.value
+			exit for
+		end if
+	next
+
+	'//-- キー条件チェック
+	strConditionType = KEY_CONDITION.value
+
+	'//-- キー選択による[where]条件分作成
+	Select Case strSelectType
+		case "1"
+			strWhere = _
+				"Number " & _
+				Replace(setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value), "'", "")
+		case "2"
+			strWhere = _
+				"CurrentDirectory " & _
+				setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value)
+		case "3"
+			strWhere = _
+				"Date " & _
+				setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value)
+		case else
+			strWhere = ""
+	End Select
+
+	strSQL = "SELECT * FROM tmp_numlog.txt "
+	If (strWhere <> "") Then
+		strSQL = strSQL & _
+				"where " & _
+				strWhere
+	End If
+
+	strSQL = strSQL & _
+			"order by Number"
+
+	'//TEXT_DATA.innerText = strSQL
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+
+	strHTML="<table border='1' cellspacing='0'>" & vbCrLf & _
+		"<tr style='background-color:skyblue;'>" & _
+		"<th>番号</th>" & _
+		"<th>カレント・ディレクトリ</th>" & _
+		"<th>日付</th>" & _
+		"<th>時間</th>" & _
+		"</tr>"
+	If (objRecordset.RecordCount > 999) Then
+		'//Msgbox "レコード件数が1000件を超えています。" & _
+		'//"rec-cnt=" & objRecordset.RecordCount
+	End If
+
+	RecCnt=0
+
+	Do Until (objRecordset.EOF)
+		strField_1 = objRecordset.Fields.Item("Number")
+		strField_2 = objRecordset.Fields.Item("CurrentDirectory")
+		strField_3 = objRecordset.Fields.Item("Date")
+		strField_4 = objRecordset.Fields.Item("Time")
+		strHTML = strHTML & _
+			"<tr>" & vbCrLf
+
+	    strHTML = strHTML & _
+			"<td nowrap>" & strField_1 & "<br/>" & "</td>" & _
+			"<td nowrap><a href='" & strField_2 & "'>" & _
+				strField_2 & "</a><br/>" & "</td>" & _
+			"<td nowrap>" & strField_3 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_4 & "<br/>" & "</td>"
+
+		strHTML = strHTML & _
+			"</tr>" & vbCrLf
+
+	    objRecordset.MoveNext
+		RecCnt = RecCnt + 1
+	Loop
+	RESULT.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+
+Private Function setKeyCondition( _
+		byVal p_strCondType, _
+		byVal p_strKeyword _
+		)
+	strKeyword = UCase(p_strKeyword)
+	Select Case p_strCondType
+		case "1"	'// キーに一致する
+			strKeyCondition = " = '" & _
+				strKeyword & "' "
+		case "2"	'// キーに一致しない
+			strKeyCondition = " not = '" & _
+				strKeyword & "' "
+		case "3"	'// キーで始まる
+			strKeyCondition = " like '" & _
+				strKeyword & "%' "
+		case "4"	'// キーで終わる
+			strKeyCondition = " like '%" & _
+				strKeyword & "' "
+		case "5"	'// キーを含む
+			strKeyCondition = " like '%" & _
+				strKeyword & "%' "
+		case "6"	'// キーを含まない
+			strKeyCondition = " not like '%" & _
+				strKeyword & "%' "
+		case "7"	'// キーより大きい
+			strKeyCondition = " > '" & _
+				strKeyword & "' "
+		case "8"	'// キーより小さい
+			strKeyCondition = " < '" & _
+				strKeyword & "' "
+		case "9"	'// キーより以上
+			strKeyCondition = " >= '" & _
+				strKeyword & "' "
+		case else	'// キーより以下
+			strKeyCondition = " <= '" & _
+				strKeyword & "' "
+	End Select
+
+	setKeyCondition = strKeyCondition
+
+End Function
+
+Private Sub cmdClear_Click
+	KEYWORD.value = ""
+End Sub
+Private Sub body_Load
+
+End Sub
+	   </SCRIPT>
+</HEAD>
+<BODY onload="body_Load" style="background-color:#ffff8f;">
+<table border="0">
+<tr>
+<th valign="top">
+	<label name="KEYWORD">キー選択:</label>
+</th>
+<td>
+<input type="radio" name="SELECT_KEY" value="0" checked="true">指定なし</select><br>
+<input type="radio" name="SELECT_KEY" value="1">番号</select><br>
+<input type="radio" name="SELECT_KEY" value="2">カレント・ディレクトリ</select><br>
+<input type="radio" name="SELECT_KEY" value="3">日付</select><br>
+</td>
+</tr>
+<tr>
+<th>
+	<label name="KEYWORD">検索キー:</label>
+</th>
+<td>
+<input type="text" name="KEYWORD" size="40"/>
+<select name="KEY_CONDITION">
+	<option value="1" selected="true">に一致する</option>
+	<option value="2">に一致しない</option>
+	<option value="3">で始まる</option>
+	<option value="4">で終わる</option>
+	<option value="5">を含む</option>
+	<option value="6">を含まない</option>
+	<option value="7">より大きい</option>
+	<option value="8">より小さい</option>
+	<option value="9">より以上</option>
+	<option value="10">より以下</option>
+</select>
+<button onClick="cmdSearch_Click">検索</button>
+<button onClick="cmdClear_Click">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果:</h3>
+<div id="RESULT"></div>
+<!--hr/>
+<textarea id="TEXT_DATA" rows="3" cols="80"></textarea-->
+</BODY>
+</HTML>

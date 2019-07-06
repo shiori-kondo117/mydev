@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>Data Source Object(.csv) V0.1</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="CPRMキー管理"
+   >
+<SCRIPT type="text/JavaScript"></SCRIPT>
+</HEAD>
+<BODY>
+<OBJECT id="MyDataSrc"
+CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+<PARAM name="DataURL" value="test.csv">
+<PARAM name="UseHeader" value="True">
+</OBJECT>
+この下に「test.csv」の内容が入ります。<br/>
+名前: <span DATASRC="#MyDataSrc" DATAFLD="名前"></span><br/>
+住所: <span DATASRC="#MyDataSrc" DATAFLD="住所" DATAFORMATAS="html"></span><br/>
+電話番号: <span DATASRC="#MyDataSrc" DATAFLD="電話番号" DATAFORMATAS="html"></span><br/>
+</BODY>
+</HTML>

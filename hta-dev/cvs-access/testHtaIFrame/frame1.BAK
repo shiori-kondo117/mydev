@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title></title>
+<SCRIPT LANGUAGE="VBScript" src="./script.vbs"></SCRIPT>
+<script type="text/vbscript">
+<!--
+Private Sub Window_onload()
+	Call window.resizeTo(590, 120)
+End Sub
+-->
+</script>
+</HEAD>
+<BODY>
+</BODY>
+</HTML>

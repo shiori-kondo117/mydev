@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>techinfo</title>
+<link rel="stylesheet" href="./default.css" type="text/css"/>
+<XML id="source" src="struct-info2.xml"></XML>
+<XML id="style" src="struct-info.xsl"></XML>
+<script for="window" event="onload">
+// transformNode() method call
+xslTarget.innerHTML =
+	source.transformNode(style.XMLDocument);
+</script>
+</head>
+<body>
+<h3>\‘¢‘Ìˆê——</h3>
+<div id="xslTarget"></div>
+</body>
+</html>

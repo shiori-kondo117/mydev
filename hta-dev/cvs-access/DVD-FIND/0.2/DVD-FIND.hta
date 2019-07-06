@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>録画DVD検索 V0.2</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="DVD検索"
+   >
+<SCRIPT type="text/VBScript" src="./clsDBI.vbs"></SCRIPT>
+<SCRIPT type="text/VBScript" src="./script.vbs"></SCRIPT>
+</HEAD>
+<BODY onload="body_Load" style="background-color:#ffff8f;">
+<table border="0" cellspacing="0" cellpadding="5">
+<tr>
+<th>
+<label name="KEYWORD">検索条件:</label>
+</th>
+<td><br/></td>
+</tr>
+<tr>
+<th nowrap="yes">
+<select name="KEY_ITEM" id="ID_KEY_ITEM">
+</select>が
+</th>
+<td nowrap="yes">
+<input type="text" name="KEYWORD" size="32"/>
+<select name="KEY_CONDITION">
+	<option value="1" selected="true">に一致する</option>
+	<option value="2">に一致しない</option>
+	<option value="3">で始まる</option>
+	<option value="4">で終わる</option>
+	<option value="5">を含む</option>
+	<option value="6">を含まない</option>
+</select>
+<select name="ORDER_BY" id="ID_ORDER_BY">
+</select>
+<button onClick="cmdSearch_Click">検索</button>
+<button onClick="cmdClear_Click">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果:</h3>
+<div id="RESULT"></div>
+<b>デバッグログ：</b><br/>
+<textarea id="DEBUG_VIEW" rows="3" cols="80"></textarea><br/>
+<button onclick="ClearDebugView">クリア</button>
+</BODY>
+</HTML>

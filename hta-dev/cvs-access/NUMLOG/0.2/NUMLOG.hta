@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>番号採番ログ検索v0.2</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="番号採番ログ検索"
+   >
+<SCRIPT LANGUAGE="VBScript" src="../../lib/ObjectControl.vbs"></SCRIPT>
+<SCRIPT LANGUAGE="VBScript" src="../../lib/debug.vbs"></SCRIPT>
+<SCRIPT LANGUAGE="VBScript" src="./script.vbs"></SCRIPT>
+<style type="text/css">
+td.type_a {
+	background-color:#ffff8f;		/* 背景色 */
+}
+body {
+	font-size:12;
+}
+</style>
+</HEAD>
+<BODY onload="Setup">
+<table border="0" cellspacing="1" cellpadding="1">
+<tr>
+	<td>
+	<label name="FILE_TYPE"><b>ファイル選択：</b></b></label><br/>
+	<input type="radio" name="FILE_TYPE" value="numlog.txt" checked="true">マスタファイル</select>
+	<input type="radio" name="FILE_TYPE" value="tmp_numlog.txt">一時ファイル</select><br>
+	</td>
+</tr>
+<tr>
+	<td>
+	<label name="FILE_TYPE"><b>編集条件：</b></label><br/>
+	<input type="checkbox" name="NONE_EDIT">未編集</input><br/>
+	</td>
+</tr>
+<tr>
+<td>
+<label name="SELECT_KEY"><b>検索条件：</b></label><br/>
+<select name="SELECT_KEY" id="ID_SELECT_KEY">
+</select>が
+<input type="text" name="KEYWORD" size="18"/>
+<select name="KEY_CONDITION">
+</select>
+<select name="ORDER_BY" id="ID_ORDER_BY">
+</select>
+<button onClick="cmdSearch_Click">検索</button>|
+<button onClick="cmdClear_Click">クリア</button><br/>
+<button onClick="modifyDatabase">更新</button>|
+<button onClick="checkDeleteFolder">照合</button><br/>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果:</h3>
+<div id="RESULT"></div>
+<hr/>
+<textarea id="TEXT_DATA" rows="3" cols="80"></textarea>
+</BODY>
+</HTML>

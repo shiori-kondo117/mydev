@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+	"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<title>ＤＶＤ録画管理</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="ＤＶＤ録画管理"
+   >
+<SCRIPT type="text/VBScript" src="./script.vbs">
+</SCRIPT>
+</HEAD>
+<BODY onload="cmdSetup">
+<table border="0" cellspacing="1" cellpadding="1">
+<tr>
+	<th>録画記録番号</th>
+	<td><div id="ID_REC_LOG_NO"></div></td>
+</tr>
+<tr>
+	<th>フォルダ番号</th>
+	<td><input type="text" name="DVD_NO" size="5"/></td>
+</tr>
+<tr>
+	<th>ボリューム番号</th>
+	<td><input type="text" name="VOLUME_NO" size="3"/></td>
+</tr>
+<tr>
+	<th>番組名</th>
+	<td><input type="text" name="BANGUMI_NAME" size="50"/></td>
+</tr>
+<tr>
+	<th>タイトル名</th>
+	<td><input type="text" name="TITLE_NAME" size="50"/></td>
+</tr>
+<tr>
+	<th>録画日付</th>
+	<td><div id="ID_REC_DATE"></div></td>
+</tr>
+<tr>
+	<th>録画時間</th>
+	<td id="ID_REC_TIME"></td>
+</tr>
+<tr>
+	<th>ステータス</th>
+	<td>
+		<lable><b>録画モード</b></lable>
+		<select name="REC_MODE">
+			<option value="SP">SP(標準モード)</option>
+			<option value="LP">LP(長時間)</option>
+		</select><br/>
+		<lable><b>コピーワンス</b></lable>
+		<input type="checkbox" name="COPYONCE"/>
+		<lable><b>削除フラグ</b></lable>
+		<input type="checkbox" name="DELETE_FLAG"/>
+		<lable><b>編集フラグ</b></lable>
+		<input type="checkbox" name="F_EDIT_FLAG"/>
+	</td>
+</tr>
+<tr>
+	<th>削除日付</th>
+	<td>
+		<input type="text" name="F_DELETE_DATE" size="13"/>
+	</td>
+</tr>
+</table>
+<!--SQL:
+<textarea id="SQL" rows="5" cols="80"></textarea><br/-->
+<button onclick="cmdRegister2_Click">登録</button>|
+<button onclick="cmdUpdate_Click ID_REC_LOG_NO.innerText">更新</button>|
+<button onclick="cmdClear_Click">クリア</button>|
+<hr/>
+<select name="KEY_ITEM" id="ID_KEY_ITEM">
+</select>が
+<input type="text" name="KEYWORD" size="20"/>
+<select name="KEY_CONDITION">
+</select>
+<select name="F_ORDERBY" id="ID_ORDERBY">
+</select>
+<button onclick="cmdSearch2_Click">検索</button>|
+<button onclick="cmdClear2_Click">クリア</button><br/>
+<!-- テストコード入力エリア 開始 -->
+<!--
+<button onclick="MakeListBox 'ConditionList.txt',ID_TEST_LIST_BOX">テスト</button><br/>
+-->
+<!-- テストコード入力エリア 終了 -->
+<!--iframe border="0" src="blank.html" id="ID_FRM_CONTENT" width="620"></iframe-->
+<div id="RESULT_LIST"></div>
+<b>デバッグログ:</b><br/>
+<textarea id="ID_DEBUG_VIEW" rows="5" cols="80"></textarea><br/>
+<button onclick="ClearDebugView">クリアログ</button>
+</BODY>
+</HTML>

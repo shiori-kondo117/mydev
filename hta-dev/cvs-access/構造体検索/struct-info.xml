@@ -1,0 +1,5130 @@
+<?xml version="1.0" encoding="euc-jp"?>
+<struct-info>
+<struct>
+	<name>CU10401 ＳＧＳデータ無線直行指示要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   keibi_inf[20];   /* 警備信号      */
+ char   kairo_kubun[32];  /* 回路区分      */
+ char   course_no[3];   /* コース番号     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   siji_time[4];   /* 指示時間      */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   doukousya[6];   /* 同行者      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   vax_time[4];   /* ＶＡＸ送信時間    */
+ /* 事案サブで付与 */
+ SZSGS_JIAN_S sgs_jian;    /* ＳＧＳ事案情報構造体   */
+} SZSGS_DTMSIJI_T;
+	</define>
+	<st-name>SZSGS_DTMSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU10401 ＳＧＳデータ無線直行指示要求(SV->VAX)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ部     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[3];   /* 号機番号      */
+ char   haifun1[1];    /* ハイフン１     */
+ char   gouki_addr[4];   /* 号機アドレス     */
+ char   haifun2[1];    /* ハイフン２     */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   course_no[3];   /* 担当コース     */
+ char   keibi_inf[10];   /* 警備情報      */
+ char   vax_time[4];   /* 時:分      */
+ char   kairo_kubun[16];  /* 回路区分      */
+ char   rfu[26];    /* 空白       */
+} SZVAX_CHOKKO_T;
+	</define>
+	<st-name>SZVAX_CHOKKO_T</st-name>
+</struct>
+<struct>
+	<name>CU10402 コスモデータ無線直行指示要求(SV->VAX)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ部     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[3];   /* 号機番号      */
+ char   haifun1[1];    /* ハイフン１     */
+ char   gouki_addr[4];   /* 号機アドレス     */
+ char   haifun2[1];    /* ハイフン２     */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   course_no[3];   /* 担当コース     */
+ char   shougai_naiyou_10[10]; /* 障害内容(先頭１０バイト)  */
+ char   vax_time[4];   /* 受付時刻      */
+ char   vax_kyakumachi_naiyo[16]; /* ＶＡＸ客待ち内容   */
+ char   rfu[26];    /* 空白       */
+} SZCVAX_CHOKKO_T;
+	</define>
+	<st-name>SZCVAX_CHOKKO_T</st-name>
+</struct>
+<struct>
+	<name>CU10404 ＳＧＳＭＰＢ直行指示要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   keibi_inf[20];   /* 警備情報      */
+ char   kairo_kubun[32];  /* 回路区分      */
+ char   course_no[3];   /* コース番号     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   siji_time[4];   /* 指示時間      */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   doukousya[6];   /* 同行者      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   tel_no[20];    /* 電話番号      */
+ char   send_time[4];   /* 送信時間      */
+ char   keibi_time[4];   /* 警備情報時刻     */
+ /* 事案サブで付与 */
+ SZSGS_JIAN_S sgs_jian;    /* ＳＧＳ事案情報構造体   */
+} SZSGS_MPBSIJI_T;
+	</define>
+	<st-name>SZSGS_MPBSIJI_T</st-name>
+</struct>
+<struct>
+	<name>2002.08.08 回路区分(32) → 鍵無し対応可否(14)  項目変更</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ char   send_time[4];   /* 送信時刻      */
+ char   kubun[2];    /* 出動区分      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   cose[3];    /* 担当コース     */
+ char   pb_no[20];    /* ポケットベル番号    */
+ char   keibi_time[4];   /* 警備情報時刻     */
+ char   keibi_info[20];   /* 警備情報(I/Fで半角対応)  */
+ char   kagi_umu[14];   /* 鍵無し対応可否    */
+ char   keibi_mei[40];   /* 警備先名      */
+} SZMPB_CHOKKO_T;
+	</define>
+	<st-name>SZMPB_CHOKKO_T</st-name>
+</struct>
+<struct>
+	<name>CM55201 ＳＧＳＭＰＢ直行指示送信失敗(MPB->SV->CL)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   send_time[4];   /* 送信時刻      */
+ char   kubun[2];    /* 出動区分      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   cose[3];    /* 担当コース     */
+ char   pb_no[20];    /* ポケットベル番号    */
+ char   keibi_time[4];   /* 警備情報時刻     */
+ char   keibi_info[20];   /* 警備情報(I/Fで半角対応)  */
+ char   kagi_umu[14];   /* 鍵無し対応可否    */
+ char   keibi_mei[40];   /* 警備先名      */
+} SZMPB_CHOKKO_ER_T;
+	</define>
+	<st-name>SZMPB_CHOKKO_ER_T</st-name>
+</struct>
+<struct>
+	<name>CU10404 コスモＭＰＢ直行指示要求(SV->MPB)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ char   send_time[4];   /* 送信時刻      */
+ char   kubun[2];    /* 出動区分      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   cose[3];    /* 担当コース     */
+ char   pb_no[20];    /* ＰＢ番号   2002.08.08 */
+ char   uke_time[4];   /* 受付時間      */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   mpb_kyakumachi[4];  /* 客待ち内容     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+} SZCMPB_CHOKKO_T;
+	</define>
+	<st-name>SZCMPB_CHOKKO_T</st-name>
+</struct>
+<struct>
+	<name>CM55203 コスモＭＰＢ直行指示送信失敗(MPB->SV->CL)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   send_time[4];   /* 送信時刻      */
+ char   kubun[2];    /* 出動区分      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   cose[3];    /* 担当コース     */
+ char   pb_no[20];    /* ＰＢ番号   2002.08.08 */
+ char   uke_time[4];   /* 受付時間      */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   mpb_kyakumachi[4];  /* 客待ち内容     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+} SZCMPB_CHOKKO_ER_T;
+	</define>
+	<st-name>SZCMPB_CHOKKO_ER_T</st-name>
+</struct>
+<struct>
+	<name>CU10407 ＳＧＳ隊員処置更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   tanto_kubun[1];   /* 担当／応援区分    */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   shiji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   mikomi_time[2];   /* 見込(ＳＧＳなので)   */
+ char   genchaku_time[4];  /* 現着時間      */
+ char   nyukan[4];    /* 入館 *      */
+ char   taikan[4];    /* 退館 *      */
+ char   taikubun[1];   /* 退館区分 *     */
+ char   syuryou_time[4];  /* 終了時間      */
+ char   torikeshi_time[4];  /* 取消時間      */
+ char   doukousya[6];   /* 同行者      */
+ char   taiin_jitai_cd[1];  /* 事態コード *    */
+ char   jitai_cd[1];   /* 事態コード     */
+ /* 事案サブで付与 */
+ SZSGS_JIAN_S sgs_jian;    /* ＳＧＳ事案情報構造体   */
+} SZSGS_TINUPD_T;
+	</define>
+	<st-name>SZSGS_TINUPD_T</st-name>
+</struct>
+<struct>
+	<name>CU10413 ＳＧＳ隊員直行指示要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   tanto_kubun[1];   /* 担当／応援区分    */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   shiji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   mikomi_time[2];   /* 見込(ＳＧＳなので)   */
+ char   genchaku_time[4];  /* 現着時間      */
+ char   syuryou_time[4];  /* 終了時間      */
+ char   torikeshi_time[4];  /* 取消時間      */
+ char   doukousya[6];   /* 同行者      */
+ char   jitai_cd[1];   /* 事態コード     */
+ /* 事案サブで付与 */
+ SZSGS_JIAN_S sgs_jian;    /* ＳＧＳ事案情報構造体   */
+} SZSGS_TINCHO_T;
+	</define>
+	<st-name>SZSGS_TINCHO_T</st-name>
+</struct>
+<struct>
+	<name>CU10410 ＳＧＳ隊員落着登録要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   ronri_no[10];   /* 論理番号      */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   siji_time[4];   /* 指示       */
+ char   chokkou_time[4];  /* 直行       */
+ char   mikomi_time[2];   /* 見込       */
+ char   genchaku_time[4];  /* 現着       */
+ char   nyukan[4];    /* 入館       */
+ char   taikan[4];    /* 退館       */
+ char   taikubun[1];   /* 退館区分      */
+ char   syuryou_time[4];  /* 終了       */
+ char   torikesi_time[4];  /* 取消       */
+ char   kikan_time[4];   /* 帰還       */
+ char   doukousya[6];   /* 同行者      */
+ char   taiin_jitai[1];   /* 隊員事態コード    */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   doukousya_name[40];  /* 同行者氏名     */
+} SZSGS_TINRKAD_T;
+	</define>
+	<st-name>SZSGS_TINRKAD_T</st-name>
+</struct>
+<struct>
+	<name>CU10416 ＳＧＳ事案処置更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   nyukan_time[4];   /* 入館時間      */
+ char   taikan_time[4];   /* 退館時間      */
+ /* 以下ＧＣ２次開発で新規に追加された項目        */
+ char   syuryo_time[4];   /* 終了時間      */
+ /*----------------------------------------------------------------------*/
+ char   keisatu_time[4];  /* 警察通報      */
+ char   keisatu_touchaku[4]; /* 警察到着      */
+ char   shoubou_time[4];  /* 消防通報      */
+ char   shoubou_touchaku[4]; /* 消防到着      */
+ char   keisatu_inf[69];  /* 警察通報情報     */
+ char   shoubou_inf[69];  /* 消防通報情報     */
+ char   sgs_genin_cd[3];  /* ＳＧＳ原因コード    */
+ char   genin_syousai[60];  /* 原因詳細内容     */
+ char   genin_naiyo1[60];  /* 原因内容１     */
+ char   genin_naiyo2[60];  /* 原因内容２     */
+ char   jian_bunrui_cd[1];  /* 事案分類コード    */
+ char   keihou_bunrui_cd[1]; /* 警報分類コード    */
+ char   genin_bunrui_cd[1];  /* 原因分類コード    */
+ char   net_genin_cd[2];  /* ＮＥＴ原因コード    */
+ char   net_genin_naiyo[60]; /* ＮＥＴ原因内容    */
+ char   sencer_cd[2];   /* センサーコード    */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   seki_no[2];    /* 席番号      */
+} SZSGS_JIANUPD_T;
+	</define>
+	<st-name>SZSGS_JIANUPD_T</st-name>
+</struct>
+<struct>
+	<name>CU10418 ＳＧＳ事案落着登録要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   keihou_date[14];  /* 最新警備情報     */
+ char   nyukan_time[4];   /* 入館時間      */
+ char   taikan_time[4];   /* 退館時間      */
+ /* 以下ＧＣ２次開発で新規に追加された項目        */
+ char   syuryo_time[4];   /* 終了時間      */
+ /*----------------------------------------------------------------------*/
+ char   keisatu_time[4];  /* 警察通報時間     */
+ char   keisatu_touchaku[4]; /* 警察到着時間     */
+ char   shoubou_time[4];  /* 消防通報時間     */
+ char   shoubou_touchaku[4]; /* 消防到着時間     */
+ char   keisatu_inf[69];  /* 警察通報情報     */
+ char   shoubou_inf[69];  /* 消防通報情報     */
+ char   sgs_genin_cd[3];  /* ＳＧＳ原因コード    */
+ char   genin_syousai[60];  /* 原因詳細内容     */
+ char   genin_naiyo1[60];  /* 原因内容１     */
+ char   genin_naiyo2[60];  /* 原因内容２     */
+ char   jian_bunrui_cd[1];  /* 事案分類コード    */
+ char   keihou_bunrui_cd[1]; /* 警報分類コード    */
+ char   genin_bunrui_cd[1];  /* 原因分類コード    */
+ char   net_genin_cd[2];  /* ＮＥＴ原因コード    */
+ char   net_genin_naiyo[60]; /* ＮＥＴ原因内容    */
+ char   sencer_cd[2];   /* センサーコード    */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   rakuchaku_sekino[2]; /* 落着席番号     */
+ char   rakuchakusya_no[6];  /* 落着者社員番号    */
+ char   rakuchakusya_mei[40]; /* 落着者監視員名    */
+ char   rakuchaku_date[12];  /* 落着日付      */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   jigyosho_mei[48];  /* 事業所名称     */
+ char   sencer_mei[60];   /* センサー名     */
+} SZSGS_JIANRKA_T;
+	</define>
+	<st-name>SZSGS_JIANRKA_T</st-name>
+</struct>
+<struct>
+	<name>CU10420 ＳＧＳ待機所端末直行指示要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   syozaichi1[80];   /* 所在地１      */
+ char   syozaichi2[40];   /* 所在地２      */
+ char   tel_no[20];    /* 警備先電話番号    */
+ char   keihou_gappi[4];  /* 警報月日      */
+ char   keihou_time[4];   /* 警報時分      */
+ char   keibi_inf[20];   /* 警備情報      */
+ char   kairo_kubun[32];  /* 回路区分      */
+ char   course_no[3];   /* コース番号     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   siji_taiin_no[6];  /* 指示隊員番号     */
+ char   siji_taiin_name[40]; /* 指示隊員氏名     */
+ char   doukousya_no[6];  /* 同行者番号     */
+ char   doukousya_name[40];  /* 同行者氏名     */
+ char   siji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行       */
+ char   taikijyo_cd[4];   /* 待機所コード     */
+ char   tanto_kubun[1];   /* 担当／応援区分    */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   jitai_cd[1];   /* 事態コード     */
+ /* 事案サブで付与 */
+ SZSGS_JIAN_S sgs_jian;    /* ＳＧＳ事案情報構造体   */
+} SZSGS_TTMSIJI_T;
+	</define>
+	<st-name>SZSGS_TTMSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU10420 ＳＧＳ待機所端末直行指示通知(SV->待機所端末)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   denkei_no[9];   /* 電計番号   2001.12.20 */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   syozaichi1[80];   /* 所在地１      */
+ char   syozaichi2[40];   /* 所在地２      */
+ char   tel_no[20];    /* 警備先電話番号    */
+ char   keihou_gappi[4];  /* 警報月日      */
+ char   keihou_time[4];   /* 警報時分      */
+ char   keibi_inf[20];   /* 警備情報      */
+ char   kairo_kubun[32];  /* 回路区分      */
+ char   course_no[3];   /* コース番号     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   siji_taiin_no[6];  /* 指示隊員番号     */
+ char   siji_taiin_name[40]; /* 指示隊員氏名     */
+ char   doukousya_no[6];  /* 同行者番号     */
+ char   doukousya_name[40];  /* 同行者氏名     */
+ char   siji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行       */
+} SZTTM_SSIJI_T;
+	</define>
+	<st-name>SZTTM_SSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU10423 ＳＧＳ待機所端末直行指示応答</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   siji_taiin_no[6];  /* 指示隊員番号     */
+ char   syutudo_taiin_no[6]; /* 出動隊員番号     */
+ char   doukousya[6];   /* 同行者      */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   mikomi_time[2];   /* 見込       */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+} SZTTM_SCHOKKO_T;
+	</define>
+	<st-name>SZTTM_SCHOKKO_T</st-name>
+</struct>
+<struct>
+	<name>CU10426 ＳＧＳ待機所端末帰還通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   kikan_time[4];   /* 帰還時刻      */
+ char   sgs_genin_cd[3];  /* ＳＧＳ原因コード    */
+ char   genin_syousai[60];  /* 原因詳細内容     */
+ char   genin_naiyo1[60];  /* 原因内容１     */
+ char   genin_naiyo2[60];  /* 原因内容２     */
+ char   jian_bunrui_cd[1];  /* 事案分類コード    */
+ char   keihou_bunrui_cd[1]; /* 警報分類コード    */
+ char   genin_bunrui_cd[1];  /* 原因分類コード    */
+ char   net_genin_cd[2];  /* ＮＥＴ原因コード    */
+ char   net_genin_naiyo[60]; /* ＮＥＴ原因内容    */
+ char   sencer_cd[2];   /* センサーコード    */
+ char   raku_name[40];   /* 落着者    02.09.25*/
+} SZTTM_SKIKAN_T;
+	</define>
+	<st-name>SZTTM_SKIKAN_T</st-name>
+</struct>
+<struct>
+	<name>ＧＣ２次開発対応 項目追加 2002.07</name>
+	<define>
+typedef struct {
+ char   kanshi_taisyogai_keiho[4]; /*  監視対象外警報   */
+ char   kanshi_taisyogai_jitai[1]; /*  監視対象外事態   */
+} SZKANSHI_T_S;
+	</define>
+	<st-name>SZKANSHI_T_S</st-name>
+</struct>
+<struct>
+	<name>R6.0変更  メッセージコード追加  2004.03.09</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+/* SZKEY_INF_S  key_inf1;    /o 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   naibu_date[14];   /* 内部時刻(YYYYMMDDhhmmss)  */
+ char   date_time[12];   /* 年月日時分(YYYYMMDDhhmm)  */
+ char   kubun_cd[2];   /* 画面登録区分コード   */
+ char   gamen_kubun[20];  /* 画面登録区分     */
+ char   uketuke_seki[2];  /* 受付席番      */
+ char   syuryou_y_time[12];  /* 終了予定日時 2002.07.19  */
+ char   msg_cd[4];    /* メッセージコード 2004.03.09 */
+ char   message[120];   /* メッセージ 2002.07.19  */
+ char   syosai_naiyo[240];  /* 詳細内容  2002.07.19  */
+ char   renrak_grp_cd[2];  /* 連絡先グループコード 2002.07 */
+ char   renrak_cd[6];   /* 連絡先コード 2002.07.19  */
+ char   keiho_su[2];   /* 監視対象外警報数 2002.07.19 */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZSGS_KBGMNAD_T;
+	</define>
+	<st-name>SZSGS_KBGMNAD_T</st-name>
+</struct>
+<struct>
+	<name>R6.0変更  メッセージコード追加  2004.03.09</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+/* SZKEY_INF_S  key_inf1;    /o 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   naibu_date[14];   /* 内部時刻(YYYYMMDDhhmmss)  */
+ char   date_time[12];   /* 年月日時分(YYYYMMDDhhmm)  */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   uketuke_seki[2];  /* 受付席番      */
+ char   syuryou_y_time[12];  /* 終了予定日時 2002.07.19  */
+ char   msg_cd[4];    /* メッセージコード 2004.03.09 */
+ char   message[120];   /* メッセージ 2002.07.19  */
+ char   syosai_naiyo[240];  /* 詳細内容  2002.07.19  */
+ char   renrak_grp_cd[2];  /* 連絡先グループコード 2002.07 */
+ char   renrak_cd[6];   /* 連絡先コード 2002.07.19  */
+ char   keiho_su[2];   /* 監視対象外警報数 2002.07.19 */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZNET_STGMNAD_T;
+	</define>
+	<st-name>SZNET_STGMNAD_T</st-name>
+</struct>
+<struct>
+	<name>CU10701 宿泊設定要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   kubun[1];    /* 登録／解除区分    */
+/* R6.0 K03 2004/03/11 FROM */
+ char   tekiyou[1];    /* 適用範囲      */
+/* R6.0 K03 2004/03/11 TO */
+} SZSYUKUHK_SET_T;
+	</define>
+	<st-name>SZSYUKUHK_SET_T</st-name>
+</struct>
+<struct>
+	<name>CU10702 残業設定要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   kubun[1];    /* 登録／解除区分    */
+/* R6.0 K03 2004/03/11 FROM */
+ char   tekiyou[1];    /* 適用範囲      */
+/* R6.0 K03 2004/03/11 TO */
+ char   syuryou_time[12];  /* 残業終了時刻     */
+} SZZANGYO_SET_T;
+	</define>
+	<st-name>SZZANGYO_SET_T</st-name>
+</struct>
+<struct>
+	<name>CU11301 ＳＧＳ落着更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   nyukan_time[4];   /* 入館時間      */
+ char   taikan_time[4];   /* 退館時間      */
+ char   syuuryou_time[4];  /* 終了時間      */
+ char   keisatu_time[4];  /* 警察通報時間     */
+ char   keisatu_touchaku[4]; /* 警察到着時間     */
+ char   keisatu_inf[69];  /* 警察通報情報     */
+ char   shoubou_time[4];  /* 消防通報時間     */
+ char   shoubou_touchaku[4]; /* 消防到着時間     */
+ char   shoubou_inf[69];  /* 消防通報情報     */
+ char   sgs_genin_cd[3];  /* ＳＧＳ原因コード    */
+ char   genin_syousai[60];  /* 原因詳細内容     */
+ char   genin_naiyo1[60];  /* 原因内容１     */
+ char   genin_naiyo2[60];  /* 原因内容２     */
+ char   jian_bunrui_cd[1];  /* 事案分類コード    */
+ char   keihou_bunrui_cd[1]; /* 警報分類コード    */
+ char   genin_bunrui_cd[1];  /* 原因分類コード    */
+ char   net_genin_cd[2];  /* ＮＥＴ原因コード    */
+ char   net_genin_naiyo[60]; /* ＮＥＴ原因内容    */
+ char   sencer_cd[2];   /* センサーコード    */
+ char   sencer_mei[60];   /* センサー名     */
+} SZSGS_RAKU_UP_T;
+	</define>
+	<st-name>SZSGS_RAKU_UP_T</st-name>
+</struct>
+<struct>
+	<name>CU11302 隊員落着更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   ronri_no[10];   /* 論理番号      */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ SZKEY_S   key_inf4;    /* キー情報４     */
+ char   rakuins_date[14];  /* 落着登録日付     */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   siji_time[4];   /* 指示       */
+ char   chokkou_time[4];  /* 直行       */
+ char   mikomi_time[2];   /* 見込       */
+ char   genchaku_time[4];  /* 現着       */
+ char   nyukan[4];    /* 入館    20020829 */
+ char   taikan[4];    /* 退館    20020829 */
+ char   taikan_kubun[1];  /* 退館区分   20020829 */
+ char   syuryou_time[4];  /* 終了       */
+ char   torikesi_time[4];  /* 取消       */
+ char   kikan_time[4];   /* 帰還       */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   doukousya_name[40];  /* 同行者氏名     */
+} SZTIN_RAK_UP_T;
+	</define>
+	<st-name>SZTIN_RAK_UP_T</st-name>
+</struct>
+<struct>
+	<name>CU11505 電子メモ取消要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ DZMEMOFIL_S  memof;     /* 電子メモファイル構造体  */
+} SZMEMO_MENTE_T;
+	</define>
+	<st-name>SZMEMO_MENTE_T</st-name>
+</struct>
+<struct>
+	<name>CU11703 担当待機所削除要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   course_no[3];   /* コース番号     */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   taikijyo_cd[4];   /* 待機所コード     */
+} SZTAIKI_MNT_T;
+	</define>
+	<st-name>SZTAIKI_MNT_T</st-name>
+</struct>
+<struct>
+	<name>CU11706 上番隊員削除要求</name>
+	<define>
+typedef struct {      /* 連絡機器情報      */
+ char   kiki_id[4];    /* 連絡機器ＩＤ     */
+} SZKIKIINF_S;
+	</define>
+	<st-name>SZKIKIINF_S</st-name>
+</struct>
+<struct>
+	<name>CU11706 上番隊員削除要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   kinmusya[6];   /* 勤務者      */
+ char   kinmu_taisei[1];  /* 勤務体制      */
+ char   kinmu_start[4];   /* 勤務開始時間     */
+ char   kinmu_end[4];   /* 勤務終了時間     */
+ char   doukousya[6];   /* 同行者      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   taikijyo_cd[4];   /* 待機所コード     */
+ char   taiin_shubetu[1];  /* 隊員種別   20020819 */
+ char   yusen_gyomu[1];   /* 優先業務   20020819 */
+ char   kiki_cnt[3];   /* 連絡機器数     */
+ SZKIKIINF_S  kiki_inf[3];   /* 連絡機器情報（配列３）  */
+} SZJBN_TIN_MNT_T;
+	</define>
+	<st-name>SZJBN_TIN_MNT_T</st-name>
+</struct>
+<struct>
+	<name>CU12402 着信電話番号更新要求</name>
+	<define>
+typedef struct {      /* 着信電話番号情報構造体    */
+ char   tel_no[20];    /* 着信電話番号     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   rcv_date[14];   /* 受信時刻      */
+} SZCTI_INF;
+	</define>
+	<st-name>SZCTI_INF</st-name>
+</struct>
+<struct>
+	<name>CU12402 着信電話番号更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZCTI_INF  cti_inf;    /* 着信電話番号情報構造体  */
+} SZCTI_ADUP_T;
+	</define>
+	<st-name>SZCTI_ADUP_T</st-name>
+</struct>
+<struct>
+	<name>CU12403 着信電話番号削除要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ char   del_cnt[3];    /* 削除件数      */
+ SZCTI_INF  cti_inf[10];   /* 着信電話番号情報構造体  */
+} SZCTI_DEL_T;
+	</define>
+	<st-name>SZCTI_DEL_T</st-name>
+</struct>
+<struct>
+	<name>CU12404 着信電話番号警備先削除要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+} SZCTI_DEL_KB_T;
+	</define>
+	<st-name>SZCTI_DEL_KB_T</st-name>
+</struct>
+<struct>
+	<name>CU16802 ＶＡＸ応援要請解除通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   rfu[2];     /* 予備       */
+ char   info_id[2];    /* 情報種別      */
+ char   info_dt[2];    /* 所要時間／原因コード   */
+ char   date_time[4];   /* 了解／現着時間    */
+ char   rfu2[27];    /* 予備       */
+ /* 隊員サブで付与 */
+ char   ronri_no[10];   /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 発生日付時刻     */
+/* 事案サブで必要なため追加  20020912         */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   bef_syoyo_mikomi[3]; /* 更新前所要見込み    */
+ char   aft_syoyo_mikomi[3]; /* 更新後所要見込み    */
+} SZVAX_RECV_T;
+	</define>
+	<st-name>SZVAX_RECV_T</st-name>
+</struct>
+<struct>
+	<name>CU17101 ＳＧＳ事案登録要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* 論理番号      */
+ char   keibi_inf[20];   /* 警備情報      */
+ char   sig_syubetu[1];   /* 信号種別      */
+} SZSGS_JIAN_AD_T;
+	</define>
+	<st-name>SZSGS_JIAN_AD_T</st-name>
+</struct>
+<struct>
+	<name>CU17201 ＳＥＪ警備先事案情報送信要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  head;     /* 共通ヘッダ     */
+ SZSEJNT_S  sejnt_para[1];   /* SEJ事案落着送信PRM構造体  */
+ SZSGS_JIAN_S tsjinf[1];    /* ＳＧＳ事案情報構造体   */
+} SZSEJ_JSND_RQ_T;
+	</define>
+	<st-name>SZSEJ_JSND_RQ_T</st-name>
+</struct>
+<struct>
+	<name>CU17202 ＳＥＪ警備先落着情報送信要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  head;     /* 共通ヘッダ     */
+ SZSEJNT_S  sejnt_para[1];   /* SEJ事案落着送信PRM構造体  */
+ SZSGS_RAKUF_S tsdinf[1];    /* ＳＧＳ落着情報構造体   */
+} SZSEJ_RSND_RQ_T;
+	</define>
+	<st-name>SZSEJ_RSND_RQ_T</st-name>
+</struct>
+<struct>
+	<name>CU61102 ＧＷ配送データ取得要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+ char   dev_id[6];    /* 装置ＩＤ      */
+} SZGW_DTGET_RQ_T;
+	</define>
+	<st-name>SZGW_DTGET_RQ_T</st-name>
+</struct>
+<struct>
+	<name>CU61102 ＧＷ配送データ取得応答</name>
+	<define>
+typedef struct return_trans {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+ char   send_data[32608];  /* 送信電文      */
+} SZGW_DTGET_RT_T;
+	</define>
+	<st-name>SZGW_DTGET_RT_T</st-name>
+</struct>
+<struct>
+	<name>CU61103 ＧＷ配送モード設定要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+ char   dev_id[6];    /* 装置ＩＤ      */
+ char   gate_sts[1];   /* ゲート状態     */
+ char   cls_mode[1];   /* クローズモード    */
+ char   anser[1];    /* 応答       */
+ char   msg_cnt[4];    /* 配送単位      */
+} SZGW_MODE_SET_T;
+	</define>
+	<st-name>SZGW_MODE_SET_T</st-name>
+</struct>
+<struct>
+	<name>CU71501 ネット手動送信要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   addr_kind[1];   /* ＮＳＣ識別     */
+ char   gouki[6];    /* 号機番号      */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   sub_addr_flg[1];  /* サブアドレスフラグ   */
+ char   send_flg[1];   /* 送信先フラグ     */
+ char   hassei_date[8];   /* 発生月日時分     */
+ char   keibi_inf[4];   /* 警備情報      */
+ char   gyoumu_cd[7];   /* 業務コード     */
+ char   hosoku_cd[13];   /* 補足コード     */
+ char   card_flg[1];   /* カードフラグ     */
+ char   card_inf[16];   /* ガード情報     */
+} SZNET_MANUSND_T;
+	</define>
+	<st-name>SZNET_MANUSND_T</st-name>
+</struct>
+<struct>
+	<name>CU80401 イベント情報削除要求</name>
+	<define>
+typedef struct {      /* イベントＩＤ情報構造体   */
+ char   tr_date[14];   /* Ｔｒ時刻      */
+ char   seq_no[2];    /* 同一時刻内ＡＰ通番   */
+ char   host_name[6];   /* イベント作成ホスト名   */
+ char   ap_name[6];    /* イベント作成ＡＰ名   */
+} SZEVTID_S;
+	</define>
+	<st-name>SZEVTID_S</st-name>
+</struct>
+<struct>
+	<name>CU80401 イベント情報削除要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   jigyosyo_cd[6];   /* 事業所コード     */
+ SZEVTID_S  evt_id;     /* イベントＩＤ     */
+ char   evt_date[14];   /* イベント作成日付    */
+ char   evt_kind[2];   /* イベント種別     */
+ char   evt_kubun[1];   /* イベント種別区分    */
+ char   evt_cnt[6];    /* イベント内データ件数   */
+} SZEVT_DEL_T;
+	</define>
+	<st-name>SZEVT_DEL_T</st-name>
+</struct>
+<struct>
+	<name>CU80701 宿泊設定要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   kubun[1];    /* 登録／解除区分    */
+/* R6.0 K03 2004/03/11 FROM */
+ char   tekiyou[1];    /* 適用範囲      */
+/* R6.0 K03 2004/03/11 TO */
+} SZKUT_SYU_SET_T;
+	</define>
+	<st-name>SZKUT_SYU_SET_T</st-name>
+</struct>
+<struct>
+	<name>CU80702 残業設定要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   kubun[1];    /* 登録／解除区分    */
+/* R6.0 K03 2004/03/11 FROM */
+ char   tekiyou[1];    /* 適用範囲      */
+/* R6.0 K03 2004/03/11 TO */
+ char   syuryou_time[12];  /* 残業終了時刻     */
+} SZKUT_ZAN_SET_T;
+	</define>
+	<st-name>SZKUT_ZAN_SET_T</st-name>
+</struct>
+<struct>
+	<name>CU81505 電子メモ取消要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ DZMEMOFIL_S  memof;     /* 電子メモファイル構造体  */
+} SZKUT_MMENTE_T;
+	</define>
+	<st-name>SZKUT_MMENTE_T</st-name>
+</struct>
+<struct>
+	<name>CM10501 データ無線号機有ＭＳＧ送信要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   key[3];     /* 検索キー個数     */
+ char   kinmusya[6];   /* 勤務者      */
+ char   taikijo_cd[4];   /* 待機所コード     */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   message[40];   /* メッセージ     */
+ char   vax_time[4];   /* ＶＡＸ送信時間    */
+ char   gouki_no[3];   /* 号機番号      */
+ char   gouki_addr[4];   /* 号機アドレス     */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   course_no[3];   /* コース番号     */
+} SZVAX_MSG1RQ_T;
+	</define>
+	<st-name>SZVAX_MSG1RQ_T</st-name>
+</struct>
+<struct>
+	<name>CM10501 データ無線号機有ＭＳＧ送信要求(SV->VAX)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ部     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[3];   /* 号機番号      */
+ char   haifun1[1];    /* ハイフン１     */
+ char   gouki_addr[4];   /* 号機アドレス     */
+ char   haifun2[1];    /* ハイフン２     */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   message[40];   /* メッセージ     */
+ char   course_no[3];   /* 担当コース     */
+ char   keibi_inf[10];   /* (警備情報)     */
+ char   vax_time[4];   /* 時:分      */
+ char   kairo_kubun[16];  /* (回路区分)     */
+ char   rfu[26];    /* 空白       */
+} SZVAX_MSG1SD_T;
+	</define>
+	<st-name>SZVAX_MSG1SD_T</st-name>
+</struct>
+<struct>
+	<name>CM10502 データ無線号機無ＭＳＧ送信要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   key[3];     /* 検索キー個数     */
+ char   kinmusya[6];   /* 勤務者      */
+ char   taikijo_cd[4];   /* 待機所コード     */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   message[40];   /* メッセージ     */
+ char   vax_time[4];   /* ＶＡＸ送信時間    */
+#if 0
+ char   gouki_no[3];   /* 号機番号      */
+ char   gouki_addr[4];   /* 号機アドレス     */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   course_no[3];   /* コース番号     */
+#endif
+} SZVAX_MSG2RQ_T;
+	</define>
+	<st-name>SZVAX_MSG2RQ_T</st-name>
+</struct>
+<struct>
+	<name>CM10502 データ無線号機無ＭＳＧ送信要求(SV->VAX)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ部     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[3];   /* (号機番号)     */
+ char   haifun1[1];    /* (ハイフン１)     */
+ char   gouki_addr[4];   /* (号機アドレス)    */
+ char   haifun2[1];    /* (ハイフン２)     */
+ char   sub_addr[4];   /* (サブアドレス)    */
+ char   message[40];   /* メッセージ     */
+ char   course_no[3];   /* 担当コース     */
+ char   keibi_inf[10];   /* (警備情報)     */
+ char   vax_time[4];   /* 時:分      */
+ char   kairo_kubun[16];  /* (回路区分)     */
+ char   rfu[26];    /* 空白       */
+} SZVAX_MSG2SD_T;
+	</define>
+	<st-name>SZVAX_MSG2SD_T</st-name>
+</struct>
+<struct>
+	<name>CM10503 ＭＰＢ号機有メッセージ送信要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   key_cnt[3];    /* 検索キー個数     */
+ char   kinmu_sya[6];   /* 勤務者      */
+ char   taikijo_cd[4];   /* 待機所コード     */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   cose[3];    /* 担当コース     */
+ char   message[60];   /* メッセージ     */
+ char   send_time[4];   /* 送信時間      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   tel_no[20];    /* 電話番号      */
+ char   ryakusho_mei[40];  /* 略称名称      */
+} SZMPB_MSG1RQ_T;
+	</define>
+	<st-name>SZMPB_MSG1RQ_T</st-name>
+</struct>
+<struct>
+	<name>CM10503 ＭＰＢ号機有メッセージ送信要求(SV->MPB)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;   /* ネットワークヘッダ部    */
+ char   send_time[4];   /* 送信時刻      */
+ char   kubun[2];    /* 出動区分(スペース)   */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   cose[3];    /* 担当コース     */
+ char   pb_no[20];    /* ポケットベル番号    */
+ char   message[60];   /* メッセージ(I/Fで半角対応) */
+ char   keibi_mei[40];   /* 警備先名      */
+} SZMPB_MSG1SD_T;
+	</define>
+	<st-name>SZMPB_MSG1SD_T</st-name>
+</struct>
+<struct>
+	<name>ＭＰＢ号機有メッセージ送信失敗(MPB->SV->CL)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;   /* ネットワークヘッダ部    */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   send_time[4];   /* 送信時刻      */
+ char   kubun[2];    /* 出動区分(スペース)   */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   cose[3];    /* 担当コース     */
+ char   pb_no[20];    /* ポケットベル番号    */
+ char   message[60];   /* メッセージ(I/Fで半角対応) */
+ char   keibi_mei[40];   /* 警備先名      */
+} SZMPB_MSG1SD_ER_T;
+	</define>
+	<st-name>SZMPB_MSG1SD_ER_T</st-name>
+</struct>
+<struct>
+	<name>CM10504 ＭＰＢ号機無メッセージ送信要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   key_cnt[3];    /* 検索キー個数     */
+ char   kinmu_sya[6];   /* 勤務者      */
+ char   taikijo_cd[4];   /* 待機所コード     */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   message[120];   /* メッセージ     */
+ char   send_time[4];   /* 送信時間      */
+ char   gouki_no[7];   /* 号機番号(スペース)   */
+ char   sub_addr[4];   /* サブアドレス(スペース)  */
+ char   tel_no[20];    /* 電話番号      */
+} SZMPB_MSG2RQ_T;
+	</define>
+	<st-name>SZMPB_MSG2RQ_T</st-name>
+</struct>
+<struct>
+	<name>CM10504 ＭＰＢ号機無メッセージ送信要求(SV-MPB)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;   /* ネットワークヘッダ部    */
+ char   send_time[4];   /* 送信時刻(スペース)   */
+ char   pb_no[20];    /* ポケットベル番号    */
+ char   message[120];   /* メッセージ(I/Fで半角対応) */
+} SZMPB_MSG2SD_T;
+	</define>
+	<st-name>SZMPB_MSG2SD_T</st-name>
+</struct>
+<struct>
+	<name>ＭＰＢ号機無メッセージ送信失敗(MPB->SV->CL)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;   /* ネットワークヘッダ部    */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   send_time[4];   /* 送信時刻(スペース)   */
+ char   pb_no[20];    /* ポケットベル番号    */
+ char   message[120];   /* メッセージ(I/Fで半角対応) */
+} SZMPB_MSG2SD_ER_T;
+	</define>
+	<st-name>SZMPB_MSG2SD_ER_T</st-name>
+</struct>
+<struct>
+	<name>CM13001 警備情報登録通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   jyusho_cd[19];   /* 住所コード15→19変更 02.08.12*/
+ char   naibu_date[14];   /* 内部日付・時刻    */
+ char   hassei_gappi[8];  /* 発生月日      */
+ char   keibi_sig[20];   /* 警備信号      */
+ char   sig_syubetu[1];   /* 信号種別      */
+ char   kubun_cd[2];   /* 区分コード     */
+ char   card_data[16];   /* カードデータ     */
+ char   syoyusya_name[32];  /* 所有者      */
+ char   gazou_file[16];   /* 画像ファイル名    */
+ char   device_id[2];   /* 装置ＩＤ      */
+ char   kgai_flg[1];   /* 監視外フラグ  GC6.0  */
+ char   jigyosho_cd[6];   /* 事業所コード  GC6.0  */
+ char   kisyu_cd[5];   /* 機種コード  GC6.0  */
+ char   ryakushou_mei[40];  /* 略称名称   GC6.0  */
+} SZSIGINF_ADD_S;
+	</define>
+	<st-name>SZSIGINF_ADD_S</st-name>
+</struct>
+<struct>
+	<name>CM15102 ＳＧＳ落着情報更新通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZSGS_RAKUF_S data;     /* ＳＧＳ落着情報構造体   */
+} SZSGS_RAK_NTC_S;
+	</define>
+	<st-name>SZSGS_RAK_NTC_S</st-name>
+</struct>
+<struct>
+	<name>CM15202 隊員落着情報更新通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZTIN_RAKUF_S data;     /* 隊員落着情報構造体   */
+} SZTIN_RAK_NTC_S;
+	</define>
+	<st-name>SZTIN_RAK_NTC_S</st-name>
+</struct>
+<struct>
+	<name>CM15303 着信電話番号削除通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZCTI_INF  cti_inf;    /* 着信電話番号情報構造体  */
+} SZCTI_NTC_S;
+	</define>
+	<st-name>SZCTI_NTC_S</st-name>
+</struct>
+<struct>
+	<name>CM52100 総合指揮・障害通知</name>
+	<define>
+typedef struct sogoinf {
+ CMN_HEADER  head;     /* 共通ヘッダ部     */
+ char   dt_kind[2];    /* データ種別     */
+ char   date[12];    /* 年月日時分     */
+ char   fm_kind[2];    /* 受信情報フォーマット種別  */
+ char   rcv_inf[4];    /* 受信情報      */
+} SZSOGO_INF_T;
+	</define>
+	<st-name>SZSOGO_INF_T</st-name>
+</struct>
+<struct>
+	<name>ＶＡＸ応援解除担当席通知</name>
+	<define>
+typedef struct {      /* 担当席通知      */
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ char   data_kind[2];   /* データ種別     */
+ char   naibu_date[12];   /* 内部日付時刻 (YYYYMMDDhhmm) */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   rfu[2];     /* 予備       */
+ char   info_id[2];    /* 情報種別      */
+ char   info_dt[2];    /* 所要時間／原因コード   */
+ char   date_time[4];   /* 了解／現着時間    */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   course_no[3];   /* コース番号     */
+ char   ryakusyo[40];   /* 略称名称      */
+} SZVAX_OUEN_T;
+	</define>
+	<st-name>SZVAX_OUEN_T</st-name>
+</struct>
+<struct>
+	<name>ＶＡＸブレイク解除担当席通知</name>
+	<define>
+typedef struct {      /* 監視台通知      */
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ char   data_kind[2];   /* データ種別     */
+ char   naibu_date[12];   /* 内部日付時刻 (YYYYMMDDhhmm) */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+} SZVAX_BRK_T;
+	</define>
+	<st-name>SZVAX_BRK_T</st-name>
+</struct>
+<struct>
+	<name>CM60100 ＬＣＴ警備信号要求</name>
+	<define>
+typedef struct {
+ char   card[16];    /* カードデータ     */
+ char   gazou[16];    /* 画像ファイル名    */
+ char   devid[2];    /* 画像情報装置ＩＤ    */
+} SZLCT_CARD;
+	</define>
+	<st-name>SZLCT_CARD</st-name>
+</struct>
+<struct>
+	<name>CM60100 ＬＣＴ警備信号要求</name>
+	<define>
+typedef struct {
+ char   telno[20];    /* ＳＲＴ加入者電話番号   */
+} SZLCT_SRT;
+	</define>
+	<st-name>SZLCT_SRT</st-name>
+</struct>
+<struct>
+	<name>CM60100 ＬＣＴ警備信号要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgid[4];    /* 信号ＩＤ      */
+ char   dtid[2];    /* データＩＤ     */
+ char   chanel[1];    /* チャネルＮｏ     */
+ char   kishu[1];    /* 機種種別      */
+ char   gouki[2];    /* 号機       */
+ char   addr[4];    /* アドレス      */
+ char   hassei_date[8];   /* 月日時分      */
+ char   n0f0[1];    /* Ｎ０／Ｆ０     */
+ char   knkf[1];    /* ＫＮ／ＫＦ     */
+ char   mark[1];    /* 発報マーク     */
+ char   keibi[4];    /* 警備情報      */
+ char   subaddr[4];    /* サブアドレス     */
+ char   page[2];    /* ページ番号     */
+
+ union lct_etcform {
+  SZLCT_CARD lct_card;    /* カード情報+画像情報   */
+  SZLCT_SRT lct_srt;    /* ＳＲＴ加入者電話番号   */
+ } SZLCT_ETC;
+	</define>
+	<st-name>SZLCT_ETC</st-name>
+</struct>
+<struct>
+	<name>CM60201 綜警ネット折り返し警備信号通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ char   sgid[4];    /* 信号ＩＤ      */
+ char   rcv_msno[4];   /* 受信元ＭＳ番号    */
+ char   snd_msno[4];   /* 送信元ＭＳ番号    */
+ char   hassin_tuuban[4];  /* 発信源通番     */
+ char   ms_tuuban[4];   /* ＭＳ間通番     */
+ char   mspc_tuuban[4];   /* ＭＳ->ＰＣ通番    */
+ char   gouki[6];    /* 号機番号      */
+ char   tantou_gc[4];   /* 担当ＧＣ      */
+ char   hassei_date[8];   /* 発生月日時分     */
+ char   pcmn_tuuban[4];   /* ＰＣ->ＭＳ通番    */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   start_mark[1];   /* 開始マーク     */
+ char   free[184];    /* 生データ      */
+ char   gyoumu_cd[7];   /* 業務コード     */
+ char   hosoku_cd[13];   /* 補足コード     */
+} SZNET_INF_T;
+	</define>
+	<st-name>SZNET_INF_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＯＫヘッダ情報    */
+ char   sig_id[4];     /* 信号ＩＤ     */
+ char   recv_msno[4];    /* 受信元ＭＳ番号   */
+ char   send_msno[4];    /* 送信元ＭＳ番号   */
+ char   source_no[4];    /* 発信源通番    */
+ char   ms_seqno[4];    /* ＭＳ間通番    */
+ char   ms_pc_seqno[4];    /* ＭＳ->ＰＣ通番   */
+ char   gouki_no[6];    /* 号機番号     */
+ char   tantou_gc[4];    /* 担当ＧＣ     */
+ char   hassei_date[8];    /* 発生月日時分    */
+ char   pc_ms_seqno[4];    /* ＰＣ->ＭＳ通番   */
+ char   syanai_cd[4];    /* 社内対応コード   */
+} SZSOK_HEADER_T;
+	</define>
+	<st-name>SZSOK_HEADER_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ネット警備フッタ情報   */
+ char   gyoumu_cd[7];    /* 業務コード    */
+ char   hosoku_cd[13];    /* 補足コード    */
+} SZSOK_FOOTER_T;
+	</define>
+	<st-name>SZSOK_FOOTER_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・基本情報  */
+ char   ntc_syubetu[1];    /* 通知種別     */
+ char   data_syubetu[1];   /* データ種別    */
+ char   dev_kubun[1];    /* 装置区分     */
+ char   dev_no[7];     /* 装置番号     */
+ char   gouki_syubetu[1];   /* 号機種別     */
+ char   sub_addr[4];    /* サブアドレス    */
+ char   jitai_cd[1];    /* 事態コード    */
+ char   hassei_date[14];   /* 事案発生日付    */
+} SZSEJ_JANBASE_T;
+	</define>
+	<st-name>SZSEJ_JANBASE_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・警備情報  */
+ char   hassei_gappi[4];   /* 発生月日     */
+ char   hassei_time[4];    /* 発生時分     */
+ char   keibi_sig[20];    /* 警備信号     */
+ char   sig_kind[1];    /* 信号種別     */
+} SZSEJ_SIGINF_T;
+	</define>
+	<st-name>SZSEJ_SIGINF_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・発生警備情報 */
+ char   jitai_update[6];   /* 事態更新時刻    */
+ char   denkei_no[9];    /* 電計番号     */
+ char   ryakushou_mei[40];   /* 略称名称     */
+ char   keihou_count[1];   /* 警報カウンタ    */
+ SZSEJ_SIGINF_T first_sig;     /* 第一警報     */
+ SZSEJ_SIGINF_T new_sig;     /* 最新情報     */
+ char   jigyosho_cd[6];    /* 事業所コード    */
+ char   rfu[34];     /* ＲＦＵ     */
+ char   hassei_id[1];    /* 発生ＩＤ     */
+} SZSEJ_D_JHAP_T;
+	</define>
+	<st-name>SZSEJ_D_JHAP_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・更新警備情報 */
+ char   keihou_count[1];   /* 警報カウンタ    */
+ SZSEJ_SIGINF_T first_sig;     /* 第一警報     */
+ SZSEJ_SIGINF_T second_sig;     /* 第二警報     */
+ SZSEJ_SIGINF_T third_sig;     /* 第三警報     */
+ SZSEJ_SIGINF_T new_sig;     /* 最新情報     */
+ SZSEJ_SIGINF_T nyutai_sig;     /* 入退館情報    */
+ char   nyuukan_time[4];   /* 入館時間     */
+ char   taikan_time[4];    /* 退館時間     */
+ char   timeover_mark[1];   /* タイムオーバー   */
+} SZSEJ_D_SIGR_T;
+	</define>
+	<st-name>SZSEJ_D_SIGR_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・処置更新情報 */
+ char   shiji_time[4];    /* 指示時間     */
+ char   chokkou_time[4];   /* 直行時間     */
+ char   shoyou_time[2];    /* 所要時間     */
+ char   genchaku_time[4];   /* 現着時間     */
+ char   nyuukan_time[4];   /* 入館時間     */
+ char   taikan_time[4];    /* 退館時間     */
+ char   timeover_mark[1];   /* タイムオーバー   */
+ char   rfu[132];     /* ＲＦＵ     */
+} SZSEJ_D_SUPJ_T;
+	</define>
+	<st-name>SZSEJ_D_SUPJ_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・通報情報  */
+ char   keisatu_time[4];   /* 警察通報時間    */
+ char   keisatu_touchaku[4];  /* 警察到着時間    */
+ char   shoubou_time[4];   /* 消防通報時間    */
+ char   shoubou_touchaku[4];  /* 消防到着時間    */
+ SZTUUHOU_INF keisatu_inf[1];    /* 警察通報情報    */
+ SZTUUHOU_INF shoubou_inf[1];    /* 消防通報情報    */
+ char   rfu[1];      /* ＲＦＵ     */
+} SZSEJ_D_TUHO_T;
+	</define>
+	<st-name>SZSEJ_D_TUHO_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・原因情報１ */
+ char   sgs_genin_cd[3];   /* ＳＧＳ原因コード   */
+ char   genin_syousai[60];   /* 原因詳細内容    */
+ char   genin_naiyo1[60];   /* 原因内容１    */
+ char   rfu[32];     /* ＲＦＵ     */
+} SZSEJ_D_GEN1_T;
+	</define>
+	<st-name>SZSEJ_D_GEN1_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・原因情報２ */
+ char   genin_naiyo2[60];   /* 原因内容２    */
+ char   jian_bunrui_cd[1];   /* 事案分類コード   */
+ char   keihou_bunrui_cd[1];  /* 警報分類コード   */
+ char   genin_bunrui_cd[1];   /* 原因分類コード   */
+ char   sencer_cd[2];    /* センサコード    */
+ char   sencer_mei[60];    /* センサ名     */
+ char   rfu[30];     /* ＲＦＵ     */
+} SZSEJ_D_GEN2_T;
+	</define>
+	<st-name>SZSEJ_D_GEN2_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・落着情報１ */
+ char   jitai_update[6];   /* 事態更新時刻    */
+ char   denkei_no[9];    /* 電計番号     */
+ char   ryakushou_mei[40];   /* 略称名称     */
+ char   rakuchakusya_mei[40];  /* 落着監視員名    */
+ char   rakuchaku_date[12];   /* 落着日付     */
+ char   rakuchaku_updt[12];   /* 落着更新日付    */
+ char   syuuryou_time[4];   /* 終了時間     */
+ char   gappi_time[8];    /* 警報日付     */
+ char   rfu[23];     /* ＲＦＵ     */
+ char   hassei_id[1];    /* 発生ＩＤ     */
+} SZSEJ_D_RAK1_T;
+	</define>
+	<st-name>SZSEJ_D_RAK1_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {       /* ＳＥＪ事案表示・落着情報２ */
+ char   keibi_info[96];    /* 警備情報     */
+ char   jigyosho_cd[6];    /* 事業所コード    */
+ char   jigyosho_mei[48];   /* 事業所名     */
+ char   rfu[5];      /* ＲＦＵ     */
+} SZSEJ_D_RAK2_T;
+	</define>
+	<st-name>SZSEJ_D_RAK2_T</st-name>
+</struct>
+<struct>
+	<name>CM60218 ネットＳＧＳ事案表示要求８</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZSOK_HEADER_T sok_head;    /* ＳＯＫヘッダ     */
+ SZSEJ_JANBASE_T base;     /* 基本情報      */
+ union snd_dt {
+  SZSEJ_D_JHAP_T jhap;    /* 発生警備情報     */
+  SZSEJ_D_SIGR_T sigr;    /* 更新警備情報     */
+  SZSEJ_D_SUPJ_T supj;    /* 処置更新情報     */
+  SZSEJ_D_TUHO_T tuho;    /* 通報情報      */
+  SZSEJ_D_GEN1_T gen1;    /* 原因情報１     */
+  SZSEJ_D_GEN2_T gen2;    /* 原因情報２     */
+  SZSEJ_D_RAK1_T rak1;    /* 落着情報１     */
+  SZSEJ_D_RAK2_T rak2;    /* 落着情報２     */
+ } S_DT;
+	</define>
+	<st-name>S_DT</st-name>
+</struct>
+<struct>
+	<name>CU10418 ネット落着情報送信電文</name>
+	<define>
+typedef struct {
+ char   keibi_kind[2];   /* 警備種別      */
+ char   jyusho_no[4];   /* 住所番号      */
+ char   n0f0[1];    /* Ｎ０／Ｆ０マーク    */
+ char   tetx_mark[1];   /* テキストマーク    */
+ char   update_mark[1];   /* 上書きマーク     */
+ char   tuuban[4];    /* 通番       */
+ char   rfu[31];    /* ＲＦＵ      */
+ char   saisyu_tuuban[4];  /* 最終通番      */
+} SZRKEIBI_INF;
+	</define>
+	<st-name>SZRKEIBI_INF</st-name>
+</struct>
+<struct>
+	<name>CU10418 ネット落着情報送信電文</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ char   sgid[4];    /* 信号ＩＤ      */
+ char   rcv_msno[4];   /* 受信元ＭＳ番号    */
+ char   snd_msno[4];   /* 送信元ＭＳ番号    */
+ char   hassin_tuuban[4];  /* 発信源通番     */
+ char   ms_tuuban[4];   /* ＭＳ間通番     */
+ char   mspc_tuuban[4];   /* ＭＳ->ＰＣ通番    */
+ char   gouki[6];    /* 号機番号      */
+ char   tantou_gc[4];   /* 担当ＧＣ      */
+ char   hassei_date[8];   /* 発生月日時分     */
+ char   pcms_tuuban[4];   /* ＰＣ->ＭＳ通番    */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ SZRKEIBI_INF keibi_inf;    /* 警備情報      */
+ char   ret_code[2];   /* 処置結果      */
+ char   hassei_year[2];   /* 発生年      */
+ char   chancel_mark[1];  /* キャンセルマーク    */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   genchaku_time[4];  /* 現着時間      */
+ char   keisatu_tuuhou[1];  /* １１０番      */
+ char   shoubou_tuuhou[1];  /* １１９番      */
+ char   rfu[122];    /* ＲＦＵ      */
+ char   gyoumu_cd[7];   /* 業務コード     */
+ char   hosoku_cd[13];   /* 補足コード     */
+} SZNET_RAKU_T;
+	</define>
+	<st-name>SZNET_RAKU_T</st-name>
+</struct>
+<struct>
+	<name>CM60301 ＬＣＴ周辺機器障害通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ部     */
+ char   trbl_code[4];   /* 障害コード     */
+} SZLCT_TRBL_T;
+	</define>
+	<st-name>SZLCT_TRBL_T</st-name>
+</struct>
+<struct>
+	<name>CM60303 ＭＰＢ周辺機器障害通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+ char   trbl_code[4];   /* 障害コード     */
+} SZMPB_TRBL_T;
+	</define>
+	<st-name>SZMPB_TRBL_T</st-name>
+</struct>
+<struct>
+	<name>CM61201 ＧＷ未送信データ通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+ char   send_data[600];   /* 送信電文      */
+} SZGW_NOSND_N_T;
+	</define>
+	<st-name>SZGW_NOSND_N_T</st-name>
+</struct>
+<struct>
+	<name>CM61902 ＧＷ障害情報通知</name>
+	<define>
+typedef struct error_notice_format {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+ char   dev_id[6];    /* 装置ＩＤ      */
+ char   ch_no[2];    /* チャネル番号     */
+ char   rfu[11];    /* 未使用（ホストＩＤ）   */
+ char   hassei_date[14];  /* 障害発生復旧時刻    */
+ char   err_kubun[1];   /* 障害区分      */
+ char   err_code[6];   /* 障害コード     */
+ char   err_syubetu[1];   /* 障害種別      */
+ char   rcv_seq_no[5];   /* 受信通番      */
+ char   wait_seq_no[5];   /* 待ち通番      */
+} SZGW_ERRNTC_T;
+	</define>
+	<st-name>SZGW_ERRNTC_T</st-name>
+</struct>
+<struct>
+	<name>CT10101 タイムオーバー通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ronri_no[10];   /* 論理番号      */
+ char   kanri_no[5];   /* 事案管理番号     */
+ char   uketuke_no[14];   /* 契約先受付番号 2004.03.17 */
+ char   timer_syubetu[1];  /* タイマー種別     */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   hassei_date[14];  /* 事案発生日付格納域   */
+} SZTIME_OVR_T;
+	</define>
+	<st-name>SZTIME_OVR_T</st-name>
+</struct>
+<struct>
+	<name>CT10102 ＮＣＳタイムオーバー通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ronri_no[10];   /* 論理番号      */
+ char   gouki[11];    /* 号機番号      */
+ char   sgid[4];    /* 信号ＩＤ      */
+ char   dtid[2];    /* データＩＤ     */
+ char   date[8];    /* 月日時分      */
+ char   n0f0[1];    /* Ｎ０／Ｆ０     */
+ char   knkf[1];    /* ＫＮ／ＫＦ     */
+ char   mark[1];    /* 発報マーク     */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   keibi_inf[96];   /* 警備情報      */
+ char   kokyaku[20];   /* 顧客コード     */
+ char   card_dt[16];   /* カードデータ     */
+ char   syoyusya_name[32];  /* 所有者      */
+ char   gazou_file[16];   /* 画像ファイル名    */
+ char   device_id[2];   /* 装置ＩＤ      */
+ char   sig_syubetu[1];   /* 信号種別      */
+ char   keibi_sig[20];   /* 警備信号      */
+ char   dumy[1];    /* ダミー      */
+ char   lct_in_date[14];  /* 内部日付時刻     */
+} SZNCSTIME_OVR_T;
+	</define>
+	<st-name>SZNCSTIME_OVR_T</st-name>
+</struct>
+<struct>
+	<name>CT50101 警報タイマタイムオーバー通知 GC6.0対応</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ronri_no[10];   /* 論理番号      */
+ char   timer_syubetu[1];  /* タイマー種別     */
+ char   hassei_date[14];  /* 信号発生時刻格納域   */
+ char   keihou_sig[4];   /* タイマ信号     */
+ char   sig_syubetu[1];   /* 信号種別      */
+} SZKEIHOUTIME_OVR_T;
+	</define>
+	<st-name>SZKEIHOUTIME_OVR_T</st-name>
+</struct>
+<struct>
+	<name>CM70501 警報タイマ復旧落着通知 GC6.0対応</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+} SZSGS_TMFUKKYU_T;
+	</define>
+	<st-name>SZSGS_TMFUKKYU_T</st-name>
+</struct>
+<struct>
+	<name>顧客コード(20バイト)追加</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   ktaisyou_gai_flg[1]; /* 監視対象外フラグ    */
+           /*（1:恒久的2:一時的）   */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   keiyaku_id[1];   /* 契約ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   course_no[3];   /* コース番号     */
+ char   keibisaki_mei1[80];  /* 警備先名１     */
+ char   keibisaki_mei2[40];  /* 警備先名２     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   jyusho_cd[19];   /* 住所コード     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   keibi_info[96];   /* 警備情報      */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   gappi_time[8];   /* 警報日付      */
+ char   n0_sigtime[8];   /* Ｎ０信号時刻     */
+ char   signal_id[4];   /* 信号ＩＤ      */
+ char   hassei_tuuban[4];  /* 発生通番      */
+ char   saisyu_tuuban[4];  /* 最終通番      */
+ char   net_siginf[48];   /* ＮＥＴ警備情報    */
+ DZKEIBI_INF  keibi_inf[1];   /* 警備情報      */
+ char   kokyaku_cd[20];   /* 顧客コード(顧客、補足コード) */
+} SZSGS_KGAI_RAKU_T;
+	</define>
+	<st-name>SZSGS_KGAI_RAKU_T</st-name>
+</struct>
+<struct>
+	<name>CO61901 ＧＷ系情報要求</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢサーバヘッダ情報   */
+} SZGW_KEI_INF_S;
+	</define>
+	<st-name>SZGW_KEI_INF_S</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 台立ち上げ終了共通情報   */
+ char   syain_no[6];   /* 社員番号      */
+ char   dai_no[2];    /* 台番号      */
+ char   seat_no[2];    /* 席番号      */
+ char   status[1];    /* ステータス     */
+ char   tanto_flg[1];   /* 担当フラグ     */
+ char   ouen_flg[1];   /* 応援フラグ     */
+ char   logc_cnt[3];   /* 論理情報数     */
+} SZDAI_CMN_DATA;
+	</define>
+	<st-name>SZDAI_CMN_DATA</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 業務種別＆方面コード    */
+ char   duty[2];    /* 業務種別      */
+ char   houmen_cd[1];   /* 方面コード     */
+} SZDAI_RSS_DATA;
+	</define>
+	<st-name>SZDAI_RSS_DATA</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 担当論理情報      */
+ char   tanto_logc_cnt[3];  /* 担当論理情報数    */
+} SZDAI_RTS_DATA1;
+	</define>
+	<st-name>SZDAI_RTS_DATA1</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 担当論理情報２     */
+ char   duty[2];    /* 業務種別      */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   cose_cnt[4];   /* コース数      */
+} SZDAI_RTS_DATA2;
+	</define>
+	<st-name>SZDAI_RTS_DATA2</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 応援装置情報      */
+ char   ouen_dev_cnt[3];  /* 応援装置数     */
+} SZDAI_ROS_DATA1;
+	</define>
+	<st-name>SZDAI_ROS_DATA1</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 応援装置情報２     */
+ char   dai_no[2];    /* 台番号      */
+ char   seat_no[2];    /* 席番号      */
+} SZDAI_ROS_DATA2;
+	</define>
+	<st-name>SZDAI_ROS_DATA2</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* コース情報      */
+ char   cose_no[3];    /* コース番号     */
+} SZDAI_COSE_DATA;
+	</define>
+	<st-name>SZDAI_COSE_DATA</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 業務終了電文      */
+ char   hiki_seat_no[2];  /* 引継先席番号     */
+ char   hiki_dev_id[6];   /* 引継先装置番号    */
+} SZDAI_FIN_DATA;
+	</define>
+	<st-name>SZDAI_FIN_DATA</st-name>
+</struct>
+<struct>
+	<name></name>
+	<define>
+typedef struct {      /* 席情報       */
+ char   dai_no[2];    /* 台番号      */
+ char   seat_no[2];    /* 席番号      */
+ char   dev_id[6];    /* 装置ＩＤ      */
+ char   logc_cnt[3];   /* 論理情報数     */
+} SZDAI_DEV_DATA;
+	</define>
+	<st-name>SZDAI_DEV_DATA</st-name>
+</struct>
+<struct>
+	<name>CO50900 業務情報応答(デフォルト情報)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+ SZDAI_RSS_DATA rss_data;    /* 業務種別＆方面コード   */
+} SZDAI_GMINF_OT;
+	</define>
+	<st-name>SZDAI_GMINF_OT</st-name>
+</struct>
+<struct>
+	<name>CO52000 強制業務開始要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_GMSTRT_T;
+	</define>
+	<st-name>SZDAI_GMSTRT_T</st-name>
+</struct>
+<struct>
+	<name>CO51100 引き継ぎ先席情報応答</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   seat_cnt[3];   /* 引継先席数     */
+} SZDAI_HIKSEKI_T;
+	</define>
+	<st-name>SZDAI_HIKSEKI_T</st-name>
+</struct>
+<struct>
+	<name>CO51400 業務終了要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_FIN_DATA data;     /* 業務終了データ    */
+} SZDAI_GMEND_T;
+	</define>
+	<st-name>SZDAI_GMEND_T</st-name>
+</struct>
+<struct>
+	<name>CO51700 論理端末情報要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   gyoumu_kind[2];   /* 業務種別      */
+ char   houmen_cd[1];   /* 方面コード     */
+} SZDAI_RONINF_YT;
+	</define>
+	<st-name>SZDAI_RONINF_YT</st-name>
+</struct>
+<struct>
+	<name>CO51700 論理端末情報応答</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+ SZDAI_RSS_DATA rss_data;    /* 業務種別＆方面コード   */
+} SZDAI_RONINF_OT;
+	</define>
+	<st-name>SZDAI_RONINF_OT</st-name>
+</struct>
+<struct>
+	<name>CO51800 カレント業務情報(担当)応答</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_CGTINF_OT;
+	</define>
+	<st-name>SZDAI_CGTINF_OT</st-name>
+</struct>
+<struct>
+	<name>CO51900 カレント業務情報(応援)応答</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_CGOINF_OT;
+	</define>
+	<st-name>SZDAI_CGOINF_OT</st-name>
+</struct>
+<struct>
+	<name>CO52100 社員番号更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   syain_no[6];   /* 社員番号      */
+} SZDAI_SYAINUP_T;
+	</define>
+	<st-name>SZDAI_SYAINUP_T</st-name>
+</struct>
+<struct>
+	<name>CO52200 論理端末応援情報要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   gyoumu_kind[2];   /* 業務種別      */
+ char   houmen_cd[1];   /* 方面コード     */
+} SZDAI_RTOINF_YT;
+	</define>
+	<st-name>SZDAI_RTOINF_YT</st-name>
+</struct>
+<struct>
+	<name>CO52200 論理端末応援情報応答</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_RTOINF_OT;
+	</define>
+	<st-name>SZDAI_RTOINF_OT</st-name>
+</struct>
+<struct>
+	<name>CO52300 論理端末引き込み要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_RTHKKM_T;
+	</define>
+	<st-name>SZDAI_RTHKKM_T</st-name>
+</struct>
+<struct>
+	<name>CO52400 論理端末引き継ぎ要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_RTHKTG_T;
+	</define>
+	<st-name>SZDAI_RTHKTG_T</st-name>
+</struct>
+<struct>
+	<name>CO52500 応援装置追加要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_ROS_DATA1 data;     /* 応援装置数     */
+} SZDAI_ODADD_YT;
+	</define>
+	<st-name>SZDAI_ODADD_YT</st-name>
+</struct>
+<struct>
+	<name>CO52600 応援装置削除要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_ROS_DATA1 ros1_data;    /* 応援装置数     */
+ SZDAI_ROS_DATA2 ros2_data[10];   /* 応援装置情報     */
+} SZDAI_ODDEL_YT;
+	</define>
+	<st-name>SZDAI_ODDEL_YT</st-name>
+</struct>
+<struct>
+	<name>CO52600 応援装置削除応答</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_ODDEL_OT;
+	</define>
+	<st-name>SZDAI_ODDEL_OT</st-name>
+</struct>
+<struct>
+	<name>CM10107 引き込み通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_HIKKOM_T;
+	</define>
+	<st-name>SZDAI_HIKKOM_T</st-name>
+</struct>
+<struct>
+	<name>CM10108 応援通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_OENNTC_T;
+	</define>
+	<st-name>SZDAI_OENNTC_T</st-name>
+</struct>
+<struct>
+	<name>CM10109 引き継ぎ通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_HIKTUG_T;
+	</define>
+	<st-name>SZDAI_HIKTUG_T</st-name>
+</struct>
+<struct>
+	<name>CM10110 応援解除通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZDAI_CMN_DATA data;     /* 共通データ     */
+} SZDAI_OENRST_T;
+	</define>
+	<st-name>SZDAI_OENRST_T</st-name>
+</struct>
+<struct>
+	<name>サブ監視対象設定要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;     /* 共通ヘッダ    */
+ char   dev_id[6];     /* 装置ＩＤ     */
+ char   keihou_cnt[3];    /* 警報数     */
+} SZDAI_KHSETEI_YT;
+	</define>
+	<st-name>SZDAI_KHSETEI_YT</st-name>
+</struct>
+<struct>
+	<name>サブ監視対象設定要求（内部）</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;     /* 共通ヘッダ    */
+ char   flag[1];     /* サブ監視フラグ   */
+ char   dev_id[6];     /* 装置ＩＤ     */
+ char   keihou_cnt[3];    /* 警報数     */
+} SZDAI_NKHSETEI_YT;
+	</define>
+	<st-name>SZDAI_NKHSETEI_YT</st-name>
+</struct>
+<struct>
+	<name>サブ監視引込設定通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER cmn_head;      /* 共通ヘッダ    */
+} SZDAI_SUBHIKISET_T;
+	</define>
+	<st-name>SZDAI_SUBHIKISET_T</st-name>
+</struct>
+<struct>
+	<name>サブ監視引込解除通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER cmn_head;      /* 共通ヘッダ    */
+} SZDAI_SUBHIKIOFF_T;
+	</define>
+	<st-name>SZDAI_SUBHIKIOFF_T</st-name>
+</struct>
+<struct>
+	<name>ブロックＡ 出動ＣＤ指令情報構造体</name>
+	<define>
+typedef struct {      /* 出動ＣＤ指令情報構造体   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   sitei_date[12];    /* 指定日時  01.08.14 */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   honnin_kakunin[1];   /* 本人確認  01.08.14 */
+ char   kakunin_no[3];    /* 確認番号  01.08.14 */
+ char   honnin_kaku_other[40];  /* 本人確認その他 01.08.14*/
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+ char   keiyaku_kaisya_nm[40];  /* 契約会社氏名    */
+} SZ_STCDSIREI_T;
+	</define>
+	<st-name>SZ_STCDSIREI_T</st-name>
+</struct>
+<struct>
+	<name>ブロックＡ−２　綜合受付向け 出動ＣＤ指令情報構造体</name>
+	<define>
+typedef struct {      /* 出動ＣＤ指令情報構造体   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+ char   keiyaku_kaisya_nm[40];  /* 契約会社氏名    */
+} SZ_STCDSR_SEJ_T;
+	</define>
+	<st-name>SZ_STCDSR_SEJ_T</st-name>
+</struct>
+<struct>
+	<name>ブロックＢ 出動ＣＤ取引情報構造体</name>
+	<define>
+typedef struct {      /* 出動ＣＤ取引情報構造体   */
+ char   error_code[14];    /* エラーコード    */
+ char   error_naiyou[80];   /* エラー内容    */
+ char   shochi_shousai[600];  /* 処置詳細     */
+ char   cd_jyoutai[1];    /* ＣＤ状態     */
+ char   torihiki_date[12];   /* 取引日時     */
+ char   meigi[40];     /* 名義      */
+ char   enbos_no[20];    /* エンボス番号    */
+ char   t_jnl_shochi[60];   /* 取引ジャーナル内容  */
+ char   t_card_shochi[60];   /* 取引カード内容   */
+ char   t_genkin_shochi[60];  /* 取引現金内容    */
+ char   seikyu_kingaku[4];   /* 請求金額     */
+ char   ichibu_uketori[4];   /* 一部受取     */
+ char   seikyu_gai[1];    /* 請求外     */
+ char   torihiki_kekka[1];   /* 取引結果     */
+ char   torihiki_kakunin[128];  /* 取引確認     */
+ char   bank_mei[40];    /* 銀行名     */
+ char   shiten_mei[80];    /* 支店名     */
+ char   tel_no[20];     /* 電話番号     */
+ char   tori_kaku_date[12];   /* 取引確認日    */
+ char   kakuninsaki_name[40];  /* 確認先者     */
+ char   kakunin_name[40];   /* 確認者     */
+ char   jitaiou_tewatashi[6];  /* 次対応手渡    */
+ char   memo[240];     /* メモ      */
+} SZ_STCDTORI_T;
+	</define>
+	<st-name>SZ_STCDTORI_T</st-name>
+</struct>
+<struct>
+	<name>ブロックＣ 出動ＣＤ障害情報構造体</name>
+	<define>
+typedef struct {      /* 出動ＣＤ障害情報構造    */
+ SZSEJI_TRBLIF_T sej_trblif[1];    /* 障害基本情報構造体  */
+ SZSEJI_ANSIF_T sej_ansif[1];    /* 応答基本情報    */
+ SZSEJI_ZANBAI_T sej_zanbai[1];    /* 残留媒体情報構造体  */
+ SZSEJI_ATMCD_T sej_atmcd[1];    /* 自動処理情報構造体  */
+ SZSEJI_TORIIF_T sej_toriif[1];    /* 取引情報構造体   */
+ SZSEJI_MNYDAT_T sej_money[1];    /* 金額データ情報構造体  */
+ SZSEJI_FURIIF_T sej_fuiif[1];    /* 振込情報構造体   */
+ SZSEJI_TORBAI_T sej_torbai[1];    /* 取引媒体情報構造体  */
+ SZSEJI_IRAI_T sej_irai[1];    /* 依頼内容情報構造体  */
+ SZSEJI_SZBAI_T sej_szbai[1];    /* 処置後残留媒体情報構造体 */
+ SZSEJI_TWKIF_T sej_twkif[1];    /* 取り忘れ回収情報構造体 */
+ SZSEJI_HTIRAI_T sej_htirai[1];    /* 保守立会依頼情報構造体 */
+ SZSEJI_NYUTAI_T sej_nyuten[1];    /* 入店情報構造体   */
+ SZSEJI_NYUTAI_T sej_taiten[1];    /* 退店情報構造体   */
+} SZ_STCDSHOGAI_T;
+	</define>
+	<st-name>SZ_STCDSHOGAI_T</st-name>
+</struct>
+<struct>
+	<name>ブロックＤ 出動ＣＤ回収情報構造体</name>
+	<define>
+typedef struct {      /* 出動ＣＤ回収情報     */
+ char   shochi[160];    /* 処置内容     */
+ char   kaisyu_umu[1];    /* 回収物有無    */
+ char   genkin_umu[1];    /* 現金有無     */
+ char   genkin_shochi[60];   /* 現金処置内容    */
+ char   card_umu[1];    /* カード有無    */
+ char   card_maisu[2];    /* カード枚数    */
+ char   card_shochi[60];   /* カード処置内容   */
+ char   card_no[20];    /* カード番号    */
+ char   meisai_umu[1];    /* 明細有無     */
+ char   meisai_maisu[2];   /* 明細枚数     */
+ char   meisai_shochi[60];   /* 明細処置内容    */
+ char   tuchou_umu[1];    /* 通帳有無     */
+ char   tuchou_maisu[2];   /* 通帳枚数     */
+ char   tuchou_shochi[60];   /* 通帳処置内容    */
+ char   jnl_umu[1];     /* ジャーナル有無   */
+ char   jnl_maisu[2];    /* ジャーナル枚数   */
+ char   jnl_shochi[60];    /* ジャーナル処置内容  */
+ char   kaisyuu_kasyo[40];   /* 回収箇所     */
+ char   kaisyuu_manken[3];   /* 回収万券     */
+ char   kaisyuu_gosenken[3];  /* 回収五千券    */
+ char   kaisyuu_nisenken[3];  /* 回収二千券    */
+ char   kaisyuu_senken[3];   /* 回収千券     */
+ char   kaisyuu_gohyaku[3];   /* 回収五百円    */
+ char   kaisyuu_hyaku[3];   /* 回収百円     */
+ char   kaisyuu_gojyuu[3];   /* 回収五十円    */
+ char   kaisyuu_jyuu[3];   /* 回収十円     */
+ char   kaisyuu_go[3];    /* 回収五円     */
+ char   kaisyuu_iti[3];    /* 回収一円     */
+ char   kaisyuu_total[8];   /* 回収合計     */
+ char   kaisyuu_other[1];   /* その他有無    */
+ char   cd_bikou[1000];    /* 備考      */
+} SZ_STCDKAISYU_T;
+	</define>
+	<st-name>SZ_STCDKAISYU_T</st-name>
+</struct>
+<struct>
+	<name>ブロックＺ ヘッダ情報＋共通部分</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+#if 0
+ SZTBS_HEADER tbs_head;    /* データヘッダ構造体   */
+#endif
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   raku_name[40];   /* 落着者氏名     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   shiji_time[4];   /* 指示時刻      */
+ char   chokkou_time[4];  /* 直行時刻      */
+ char   genchaku_time[4];  /* 現着時刻      */
+ char   nyuukan_time[4];  /* 入館時刻      */
+ char   start_time[4];   /* 開始時刻      */
+ char   end_time[4];   /* 終了時刻      */
+ char   taikan_time[4];   /* 退館時刻      */
+ char   hosyu_tochaku_time[4]; /* 保守到着時刻     */
+ char   hosyu_taikan_time[4]; /* 保守退館時刻     */
+ char   syoyo_mikomi[3];  /* 所要見込み     */
+ char   touchaku_yotei[4];  /* 到着予定      */
+ char   shirei_shoyou[3];  /* 指令所要      */
+ char   touchaku_shoyou[3];  /* 到着所要      */
+ char   syoti_shoyou[3];  /* 処置所要      */
+ char   nyuukan_shoyou[3];  /* 入館所要      */
+ char   sou_shoyou[3];   /* 総所要      */
+ char   tachiai_shoyou[3];  /* 立会所要      */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   saisyu_hokoku_time[4]; /* 最終報告時刻     */
+ char   saisyu_hokoku_kbn[1]; /* 最終報告者区分    */
+ char   saisyu_houkokusya[40]; /* 最終報告者     */
+ char   jian_time_over[1];  /* 事案タイムオーバー   */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+} SZ_STCDCMN_T;
+	</define>
+	<st-name>SZ_STCDCMN_T</st-name>
+</struct>
+<struct>
+	<name>CM62400 ＧＣ銀行コスモ出動事案落着更新通知</name>
+	<define>
+typedef struct {      /* 銀行出動ＣＤ情報構造体   */
+ SZ_STCDSIREI_T sirei_data[1];    /* 出動ＣＤ指令情報(Ａ)  */
+ SZ_STCDKAISYU_T kaisyu_data[1];    /* 出動ＣＤ回収情報(Ｄ)  */
+} SZGCB_STR_T;
+	</define>
+	<st-name>SZGCB_STR_T</st-name>
+</struct>
+<struct>
+	<name>CM62400 ＧＣ銀行コスモ出動事案落着更新通知</name>
+	<define>
+typedef struct {      /* ＧＣ銀行出動ＣＤ情報構造体  */
+ SZ_STCDCMN_T send_head[1];    /* 共通情報(Ｚ)    */
+ SZGCB_STR_T  data[10];     /* 銀行出動ＣＤ情報構造体 */
+} SZGCB_SYOCHIUP_T;
+	</define>
+	<st-name>SZGCB_SYOCHIUP_T</st-name>
+</struct>
+<struct>
+	<name>CM62410 ＧＣ企業コスモ出動事案落着更新通知</name>
+	<define>
+typedef struct {      /* 企業内出動ＣＤ指令情報   */
+ SZ_STCDSIREI_T sirei_data[1];    /* 出動ＣＤ指令情報(Ａ)  */
+ SZ_STCDTORI_T tori_data[1];    /* 出動ＣＤ取引情報(Ｂ)  */
+ SZ_STCDKAISYU_T kaisyu_data[1];    /* 出動ＣＤ回収情報(Ｄ)  */
+} SZGCC_STR_T;
+	</define>
+	<st-name>SZGCC_STR_T</st-name>
+</struct>
+<struct>
+	<name>CM62410 ＧＣ企業コスモ出動事案落着更新通知</name>
+	<define>
+typedef struct {      /* ＧＣ企業内出動ＣＤ情報構造体  */
+ SZ_STCDCMN_T send_head[1];    /* 共通情報(Ｚ)    */
+ SZGCC_STR_T  data[10];     /* 企業内出動ＣＤ指令情報 */
+} SZGCC_SYOCHIUP_T;
+	</define>
+	<st-name>SZGCC_SYOCHIUP_T</st-name>
+</struct>
+<struct>
+	<name>CM62420 ＧＣSEJ コスモ出動事案落着更新通知</name>
+	<define>
+typedef struct {      /* 企業内出動ＣＤ指令情報   */
+ SZ_STCDSIREI_T sirei_data[1];    /* 出動ＣＤ指令情報(Ａ)  */
+ SZ_STCDSHOGAI_T shogai_data[1];    /* 出動ＣＤ障害情報(Ｃ)  */
+ SZ_STCDKAISYU_T kaisyu_data[1];    /* 出動ＣＤ回収情報(Ｄ)  */
+} SZGCS_STR_T;
+	</define>
+	<st-name>SZGCS_STR_T</st-name>
+</struct>
+<struct>
+	<name>CM62420 ＧＣSEJ コスモ出動事案落着更新通知</name>
+	<define>
+typedef struct {      /* ＧＣＳＥＪ出動ＣＤ情報構造体  */
+ SZ_STCDCMN_T send_head[1];    /* 共通情報(Ｚ)    */
+ SZGCS_STR_T  data[10];     /* 企業内出動ＣＤ指令情報 */
+} SZGCS_SYOCHIUP_T;
+	</define>
+	<st-name>SZGCS_SYOCHIUP_T</st-name>
+</struct>
+<struct>
+	<name>CU25302 コスモ事案落着更新送信要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+} SZCSM_STJ_ADD_T;
+	</define>
+	<st-name>SZCSM_STJ_ADD_T</st-name>
+</struct>
+<struct>
+	<name>R6.0 K09 2004</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付    */
+ char   kekka_ran[1600];  /* 結果欄      */
+ char   soti_ran1[3200];  /* 措置欄１     */
+ char   soti_ran2[2400];  /* 措置欄２     */
+ char   soti_time[140];   /* 措置時間     */
+ char   disp_color[45];   /* 表示色      */
+} SZSOCHI_UP_T;
+	</define>
+	<st-name>SZSOCHI_UP_T</st-name>
+</struct>
+<struct>
+	<name>CU17401 措置結果落着更新 2002.07.25</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付    */
+ char   kekka_ran[1600];  /* 結果欄      */
+ char   soti_ran1[3200];  /* 措置欄１     */
+ char   soti_ran2[2400];  /* 措置欄２     */
+ char   soti_time[140];   /* 措置時間     */
+} SZSOCHI_RK_UP_T;
+	</define>
+	<st-name>SZSOCHI_RK_UP_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ指令情報構造体(出動要請)</name>
+	<define>
+typedef struct {       /* 出動ＣＤ指令情報    */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   sitei_date[12];    /* 指定日時     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   honnin_kakunin[1];   /* 本人確認     */
+ char   kakunin_no[3];    /* 確認番号     */
+ char   honnin_kaku_other[40];  /* 本人確認その他   */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+/* char   hosyu_uke_name[40];   /o 保守受付者 03/23 add->del*/
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+/* char   keiyaku_kaisya_nm[40];  /o 契約会社氏名 03/23 add->del*/
+} SZSCDSIRESTD_T;
+	</define>
+	<st-name>SZSCDSIRESTD_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ指令情報構造体(出動要請 綜合受付)</name>
+	<define>
+typedef struct {       /* 出動ＣＤ指令情報    */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+} SZSCDSIRESTD2_T;
+	</define>
+	<st-name>SZSCDSIRESTD2_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ取引情報構造体(出動要請)</name>
+	<define>
+typedef struct {       /* 出動ＣＤ取引情報    */
+ char   error_code[14];    /* エラーコード    */
+ char   error_naiyou[80];   /* エラー内容    */
+ char   shochi_shousai[600];  /* 処置詳細     */
+ char   cd_jyoutai[1];    /* ＣＤ状態     */
+ char   torihiki_date[12];   /* 取引日時     */
+ char   meigi[40];     /* 名義      */
+ char   enbos_no[20];    /* エンボス番号    */
+ char   t_jnl_shochi[60];   /* 取引ジャーナル内容  */
+ char   t_card_shochi[60];   /* 取引カード内容   */
+ char   t_genkin_shochi[60];  /* 取引現金内容    */
+ char   seikyu_kingaku[4];   /* 請求金額     */
+ char   ichibu_uketori[4];   /* 一部受取     */
+ char   seikyu_gai[1];    /* 請求外     */
+ char   torihiki_kekka[1];   /* 取引結果     */
+} SZSCDTORISTD_T;
+	</define>
+	<st-name>SZSCDTORISTD_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ回収情報構造体(出動要請)</name>
+	<define>
+typedef struct {       /* 出動ＣＤ回収情報    */
+ char   shochi[160];    /* 処置内容     */
+ char   kaisyu_umu[1];    /* 回収物有無    */
+ char   genkin_umu[1];    /* 現金有無     */
+ char   genkin_shochi[60];   /* 現金処置内容    */
+ char   card_umu[1];    /* カード有無    */
+ char   card_maisu[2];    /* カード枚数    */
+ char   card_shochi[60];   /* カード処置内容   */
+ char   card_no[20];    /* カード番号    */
+ char   meisai_umu[1];    /* 明細有無     */
+ char   meisai_maisu[2];   /* 明細枚数     */
+ char   meisai_shochi[60];   /* 明細処置内容    */
+ char   tuchou_umu[1];    /* 通帳有無     */
+ char   tuchou_maisu[2];   /* 通帳枚数     */
+ char   tuchou_shochi[60];   /* 通帳処置内容    */
+ char   jnl_umu[1];     /* ジャーナル有無   */
+ char   jnl_maisu[2];    /* ジャーナル枚数   */
+ char   jnl_shochi[60];    /* ジャーナル処置内容  */
+ char   kaisyuu_kasyo[40];   /* 回収箇所     */
+ char   kaisyuu_manken[3];   /* 回収万券     */
+ char   kaisyuu_gosenken[3];  /* 回収五千券    */
+ char   kaisyuu_nisenken[3];  /* 回収二千券    */
+ char   kaisyuu_senken[3];   /* 回収千券     */
+ char   kaisyuu_gohyaku[3];   /* 回収五百円    */
+ char   kaisyuu_hyaku[3];   /* 回収百円     */
+ char   kaisyuu_gojyuu[3];   /* 回収五十円    */
+ char   kaisyuu_jyuu[3];   /* 回収十円     */
+ char   kaisyuu_go[3];    /* 回収五円     */
+ char   kaisyuu_iti[3];    /* 回収一円     */
+ char   kaisyuu_total[8];   /* 回収合計     */
+ char   kaisyuu_other[1];   /* その他有無    */
+ char   bikou[1000];    /* 備考      */
+} SZSCDKAISSTD_T;
+	</define>
+	<st-name>SZSCDKAISSTD_T</st-name>
+</struct>
+<struct>
+	<name>銀行コスモ出動ＣＤ情報構造体</name>
+	<define>
+typedef struct {
+ SZSCDSIRESTD_T bnk_sireiif[1];    /* 出動ＣＤ指令情報構造体 */
+} SZBSTCDINF_T;
+	</define>
+	<st-name>SZBSTCDINF_T</st-name>
+</struct>
+<struct>
+	<name>企業内コスモ出動ＣＤ情報構造体</name>
+	<define>
+typedef struct {
+ SZSCDSIRESTD_T kgy_sireif[1];    /* 出動ＣＤ指令情報構造体 */
+ SZSCDTORISTD_T kgy_toriif[1];    /* 出動ＣＤ取引情報構造体 */
+} SZKSTCDINF_T;
+	</define>
+	<st-name>SZKSTCDINF_T</st-name>
+</struct>
+<struct>
+	<name>ＳＥＪコスモ出動ＣＤ情報構造体</name>
+	<define>
+typedef struct {
+ SZSCDSIRESTD_T sej_sireiif[1];    /* 出動ＣＤ指令情報構造体 */
+ SZSEJI_TRBLIF_T sej_trblif[1];    /* 障害基本情報構造体  */
+ SZSEJI_ANSIF_T sej_ansif[1];    /* 応答基本情報構造体  */
+ SZSEJI_ZANBAI_T sej_zanbai[1];    /* 残留媒体情報構造体  */
+ SZSEJI_ATMCD_T sej_atmcd[1];    /* 自動処理情報構造体  */
+ SZSEJI_TORIIF_T sej_toriif[1];    /* 取引情報構造体   */
+ SZSEJI_MNYDAT_T sej_money[1];    /* 金額データ情報構造体  */
+ SZSEJI_FURIIF_T sej_fuiif[1];    /* 振込情報構造体   */
+ SZSEJI_TORBAI_T sej_torbai[1];    /* 取引媒体情報構造体  */
+ SZSEJI_IRAI_T sej_irai[1];    /* 依頼内容情報構造体  */
+ SZSEJI_SZBAI_T sej_szbai[1];    /* 処置後残留媒体情報構造体 */
+ SZSEJI_TWKIF_T sej_twkif[1];    /* 取り忘れ回収情報構造体 */
+ SZSEJI_HTIRAI_T sej_htirai[1];    /* 保守立会依頼情報構造体 */
+ SZSEJI_IDIF_T sej_idif[1];    /* ＩＤ情報構造体   */
+ SZSEJI_CHADAI_T sej_chadaif[1];    /* 着脱区分情報構造体  */
+ char   kinko_chak_date[14];  /* 金庫着日時    */
+ char   kinko_datu_date[14];  /* 金庫脱日時    */
+ SZSEJI_STSIF_T sej_stsif[1];    /* 状態基本情報構造体  */
+} SZSSTCDINF_T;
+	</define>
+	<st-name>SZSSTCDINF_T</st-name>
+</struct>
+<struct>
+	<name>ＳＥＪコスモ出動ＣＤ情報構造体(綜合受付)</name>
+	<define>
+typedef struct {
+ SZSCDSIRESTD2_T sej2_sireiif[1];   /* 出動ＣＤ指令情報構造体 */
+ SZSEJI_TRBLIF_T sej_trblif[1];    /* 障害基本情報構造体  */
+ SZSEJI_ANSIF_T sej_ansif[1];    /* 応答基本情報構造体  */
+ SZSEJI_ZANBAI_T sej_zanbai[1];    /* 残留媒体情報構造体  */
+ SZSEJI_ATMCD_T sej_atmcd[1];    /* 自動処理情報構造体  */
+ SZSEJI_TORIIF_T sej_toriif[1];    /* 取引情報構造体   */
+ SZSEJI_MNYDAT_T sej_money[1];    /* 金額データ情報構造体  */
+ SZSEJI_FURIIF_T sej_fuiif[1];    /* 振込情報構造体   */
+ SZSEJI_TORBAI_T sej_torbai[1];    /* 取引媒体情報構造体  */
+ SZSEJI_IRAI_T sej_irai[1];    /* 依頼内容情報構造体  */
+ SZSEJI_SZBAI_T sej_szbai[1];    /* 処置後残留媒体情報構造体 */
+ SZSEJI_TWKIF_T sej_twkif[1];    /* 取り忘れ回収情報構造体 */
+ SZSEJI_HTIRAI_T sej_htirai[1];    /* 保守立会依頼情報構造体 */
+ SZSEJI_IDIF_T sej_idif[1];    /* ＩＤ情報構造体   */
+ SZSEJI_CHADAI_T sej_chadaif[1];    /* 着脱区分情報構造体  */
+ char   kinko_chak_date[14];  /* 金庫着日時    */
+ char   kinko_datu_date[14];  /* 金庫脱日時    */
+ SZSEJI_STSIF_T sej_stsif[1];    /* 状態基本情報構造体  */
+} SZS2STCDINF_T;
+	</define>
+	<st-name>SZS2STCDINF_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ指令情報構造体</name>
+	<define>
+typedef struct {        /* 出動ＣＤ指令情報   */
+ char   uketuke_no[14];    /* 契約先受付番号   */
+ char   csm_ronri_no[10];   /* コスモ論理番号   */
+ char   syutu_yousei_no[4];   /* 出動要請管理番号   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   sitei_date[12];    /* 指定日時     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   honnin_kakunin[1];   /* 本人確認     */
+ char   kakunin_no[3];    /* 確認番号     */
+ char   honnin_kaku_other[40];  /* 本人確認（その他）  */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   hosyu_uke_name[40];   /* 保守受付者    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+ char   keiyaku_kaisya_nm[40];  /* 契約会社氏名    */
+} SZSCDSIRE_T;
+	</define>
+	<st-name>SZSCDSIRE_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ取引情報構造体</name>
+	<define>
+typedef struct {       /* 出動ＣＤ取引情報    */
+ char   uketuke_no[14];    /* 契約先受付番号   */
+ char   csm_ronri_no[10];   /* コスモ論理番号   */
+ char   syutu_yousei_no[4];   /* 出動要請管理番号   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   error_code[14];    /* エラーコード    */
+ char   error_naiyou[80];   /* エラー内容    */
+ char   shochi_shousai[600];  /* 処置詳細     */
+ char   cd_jyoutai[1];    /* ＣＤ状態     */
+ char   torihiki_date[12];   /* 取引日時     */
+ char   meigi[40];     /* 名義      */
+ char   enbos_no[20];    /* エンボス番号    */
+ char   t_jnl_shochi[60];   /* 取引ジャーナル内容  */
+ char   t_card_shochi[60];   /* 取引カード内容   */
+ char   t_genkin_shochi[60];  /* 取引現金内容    */
+ char   seikyu_kingaku[4];   /* 請求金額     */
+ char   ichibu_uketori[4];   /* 一部受取     */
+ char   seikyu_gai[1];    /* 請求外     */
+ char   torihiki_kekka[1];   /* 取引結果     */
+ char   torihiki_kakunin[128];  /* 取引確認     */
+ char   bank_mei[40];    /* 銀行名     */
+ char   shiten_mei[80];    /* 支店名     */
+ char   tel_no[20];     /* 電話番号     */
+ char   tori_kaku_date[12];   /* 取引確認日    */
+ char   kakuninsaki_name[40];  /* 確認先者     */
+ char   kakunin_name[40];   /* 確認者     */
+ char   jitaiou_tewatashi[6];  /* 次対応手渡    */
+ char   memo[240];     /* メモ      */
+} SZSCDTORI_T;
+	</define>
+	<st-name>SZSCDTORI_T</st-name>
+</struct>
+<struct>
+	<name>出動ＣＤ回収情報構造体</name>
+	<define>
+typedef struct {       /* 出動ＣＤ回収情報    */
+ char   uketuke_no[14];    /* 契約先受付番号   */
+ char   csm_ronri_no[10];   /* コスモ論理番号   */
+ char   syutu_yousei_no[4];   /* 出動要請管理番号   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   shochi[160];    /* 処置内容     */
+ char   kaisyu_umu[1];    /* 回収物有無    */
+ char   genkin_umu[1];    /* 現金有無     */
+ char   genkin_shochi[60];   /* 現金処置内容    */
+ char   card_umu[1];    /* カード有無    */
+ char   card_maisu[2];    /* カード枚数    */
+ char   card_shochi[60];   /* カード処置内容   */
+ char   card_no[20];    /* カード番号    */
+ char   meisai_umu[1];    /* 明細有無     */
+ char   meisai_maisu[2];   /* 明細枚数     */
+ char   meisai_shochi[60];   /* 明細処置内容    */
+ char   tuchou_umu[1];    /* 通帳有無     */
+ char   tuchou_maisu[2];   /* 通帳枚数     */
+ char   tuchou_shochi[60];   /* 通帳処置内容    */
+ char   jnl_umu[1];     /* ジャーナル有無   */
+ char   jnl_maisu[2];    /* ジャーナル枚数   */
+ char   jnl_shochi[60];    /* ジャーナル処置内容  */
+ char   kaisyuu_kasyo[40];   /* 回収箇所     */
+ char   kaisyuu_manken[3];   /* 回収万券     */
+ char   kaisyuu_gosenken[3];  /* 回収五千券    */
+ char   kaisyuu_nisenken[3];  /* 回収二千券    */
+ char   kaisyuu_senken[3];   /* 回収千券     */
+ char   kaisyuu_gohyaku[3];   /* 回収五百円    */
+ char   kaisyuu_hyaku[3];   /* 回収百円     */
+ char   kaisyuu_gojyuu[3];   /* 回収五十円    */
+ char   kaisyuu_jyuu[3];   /* 回収十円     */
+ char   kaisyuu_go[3];    /* 回収五円     */
+ char   kaisyuu_iti[3];    /* 回収一円     */
+ char   kaisyuu_total[8];   /* 回収合計     */
+ char   kaisyuu_other[1];   /* その他有無    */
+ char   bikou[1000];    /* 備考      */
+} SZSCDKAIS_T;
+	</define>
+	<st-name>SZSCDKAIS_T</st-name>
+</struct>
+<struct>
+	<name>銀行コスモＣＤ情報構造体</name>
+	<define>
+typedef struct {
+ SZSCDSIRE_T  bnk_sireiif[1];    /* 出動ＣＤ指令情報構造体 */
+ SZSCDKAIS_T  bnk_kaisyif[1];    /* 出動ＣＤ回収情報構造体 */
+} SZBCDINF_T;
+	</define>
+	<st-name>SZBCDINF_T</st-name>
+</struct>
+<struct>
+	<name>企業内コスモＣＤ情報構造体</name>
+	<define>
+typedef struct {
+ SZSCDSIRE_T  kgy_sireif[1];    /* 出動ＣＤ指令情報構造体 */
+ SZSCDTORI_T  kgy_toriif[1];    /* 出動ＣＤ取引情報構造体 */
+ SZSCDKAIS_T  kgy_kaisyif[1];    /* 出動ＣＤ回収情報構造体 */
+} SZKCDINF_T;
+	</define>
+	<st-name>SZKCDINF_T</st-name>
+</struct>
+<struct>
+	<name>ＳＥＪコスモＣＤ情報構造体</name>
+	<define>
+typedef struct {
+ SZSCDSIRE_T  sej_sireiif[1];    /* 出動ＣＤ指令情報構造体 */
+ char   uketuke_no[14];    /* 契約先受付番号   */
+ char   csm_ronri_no[10];   /* コスモ論理番号   */
+ char   syutu_yousei_no[4];   /* 出動要請管理番号   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ SZSEJI_TRBLIF_T sej_trblif[1];    /* 障害基本情報構造体  */
+ SZSEJI_ANSIF_T sej_ansif[1];    /* 応答基本情報構造体  */
+ SZSEJI_ZANBAI_T sej_zanbai[1];    /* 残留媒体情報構造体  */
+ SZSEJI_ATMCD_T sej_atmcd[1];    /* 自動処理情報構造体  */
+ SZSEJI_TORIIF_T sej_toriif[1];    /* 取引情報構造体   */
+ SZSEJI_MNYDAT_T sej_money[1];    /* 金額データ情報構造体  */
+ SZSEJI_FURIIF_T sej_fuiif[1];    /* 振込情報構造体   */
+ SZSEJI_TORBAI_T sej_torbai[1];    /* 取引媒体情報構造体  */
+ SZSEJI_IRAI_T sej_irai[1];    /* 依頼内容情報構造体  */
+ SZSEJI_SZBAI_T sej_szbai[1];    /* 処置後残留媒体情報構造体 */
+ SZSEJI_TWKIF_T sej_twkif[1];    /* 取り忘れ回収情報構造体 */
+ SZSEJI_HTIRAI_T sej_htirai[1];    /* 保守立会依頼情報構造体 */
+ SZSEJI_NYUTAI_T sej_nyuten[1];    /* 入店情報構造体   */
+ SZSEJI_NYUTAI_T sej_taiten[1];    /* 退店情報構造体   */
+ SZSCDKAIS_T  sej_kaisyif[1];    /* 出動ＣＤ回収情報構造体 */
+} SZSCDINF_T;
+	</define>
+	<st-name>SZSCDINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62122 ＳＥＪコスモ出動要請取消通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_address[4];   /* サブアドレス     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   uketuke_id[1];   /* 受付ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   uke_name[40];   /* 受付者      */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+ char   shisya_uke_date[12]; /* 支社受付日時     */
+ char   shisya_recv_name[40]; /* 支社受信者     */
+ char   shisya_mei[40];   /* 支社名      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ union {         /* 出動ＣＤ情報     */
+  SZBSTCDINF_T bnk_scdinf[10];   /* 銀行出動ＣＤ情報   */
+  SZKSTCDINF_T kgy_scdinf[10];   /* 企業内出動ＣＤ情報  */
+  SZSSTCDINF_T sej_scdinf[10];   /* ＳＥＪ出動ＣＤ情報  */
+  SZS2STCDINF_T sej2_scdinf[10];  /* ＳＥＪ出動ＣＤ情報(綜受) */
+ } STDCD_INF;
+	</define>
+	<st-name>STDCD_INF</st-name>
+</struct>
+<struct>
+	<name>CM62120 ＳＥＪコスモ出動要請通知(未確定)(綜合受付)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   opk_gouki_no[7];  /* 号機番号(警備先マスタ)  */
+ char   opk_sub_address[4];  /* サブアドレス(警備先マスタ) */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_address[4];   /* サブアドレス     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   uketuke_id[1];   /* 受付ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   uke_name[40];   /* 受付者      */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+ char   shisya_uke_date[12]; /* 支社受付日時     */
+ char   shisya_recv_name[40]; /* 支社受信者     */
+ char   shisya_mei[40];   /* 支社名      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ union {         /* 出動ＣＤ情報     */
+  SZBSTCDINF_T bnk_scdinf[10];   /* 銀行出動ＣＤ情報   */
+  SZKSTCDINF_T kgy_scdinf[10];   /* 企業内出動ＣＤ情報  */
+  SZSSTCDINF_T sej_scdinf[10];   /* ＳＥＪ出動ＣＤ情報  */
+  SZS2STCDINF_T sej2_scdinf[10];  /* ＳＥＪ出動ＣＤ情報(綜受) */
+ } STDCD_INF;
+	</define>
+	<st-name>STDCD_INF</st-name>
+</struct>
+<struct>
+	<name>CM62121 SEJ コスモ出動要請応答通知(SV->GW)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+} SZCSM_STDRSP_T;
+	</define>
+	<st-name>SZCSM_STDRSP_T</st-name>
+</struct>
+<struct>
+	<name>CU20203 ＳＥＪコスモ画面登録要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_address[4];   /* サブアドレス     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   uketuke_id[1];   /* 受付ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   uke_name[40];   /* 受付者      */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+ char   shisya_uke_date[12]; /* 支社受付日時     */
+ char   shisya_recv_name[40]; /* 支社受信者     */
+ char   shisya_mei[40];   /* 支社名      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ union {         /* 出動ＣＤ情報     */
+  SZBSTCDINF_T bnk_scdinf[10];   /* 銀行出動ＣＤ情報   */
+  SZKSTCDINF_T kgy_scdinf[10];   /* 企業内出動ＣＤ情報  */
+  SZSSTCDINF_T sej_scdinf[10];   /* ＳＥＪ出動ＣＤ情報  */
+ } STDCD_INF;
+	</define>
+	<st-name>STDCD_INF</st-name>
+</struct>
+<struct>
+	<name>CU20304 コスモデータ無線直行指示要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   keibi_inf[20];   /* 警備情報      */
+ char   kairo_kubun[32];  /* 回路区分      */
+ char   course_no[3];   /* コース番号     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   siji_time[4];   /* 指示時間      */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   doukousya[6];   /* 同行者      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   vax_time[4];   /* ＶＡＸ送信時間    */
+ /* コスモ事案サブで付与 */
+ DZCSMJIANJF_S csm_jian;    /* コスモ事案情報構造体   */
+} SZCSM_DTMSIJI_T;
+	</define>
+	<st-name>SZCSM_DTMSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU20301 コスモ待機所端末直行指示要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   key_kosuu[3];   /* キー個数      */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   syozaichi1[80];   /* 所在地１      */
+ char   syozaichi2[40];   /* 所在地２      */
+ char   tel_no[20];    /* 警備先電話番号    */
+ char   keihou_gappi[4];  /* 警報月日      */
+ char   keihou_time[4];   /* 警報時分      */
+ char   course_no[3];   /* コース番号     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   siji_taiin_no[6];  /* 指示隊員番号     */
+ char   siji_taiin_name[40]; /* 指示隊員氏名     */
+ char   doukousya_no[6];  /* 同行者番号     */
+ char   doukousya_name[40];  /* 同行者氏名     */
+ char   siji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行       */
+ char   taikijyo_cd[4];   /* 待機所コード     */
+ char   tanto_kubun[1];   /* 担当／応援区分    */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   uke_date[12];   /* 受付日時      */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   hassin_nm[40];   /* 発信者      */
+ char   uke_name[40];   /* 受付者      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ SZSCDSIRE_T  sireiif[10];   /* 出動ＣＤ指令情報構造体  */
+} SZCSM_TTMSIJI_T;
+	</define>
+	<st-name>SZCSM_TTMSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU20301 コスモ待機所端末直行指示通知(SV->待機所端末)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   denkei_no[9];   /* 電計番号   2001.12.19 */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   syozaichi1[80];   /* 所在地１      */
+ char   syozaichi2[40];   /* 所在地２      */
+ char   tel_no[20];    /* 警備先電話番号    */
+ char   course_no[3];   /* コース番号     */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   uke_name[40];   /* 受付者      */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   siji_taiin_no[6];  /* 指示隊員番号     */
+ char   siji_taiin_name[40]; /* 指示隊員氏名     */
+ char   doukousya_no[6];  /* 同行者社員番号    */
+ char   doukousya_name[40];  /* 同行者氏名     */
+ char   siji_time[4];   /* 指示時間      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ SZSCDSIRE_T  sireiif[10];   /* 出動ＣＤ指令情報構造体  */
+} SZTTM_CSIJI_T;
+	</define>
+	<st-name>SZTTM_CSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU20307 コスモＭＰＢ直行指示要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   course_no[3];   /* コース番号     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   siji_time[4];   /* 指示時間      */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   doukousya[6];   /* 同行者      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   tel_no[20];    /* 電話番号      */
+ char   send_time[4];   /* 送信時間      */
+ char   keibi_time[4];   /* 警備情報時刻     */
+ char   uke_date[12];   /* 受付日時      */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ /* コスモ事案サブで付与 */
+ DZCSMJIANJF_S csm_jian;    /* コスモ事案情報構造体   */
+} SZCSM_MPBSIJI_T;
+	</define>
+	<st-name>SZCSM_MPBSIJI_T</st-name>
+</struct>
+<struct>
+	<name>CU20310 コスモ隊員直行指示要求(音声無線系)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   tanto_kubun[1];   /* 担当／応援区分    */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   shiji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   syoyo_mikomi[3];  /* 所要見込み     */
+ char   touchaku_yotei[4];  /* 到着予定      */
+ char   genchaku_time[4];  /* 現着時間      */
+ char   syuryou_time[4];  /* 終了時間      */
+ char   torikeshi_time[4];  /* 取消時間      */
+ char   doukousya[6];   /* 同行者      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   shirei_shoyou[3];  /* 指令所要      */
+ char   touchaku_shoyou[3];  /* 到着所要      */
+ /* 事案サブで付与 */
+ DZCSMJIANJF_S csm_jian;    /* コスモ事案情報構造体   */
+} SZCSM_TINUPD_T;
+	</define>
+	<st-name>SZCSM_TINUPD_T</st-name>
+</struct>
+<struct>
+	<name>CU20313 コスモ隊員処置更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   tanto_kubun[1];   /* 担当／応援区分    */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   shiji_time[4];   /* 指示時間      */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   syoyo_mikomi[3];  /* 所要見込み     */
+ char   touchaku_yotei[4];  /* 到着予定      */
+ char   genchaku_time[4];  /* 現着時間      */
+ char   nyukan[4];    /* 入館    20020824 */
+ char   taikan[4];    /* 退館    20020824 */
+ char   taikan_kubun[1];  /* 退館区分   20020824 */
+ char   syuryou_time[4];  /* 終了時間      */
+ char   torikeshi_time[4];  /* 取消時間      */
+ char   doukousya[6];   /* 同行者      */
+ char   taiin_jitai_cd[1];  /* 隊員事態コード  20020824 */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   shirei_shoyou[3];  /* 指令所要      */
+ char   touchaku_shoyou[3];  /* 到着所要      */
+ /* 事案サブで付与 */
+ DZCSMJIANJF_S csm_jian;    /* コスモ事案情報構造体   */
+} SZCSM_TINUPDN_T;
+	</define>
+	<st-name>SZCSM_TINUPDN_T</st-name>
+</struct>
+<struct>
+	<name>CU20318 ＳＥＪコスモ事案処置更新要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   syochi_date[12];  /* 処置日時  2002.08.24  */
+ char   tanto_kansiin_name[40]; /* 担当監視員名     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   shiji_time[4];   /* 指示時刻      */
+ char   chokkou_time[4];  /* 直行時刻      */
+ char   genchaku_time[4];  /* 現着時刻      */
+ char   nyuukan_time[4];  /* 入館時刻      */
+ char   start_time[4];   /* 開始時刻      */
+ char   end_time[4];   /* 終了時刻      */
+ char   taikan_time[4];   /* 退館時刻      */
+ char   hosyu_tochaku_time[4]; /* 保守到着時刻     */
+ char   hosyu_taikan_time[4]; /* 保守退館時刻     */
+ char   syoti_shoyou[3];  /* 処置所要      */
+ char   nyuukan_shoyou[3];  /* 入館所要      */
+ char   sou_shoyou[3];   /* 総所要      */
+ char   tachiai_shoyou[3];  /* 立会所要      */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   saisyu_hokoku_time[4]; /* 最終報告時刻     */
+ char   saisyu_hokoku_kbn[1]; /* 最終報告者区分    */
+ char   saisyu_houkokusya[40]; /* 最終報告者     */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ union {         /* 出動ＣＤ情報     */
+  SZBCDINF_T bnk_cdinf[10];    /* 銀行ＣＤ情報    */
+  SZKCDINF_T kgy_cdinf[10];    /* 企業内ＣＤ情報   */
+  SZSCDINF_T sej_cdinf[10];    /* ＳＥＪＣＤ情報   */
+ } UPDCD_INF;
+	</define>
+	<st-name>UPDCD_INF</st-name>
+</struct>
+<struct>
+	<name>CU20328 コスモ隊員落着更新要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   ronri_no[10];   /* 論理番号      */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ SZKEY_S   key_inf4;    /* キー情報４     */
+ char   rakuins_date[14];  /* 落着登録日付     */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   siji_time[4];   /* 指示       */
+ char   chokkou_time[4];  /* 直行       */
+ char   mikomi_time[3];   /* 見込       */
+ char   genchaku_time[4];  /* 現着       */
+ char   nyukan[4];    /* 入館    20020829 */
+ char   taikan[4];    /* 退館    20020829 */
+ char   taikan_kubun[1];  /* 退館区分   20020829 */
+ char   syuryou_time[4];  /* 終了       */
+ char   torikesi_time[4];  /* 取消       */
+ char   kikan_time[4];   /* 帰還       */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   doukousya_name[40];  /* 同行者氏名     */
+ char   upd_date[12];   /* 更新日付      */
+ char   shirei_shoyou[3];  /* 指令所要      */
+ char   touchaku_shoyou[3];  /* 到着所要      */
+ char   touchaku_yotei[4];  /* 到着予定      */
+} SZTIN_CRAK_UP_T;
+	</define>
+	<st-name>SZTIN_CRAK_UP_T</st-name>
+</struct>
+<struct>
+	<name>CU20319 コスモ待機所端末帰還通知(TTM->SV)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   denkei_no[9];   /* 電計番号    01.12.19*/
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   kikan_time[4];   /* 帰還時刻      */
+ char   sagyo_start_time[4]; /* 作業開始時刻     */
+ char   sagyo_end_time[4];  /* 作業終了時刻     */
+ char   saisyu_hokoku_time[4]; /* 最終報告時刻     */
+ char   hosyu_tochaku_time[4]; /* 保守到着時間   01.12.19*/
+ char   hosyu_taikan_time[4]; /* 保守退館時間   01.12.19*/
+ char   saisyu_hokoku_kbn[1]; /* 最終報告者区分    */
+ char   saisyu_houkokusya[40]; /* 最終報告者     */
+ char   raku_name[40];   /* 落着者    02.09.25*/
+ char   syutu_cd_suu[2];  /* 出動ＣＤ数     */
+ SZSCDKAIS_T  kaisyif[10];   /* 出動ＣＤ回収情報    */
+} SZCSMTTM_SKIKAN_T;
+	</define>
+	<st-name>SZCSMTTM_SKIKAN_T</st-name>
+</struct>
+<struct>
+	<name>CU20322 コスモ隊員指示落着要求(CL->SV)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ情報    */
+ SZKEY_INF_S  key_inf1;    /* キー情報１     */
+ char   ronri_no[10];   /* 論理番号(ＳＧＳ)    */
+ SZKEY_S   key_inf2;    /* キー情報２     */
+ char   hassei_date[14];  /* 事案発生日付     */
+ SZKEY_S   key_inf3;    /* キー情報３     */
+ char   taiin_no[6];   /* 隊員番号      */
+ char   tanto_kubun[1];   /* 担当応援区分     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   siji_houhou[1];   /* 指示方法      */
+ char   siji_time[4];   /* 指示       */
+ char   chokkou_time[4];  /* 直行       */
+ char   syoyo_mikomi[3];  /* 所要見込み     */
+ char   touchaku_yotei[4];  /* 到着予定      */
+ char   genchaku_time[4];  /* 現着       */
+ char   nyukan[4];    /* 入館    20020824 */
+ char   taikan[4];    /* 退館    20020824 */
+ char   taikan_kubun[1];  /* 退館区分   20020824 */
+ char   syuryou_time[4];  /* 終了       */
+ char   torikesi_time[4];  /* 取消       */
+ char   kikan_time[4];   /* 帰還       */
+ char   doukousya[6];   /* 同行者      */
+ char   taiin_jitai_cd[1];  /* 隊員事態コード 20020824 */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   doukousya_name[40];  /* 同行者氏名     */
+ char   shirei_shoyou[3];  /* 指令所要      */
+ char   touchaku_shoyou[3];  /* 到着所要      */
+} SZCSM_TINRKAD_T;
+	</define>
+	<st-name>SZCSM_TINRKAD_T</st-name>
+</struct>
+<struct>
+	<name>CU20401 コスモ待機所端末直行指示応答通知(TTM->SV)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   siji_taiin_no[6];  /* 指示隊員番号     */
+ char   syutudo_taiin_no[6]; /* 出動隊員番号     */
+ char   doukousya[6];   /* 同行者      */
+ char   chokkou_time[4];  /* 直行時間      */
+ char   mikomi_time[3];   /* 見込       */
+ char   touchaku_yotei[4];  /* 到着予定      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+ char   shirei_shoyou[3];  /* 指令所要      */
+ char   gouki_no[7];   /* 号機番号    01.10.23*/
+ char   sub_addr[4];   /* サブアドレス   01.10.23*/
+} SZTTM_CCHOKKO_T;
+	</define>
+	<st-name>SZTTM_CCHOKKO_T</st-name>
+</struct>
+<struct>
+	<name>CU20415 コスモデータ無線原因通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   vax_no[4];    /* データ無線番号    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   rfu[2];     /* 予備       */
+ char   info_id[2];    /* 情報種別      */
+ char   info_dt[2];    /* 所要時間／原因コード   */
+ char   date_time[4];   /* 了解／現着時間    */
+ char   rfu2[27];    /* 予備       */
+ /* 隊員サブで付与 */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   bef_syoyo_mikomi[3]; /* 更新前所要見込み    */
+ char   aft_syoyo_mikomi[3]; /* 更新後所要見込み    */
+} SZCSM_DTMRECV_T;
+	</define>
+	<st-name>SZCSM_DTMRECV_T</st-name>
+</struct>
+<struct>
+	<name>CU20414 退館信号</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   date_time[4];   /* 入館／退館時間    */
+ DZKEIBI_INF  keibi_inf[1];   /* 警備情報      */
+} SZCSM_NYUTAI_T;
+	</define>
+	<st-name>SZCSM_NYUTAI_T</st-name>
+</struct>
+<struct>
+	<name>CT20102 処置監視タイムアウト</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   uketuke_no[14];   /* 契約先受付番号 2004.03.17 */
+ char   timer_syubetu[1];  /* タイマー種別     */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   hassei_date[14];  /* 事案発生日付格納域   */
+} SZCSM_TMOVR_T;
+	</define>
+	<st-name>SZCSM_TMOVR_T</st-name>
+</struct>
+<struct>
+	<name>CT30101 事案発生タイムアウト通知(予約事案サブ->SGS事案サブ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   youto_id[1];   /* 用途ＩＤ     */
+ char   tou_date[14];   /* 登録日時     */
+ char   yoyaku_nitiji[12];  /* 予約日時     */
+ char   ikkatu_torok_kbn[2]; /* 一括登録区分    */
+ char   torok_kbn[2];   /* 登録区分     */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   naiyou[20];    /* 内容      */
+ char   syuryo_yotei_date[12]; /* 終了予定日時    */
+ char   msg_cd[4];    /*メッセージコード 2004.03.09 */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容     */
+ char   renrak_group_code[2]; /* 連絡先グループコード  */
+ char   renrak_code[6];   /* 連絡先コード    */
+ char   yoyaku_jian_no[13];  /* 予約事案番号    */
+ char   keiho_su[2];   /* 監視対象外警報数   */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体  */
+} SZJIANH_TOUTT_T;
+	</define>
+	<st-name>SZJIANH_TOUTT_T</st-name>
+</struct>
+<struct>
+	<name>ＬＣＴコスモ受付事案登録通知要求(LCTサブ->ネットコスモサブ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   msno[4];    /* ＭＳ番号      */
+ char   center_name[48];  /* センタ名称     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   hassei_date[8];   /* 発生月日時分     */
+ char   keibi_inf[10];   /* 警備信号      */
+} SZCSM_LCTNETC_T;
+	</define>
+	<st-name>SZCSM_LCTNETC_T</st-name>
+</struct>
+<struct>
+	<name>CM62700 ＬＣＴコスモ受付事案登録(SV->コスモ受付)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   msno[4];    /* ＭＳ番号      */
+ char   center_name[48];  /* センタ名称     */
+ char   gouki_no[7];   /* 号機番号      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   ryakusyou[40];   /* 略称名称      */
+ char   hassei_date[8];   /* 発生月日時分     */
+ char   keibi_inf[10];   /* 警備信号      */
+} SZCSM_LCTUINS_T;
+	</define>
+	<st-name>SZCSM_LCTUINS_T</st-name>
+</struct>
+<struct>
+	<name>CM62600 定期点検予定情報通知</name>
+	<define>
+typedef struct {       /* 予定ＣＤ情報構造体   */
+ char   atm_no[4];    /* ＡＴＭ番号     */
+} SZTEI_RCDINF_T;
+	</define>
+	<st-name>SZTEI_RCDINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62600 定期点検予定情報通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報   */
+ char   teiki_uketuke_no[14]; /* 定期点検受付番号   */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   kinyu_kubun[2];   /* 金融区分     */
+ char   keiyakusaki_cd[4];  /* 契約先コード    */
+ char   setchisaki_cd[12];  /* 設置先コード    */
+ char   denkei_no[9];   /* 電計番号     */
+ char   sub_address[4];   /* サブアドレス    */
+ char   ryakushou_mei[40];  /* 略称名称     */
+ char   uketuke_id[1];   /* 受付ＩＤ     */
+ char   hassei_id[1];   /* 発生ＩＤ     */
+ char   uke_date[12];   /* 受付日時     */
+ char   uke_name[40];   /* 受付者      */
+ char   irai_moto_cd[8];  /* 依頼元コード    */
+ char   irai_name[40];   /* 依頼者名     */
+ char   irai_mei[40];   /* 依頼名称     */
+ char   jusin_date[12];   /* 受信日時     */
+ char   jusin_name[40];   /* 受信者      */
+ char   chaku_date[12];   /* 着信日時     */
+ char   chaku_name[40];   /* 着信者      */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号  */
+ char   send_center_no[4];  /* 送信先センタ番号   */
+ char   tenken_date[12];  /* 定期点検日時    */
+ char   yousei_date[12];  /* 出動要請日時    */
+ char   hosyu_kaisya_code[6]; /* 保守会社コード    */
+ char   hosyu_kaisya_tel[20]; /* 保守会社電話番号   */
+ char   hosyu_kaisya_mei[40]; /* 保守会社名     */
+ char   hosyuin[40];   /* 保守員      */
+ char   teiki_bikou[400];  /* 備考      */
+ char   chancel_mark[1];  /* キャンセルマーク   */
+ char   atm_suu[2];    /* ＡＴＭ数     */
+ SZTEI_RCDINF_T data[10];    /* 定期点検予定ＣＤ情報構造体 */
+} SZTEI_RSVINF_T;
+	</define>
+	<st-name>SZTEI_RSVINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62500 銀行コスモ予約出動情報通知</name>
+	<define>
+typedef struct {      /* 予約出動ＣＤ情報構造体   */
+           /* 出動ＣＤ指令情報    */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   sitei_date[12];    /* 指定日時     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   honnin_kakunin[1];   /* 本人確認     */
+ char   kakunin_no[3];    /* 確認番号     */
+ char   honnin_kaku_other[40];  /* 本人確認その他   */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   hosyu_uke_name[40];   /* 保守受付者    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+} SZSRVB_SCDINF_T;
+	</define>
+	<st-name>SZSRVB_SCDINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62500 銀行コスモ予約出動情報通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_address[4];   /* サブアドレス     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   uketuke_id[1];   /* 受付ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   uke_name[40];   /* 受付者      */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+ char   shisya_uke_date[12]; /* 支社受付日時     */
+ char   shisya_recv_name[40]; /* 支社受信者     */
+ char   shisya_mei[40];   /* 支社名      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   yoyaku_date[12];  /* 予約日時      */
+ char   syutu_yousei_date[12]; /* 出動要請日時     */
+ char   syutu_uke_name[40];  /* 出動受付者     */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ SZSRVB_SCDINF_T data[10];    /* 予約出動ＣＤ情報構造体  */
+} SZCSMB_RSVINF_T;
+	</define>
+	<st-name>SZCSMB_RSVINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62510 企業コスモ予約出動情報通知</name>
+	<define>
+typedef struct {      /* 出動登録ＣＤ情報構造体   */
+           /* 出動ＣＤ指令情報    */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   sitei_date[12];    /* 指定日時     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   honnin_kakunin[1];   /* 本人確認     */
+ char   kakunin_no[3];    /* 確認番号     */
+ char   honnin_kaku_other[40];  /* 本人確認その他   */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   hosyu_uke_name[40];   /* 保守受付者    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+           /* 出動ＣＤ取引情報    */
+ char   error_code[14];    /* エラーコード    */
+ char   error_naiyou[80];   /* エラー内容    */
+ char   shochi_shousai[600];  /* 処置詳細     */
+ char   cd_jyoutai[1];    /* ＣＤ状態     */
+ char   torihiki_date[12];   /* 取引日時     */
+ char   meigi[40];     /* 名義      */
+ char   enbos_no[20];    /* エンボス番号    */
+ char   t_jnl_shochi[60];   /* 取引ジャーナル内容  */
+ char   t_card_shochi[60];   /* 取引カード内容   */
+ char   t_genkin_shochi[60];  /* 取引現金内容    */
+ char   seikyu_kingaku[4];   /* 請求金額     */
+ char   ichibu_uketori[4];   /* 一部受取     */
+ char   seikyu_gai[1];    /* 請求外     */
+ char   torihiki_kekka[1];   /* 取引結果     */
+} SZKGY_SICDINF_T;
+	</define>
+	<st-name>SZKGY_SICDINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62510 企業コスモ予約出動情報通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_address[4];   /* サブアドレス     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   uketuke_id[1];   /* 受付ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   uke_name[40];   /* 受付者      */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+ char   shisya_uke_date[12]; /* 支社受付日時     */
+ char   shisya_recv_name[40]; /* 支社受信者     */
+ char   shisya_mei[40];   /* 支社名      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   yoyaku_date[12];  /* 予約日時      */
+ char   syutu_yousei_date[12]; /* 出動要請日時     */
+ char   syutu_uke_name[40];  /* 出動受付者     */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ SZKGY_SICDINF_T data[10];    /* 出動登録ＣＤ情報構造体  */
+} SZCSM_RSVINF_T;
+	</define>
+	<st-name>SZCSM_RSVINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62520 ＳＥＪコスモ予約出動情報通知</name>
+	<define>
+typedef struct {      /* ＧＣSEJ 出動ＣＤ情報構造体  */
+            /* 予約ＣＤ指令情報   */
+ char   atm_no[4];     /* ＡＴＭ番号    */
+ char   taiou_jisu[2];    /* 対応次数     */
+ char   shougai_code[4];   /* 障害コード    */
+ char   shougai_naiyou[40];   /* 障害内容     */
+ char   kyaku_machi[1];    /* 客待ち     */
+ char   kyaku_name[40];    /* 客氏名     */
+ char   sairai_date[12];   /* 再来日時     */
+ char   hosyu_yotei_date[12];  /* 保守予定     */
+ char   hosyuin[40];    /* 保守員     */
+ char   hosyu_kaisya_code[6];  /* 保守会社コード   */
+ char   hosyu_kaisya_mei[40];  /* 保守会社名    */
+ char   hosyu_uke_name[40];   /* 保守受付者    */
+ char   tatyaku_yotei[12];   /* 他着予定     */
+ char   tatyaku_sya[40];   /* 他着者     */
+ char   jian_memo[600];    /* 事案メモ     */
+            /* 予約ＣＤ障害情報   */
+ SZSEJI_TRBLIF_T sej_trblif[1];    /* 障害基本情報構造体  */
+ SZSEJI_ANSIF_T sej_ansif[1];    /* 応答基本情報    */
+ SZSEJI_ZANBAI_T sej_zanbai[1];    /* 残留媒体情報構造体  */
+ SZSEJI_ATMCD_T sej_atmcd[1];    /* 自動処理情報構造体  */
+ SZSEJI_TORIIF_T sej_toriif[1];    /* 取引情報構造体   */
+ SZSEJI_MNYDAT_T sej_money[1];    /* 金額データ情報構造体  */
+ SZSEJI_FURIIF_T sej_fuiif[1];    /* 振込情報構造体   */
+ SZSEJI_TORBAI_T sej_torbai[1];    /* 取引媒体情報構造体  */
+ SZSEJI_IRAI_T sej_irai[1];    /* 依頼内容情報構造体  */
+ SZSEJI_SZBAI_T sej_szbai[1];    /* 処置後残留媒体情報構造体 */
+ SZSEJI_TWKIF_T sej_twkif[1];    /* 取り忘れ回収情報構造体 */
+ SZSEJI_HTIRAI_T sej_htirai[1];    /* 保守立会依頼情報構造体 */
+} SZSEJ_SICDINF_T;
+	</define>
+	<st-name>SZSEJ_SICDINF_T</st-name>
+</struct>
+<struct>
+	<name>CM62520 ＳＥＪコスモ予約出動情報通知</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+ char   kinyu_kubun[2];   /* 金融区分      */
+ char   keiyakusaki_cd[4];  /* 契約先コード     */
+ char   setchisaki_cd[12];  /* 設置先コード     */
+ char   denkei_no[9];   /* 電計番号      */
+ char   sub_address[4];   /* サブアドレス     */
+ char   ryakushou_mei[40];  /* 略称名称      */
+ char   uketuke_id[1];   /* 受付ＩＤ      */
+ char   hassei_id[1];   /* 発生ＩＤ      */
+ char   uke_name[40];   /* 受付者      */
+ char   kigyou_uke_date[12]; /* 企業受付日時     */
+ char   kigyou_hassin_nm[40]; /* 企業発信者     */
+ char   keiyaku_uke_date[12]; /* 契約先受付日時    */
+ char   keiyaku_hassin_nm[40]; /* 契約先発信者     */
+ char   tanto_csmcenter_no[4]; /* 担当コスモセンタ番号   */
+ char   send_center_no[4];  /* 送信先センタ番号    */
+ char   shisya_uke_date[12]; /* 支社受付日時     */
+ char   shisya_recv_name[40]; /* 支社受信者     */
+ char   shisya_mei[40];   /* 支社名      */
+ char   std_shougai_cd[4];  /* 出動障害コード    */
+ char   std_shougai_naiyou[40]; /* 出動障害内容     */
+ char   std_kyaku_machi[1];  /* 出動客待ち     */
+ char   yoyaku_date[12];  /* 予約日時      */
+ char   syutu_yousei_date[12]; /* 出動要請日時     */
+ char   syutu_uke_name[40];  /* 出動受付者     */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ SZSEJ_SICDINF_T data[10];    /* 出動登録ＣＤ情報構造体  */
+} SZCSMS_RSVINF_T;
+	</define>
+	<st-name>SZCSMS_RSVINF_T</st-name>
+</struct>
+<struct>
+	<name>CU20327 ＳＥＪコスモ事案落着要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   rakuins_date[12];  /* 落着登録日付     */
+ char   raku_name[40];   /* 落着者氏名     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   shiji_time[4];   /* 指示時刻 ※     */
+ char   chokkou_time[4];  /* 直行時刻 ※     */
+ char   genchaku_time[4];  /* 現着時刻 ※     */
+ char   nyuukan_time[4];  /* 入館時刻      */
+ char   start_time[4];   /* 開始時刻      */
+ char   end_time[4];   /* 終了時刻      */
+ char   taikan_time[4];   /* 退館時刻      */
+ char   hosyu_tochaku_time[4]; /* 保守到着時刻     */
+ char   hosyu_taikan_time[4]; /* 保守退館時刻     */
+ char   syoti_shoyou[3];  /* 処置所要      */
+ char   nyuukan_shoyou[3];  /* 入館所要      */
+ char   sou_shoyou[3];   /* 総所要      */
+ char   tachiai_shoyou[3];  /* 立会所要      */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   saisyu_hokoku_time[4]; /* 最終報告時刻     */
+ char   saisyu_hokoku_kbn[1]; /* 最終報告者区分    */
+ char   saisyu_houkokusya[40]; /* 最終報告者     */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ union {        /* 金融区分別出動ＣＤ情報  */
+  SZBCDINF_T bnk_cdinf[10];   /* 金融区分:銀行ＣＤ   */
+  SZKCDINF_T kgy_cdinf[10];   /* 金融区分:企業内ＣＤ   */
+  SZSCDINF_T sej_cdinf[10];   /* 金融区分:ＳＥＪＣＤ   */
+ } UPDCD_INF;
+	</define>
+	<st-name>UPDCD_INF</st-name>
+</struct>
+<struct>
+	<name>CU20503 ＳＥＪコスモ事案落着更新要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   rakuchaku_updt[12];  /* 落着更新日付     */
+ char   raku_name[40];   /* 落着者氏名     */
+ char   uke_time[4];   /* 受付時刻      */
+ char   yousei_time[4];   /* 要請時刻      */
+ char   shiji_time[4];   /* 指示時刻      */
+ char   chokkou_time[4];  /* 直行時刻      */
+ char   genchaku_time[4];  /* 現着時刻      */
+ char   nyuukan_time[4];  /* 入館時刻      */
+ char   start_time[4];   /* 開始時刻      */
+ char   end_time[4];   /* 終了時刻      */
+ char   taikan_time[4];   /* 退館時刻      */
+ char   hosyu_tochaku_time[4]; /* 保守到着時刻     */
+ char   hosyu_taikan_time[4]; /* 保守退館時刻     */
+ char   syoti_shoyou[3];  /* 処置所要      */
+ char   nyuukan_shoyou[3];  /* 入館所要      */
+ char   sou_shoyou[3];   /* 総所要      */
+ char   tachiai_shoyou[3];  /* 立会所要      */
+ char   taiin_name[40];   /* 隊員氏名      */
+ char   saisyu_hokoku_time[4]; /* 最終報告時刻     */
+ char   saisyu_hokoku_kbn[1]; /* 最終報告者区分    */
+ char   saisyu_houkokusya[40]; /* 最終報告者     */
+ char   syutu_cd_suu[2];  /* 出動ＣＤ情報数    */
+ union {        /* 金融区分別出動ＣＤ情報  */
+  SZBCDINF_T bnk_cdinf[10];   /* 金融区分:銀行ＣＤ   */
+  SZKCDINF_T kgy_cdinf[10];   /* 金融区分:企業内ＣＤ   */
+  SZSCDINF_T sej_cdinf[10];   /* 金融区分:ＳＥＪＣＤ   */
+ } UPDCD_INF;
+	</define>
+	<st-name>UPDCD_INF</st-name>
+</struct>
+<struct>
+	<name>CM70101 ＳＧＳ直行判定</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   evt_kind[2];   /* イベント種別     */
+ char   evt_date[14];   /* イベント発生日付    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   keihou_count[1];  /* 警報カウンタ  2002.11.15 */
+ DZKEIBI_INF  keibi_inf[5];   /* 警備情報   2002.11.14 */
+ char   timeover_mark[1];  /* タイムオーバー 2002.11.14 */
+ char   jitai_cd[1];   /* 事態コード  2002.11.14 */
+ char   kn_inf[1];    /* ＫＮ状態   2002.11.14 */
+ char   kf_inf[1];    /* ＫＦ状態   2002.11.14 */
+ char   n0_inf[1];    /* Ｎ０状態   2002.11.14 */
+ char   f0_inf[1];    /* Ｆ０状態   2002.11.14 */
+ char   zn0_inf[1];    /* ＺＮ０状態  2002.11.14 */
+ char   zf0_inf[1];    /* ＺＦ０状態  2002.11.14 */
+ char   siji_time[4];   /* 指示時間      */
+ char   yoyaku_flg[1];   /* 予約事案フラグ    */
+ char   yoyaku_jian_no[13];  /* 予約事案番号     */
+ char   dir_ans_flg[1];   /* 直行指示応答フラグ   */
+ char   tkj_toroku_flg[1];  /* 待機所登録フラグ    */
+ char   imd_toroku_flg[1];  /* ｉモード登録フラグ   */
+ char   kfkn[1];    /* ＫＦ／ＫＮフラグ    */
+ char   dir_siji_su[1];   /* 直行指示人数     */
+ char   taiin_no1[6];   /* 隊員番号１     */
+ char   doukou_sha1[6];   /* 同行者隊員番号１    */
+ char   chokkou_time1[4];  /* 直行時刻１     */
+ char   syoyo_mikomi1[3];  /* 見込１      */
+ char   tanto_kubun1[1];  /* 担当応援区分１    */
+ char   syutudou_kubun1[1];  /* 出動区分１     */
+ char   chokkou_kubun1[1];  /* 直行区分１     */
+ char   car_no1[3];    /* 車輌管理番号１    */
+ char   dir_send_flg1[1];  /* 直行送信フラグ１    */
+ char   kiki_id1[4];   /* 連絡機器ＩＤ１    */
+ char   riyu1[2];    /* 選定理由１     */
+ char   taiin_no2[6];   /* 隊員番号２     */
+ char   doukou_sha2[6];   /* 同行者隊員番号２    */
+ char   chokkou_time2[4];  /* 直行時刻２     */
+ char   syoyo_mikomi2[3];  /* 見込２      */
+ char   tanto_kubun2[1];  /* 担当応援区分２    */
+ char   syutudou_kubun2[1];  /* 出動区分２     */
+ char   chokkou_kubun2[1];  /* 直行区分２     */
+ char   car_no2[3];    /* 車輌管理番号２    */
+ char   dir_send_flg2[1];  /* 直行送信フラグ２    */
+ char   kiki_id2[4];   /* 連絡機器ＩＤ２    */
+ char   riyu2[2];    /* 選定理由２     */
+} SZSGS_DIR_T;
+	</define>
+	<st-name>SZSGS_DIR_T</st-name>
+</struct>
+<struct>
+	<name>CM70201 コスモ直行判定</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   evt_kind[2];   /* イベント種別     */
+ char   evt_date[14];   /* イベント発生日付    */
+ char   gouki_no[7];   /* 号機番号      */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   keihou_count[1];  /* 警報カウンタ  2002.11.15 */
+ DZKEIBI_INF  keibi_inf[5];   /* 警備情報   2002.11.14 */
+ char   st_shougai_naiyou[40]; /* 出動障害内容  2002.11.14 */
+ char   jian_time_over[1];  /* 事案タイムオーバ 2002.11.14 */
+ char   jitai_cd[1];   /* 事態コード  2002.11.14 */
+ char   kn_inf[1];    /* ＫＮ状態   2002.11.14 */
+ char   kf_inf[1];    /* ＫＦ状態   2002.11.14 */
+ char   n0_inf[1];    /* Ｎ０状態   2002.11.14 */
+ char   f0_inf[1];    /* Ｆ０状態   2002.11.14 */
+ char   zn0_inf[1];    /* ＺＮ０状態  2002.11.14 */
+ char   zf0_inf[1];    /* ＺＦ０状態  2002.11.14 */
+ char   siji_time[4];   /* 指示時間      */
+ char   yoyaku_flg[1];   /* 予約事案フラグ    */
+ char   yoyaku_jian_no[13];  /* 予約事案番号     */
+ char   kfkn[1];    /* ＫＦ／ＫＮフラグ    */
+ char   dir_ans_flg[1];   /* 直行指示応答フラグ   */
+ char   imd_toroku_flg[1];  /* ｉモード登録フラグ   */
+ char   dir_siji_su[1];   /* 直行指示人数     */
+ char   taiin_no1[6];   /* 隊員番号１     */
+ char   doukou_sha1[6];   /* 同行者隊員番号１    */
+ char   chokkou_time1[4];  /* 直行時刻１     */
+ char   syoyo_mikomi1[3];  /* 見込１      */
+ char   tanto_kubun1[1];  /* 担当応援区分１    */
+ char   syutudou_kubun1[1];  /* 出動区分１     */
+ char   chokkou_kubun1[1];  /* 直行区分１     */
+ char   car_no1[3];    /* 車輌管理番号１    */
+ char   dir_send_flg1[1];  /* 直行送信フラグ１    */
+ char   kiki_id1[4];   /* 連絡機器ＩＤ１    */
+ char   riyu1[2];    /* 選定理由１     */
+ char   taiin_no2[6];   /* 隊員番号２     */
+ char   doukou_sha2[6];   /* 同行者隊員番号２    */
+ char   chokkou_time2[4];  /* 直行時刻２     */
+ char   syoyo_mikomi2[3];  /* 見込２      */
+ char   tanto_kubun2[1];  /* 担当応援区分２    */
+ char   syutudou_kubun2[1];  /* 出動区分２     */
+ char   chokkou_kubun2[1];  /* 直行区分２     */
+ char   car_no2[3];    /* 車輌管理番号２    */
+ char   dir_send_flg2[1];  /* 直行送信フラグ２    */
+ char   kiki_id2[4];   /* 連絡機器ＩＤ２    */
+ char   riyu2[2];    /* 選定理由２     */
+} SZCSM_DIR_T;
+	</define>
+	<st-name>SZCSM_DIR_T</st-name>
+</struct>
+<struct>
+	<name>隊員指定無し応援要請要求(CU50301)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   ronri_no[10];   /* 論理番号      */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   jian_kubun[1];   /* 事案区分      */
+ char   ouen_taiin_no[6];  /* 応援隊員番号     */
+ char   sousa_taiin_no[6];  /* 指示操作隊員番号    */
+} SZTAI_NO_OUEN_T;
+	</define>
+	<st-name>SZTAI_NO_OUEN_T</st-name>
+</struct>
+<struct>
+	<name>ＳＧＳ事案台配信要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   beep_flg[1];   /* ブザー鳴動フラグ   */
+} SZSGS_J_SEND_T;
+	</define>
+	<st-name>SZSGS_J_SEND_T</st-name>
+</struct>
+<struct>
+	<name>コスモ事案台配信要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付    */
+ char   beep_flg[1];   /* ブザー鳴動フラグ   */
+} SZCSM_J_SEND_T;
+	</define>
+	<st-name>SZCSM_J_SEND_T</st-name>
+</struct>
+<struct>
+	<name>メッセージ登録情報構造体 2002.07.23</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体   */
+ char   sgs_ronri_no[10];  /* 論理番号     */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容     */
+ char   renrak_grp_cd[2];  /* 連絡先グループコード  */
+ char   renrak_cd[6];   /* 連絡先コード    */
+}  SZSGS_MESSAGE_T;
+	</define>
+	<st-name>SZSGS_MESSAGE_T</st-name>
+</struct>
+<struct>
+	<name>CU17404 予約事案情報削除要求(受信検索)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   youto_id[1];   /* 用途ＩＤ      */
+ char   tou_date[14];   /* 登録日時      */
+ char   yoyaku_jian_no[13];  /* 予約事案番号     */
+ char   hassei_nitiji[12];  /* 発生日時      */
+ char   ikkatu_torok_kbn[2]; /* 一括登録区分     */
+ char   torok_kbn[2];   /* 登録区分      */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   naiyou[20];    /* 内容       */
+ char   syuryo_yotei_date[12]; /* 終了予定日時     */
+ char   msg_cd[4];    /* メッセージコード 2004.03.09 */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_group_code[2]; /* 連絡先グループコード   */
+ char   renrak_code[6];   /* 連絡先コード     */
+ char   keiho_su[2];   /* 監視対象外警報数    */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZRSVYJJ_JK_T;
+	</define>
+	<st-name>SZRSVYJJ_JK_T</st-name>
+</struct>
+<struct>
+	<name>CU81703 予約事案情報削除要求(警備運用端末)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   youto_id[1];   /* 用途ＩＤ      */
+ char   tou_date[14];   /* 登録日時      */
+ char   yoyaku_jian_no[13];  /* 予約事案番号     */
+ char   hassei_nitiji[12];  /* 発生日時      */
+ char   ikkatu_torok_kbn[2]; /* 一括登録区分     */
+ char   torok_kbn[2];   /* 登録区分      */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   naiyou[20];    /* 内容       */
+ char   syuryo_yotei_date[12]; /* 終了予定日時     */
+ char   msg_cd[4];    /* メッセージコード 2004.03.09 */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_group_code[2]; /* 連絡先グループコード   */
+ char   renrak_code[6];   /* 連絡先コード     */
+ char   keiho_su[2];   /* 監視対象外警報数    */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZRSVYJJ_KUT_T;
+	</define>
+	<st-name>SZRSVYJJ_KUT_T</st-name>
+</struct>
+<struct>
+	<name>CU71807 ＳＧＳ予約事案取消了解確認(運用管理)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   youto_id[1];   /* 用途ＩＤ      */
+ char   tou_date[14];   /* 登録日時      */
+ char   yoyaku_jian_no[13];  /* 予約事案番号     */
+} SZRSVYJH_UNY_T;
+	</define>
+	<st-name>SZRSVYJH_UNY_T</st-name>
+</struct>
+<struct>
+	<name>CU71808 コスモ予約事案取消了解確認(運用管理)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   yoyaku_touroku_date[14];/* 予約登録日付     */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+} SZCSMJH_UNY_T;
+	</define>
+	<st-name>SZCSMJH_UNY_T</st-name>
+</struct>
+<struct>
+	<name>CU71809 定期点検予約事案取消了解確認(運用管理)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   teiki_touroku_date[14]; /* 定期点検登録日付    */
+ char   teiki_uketuke_no[14]; /* 定期点検受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+} SZTTNJH_UNY_T;
+	</define>
+	<st-name>SZTTNJH_UNY_T</st-name>
+</struct>
+<struct>
+	<name>CU81607 ＳＧＳ予約事案取消了解確認(警備運用)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   youto_id[1];   /* 用途ＩＤ      */
+ char   tou_date[14];   /* 登録日時      */
+ char   yoyaku_jian_no[13];  /* 予約事案番号     */
+} SZRSVYJH_KUT_T;
+	</define>
+	<st-name>SZRSVYJH_KUT_T</st-name>
+</struct>
+<struct>
+	<name>CU81608 コスモ予約事案取消了解確認(警備運用)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   yoyaku_touroku_date[14];/* 予約登録日付     */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   syutu_yousei_no[4];  /* 出動要請管理番号    */
+} SZCSMJH_KUT_T;
+	</define>
+	<st-name>SZCSMJH_KUT_T</st-name>
+</struct>
+<struct>
+	<name>CU81609 定期点検予約事案取消了解確認(警備運用)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   teiki_touroku_date[14]; /* 定期点検登録日付    */
+ char   teiki_uketuke_no[14]; /* 定期点検受付番号    */
+ char   csm_ronri_no[10];  /* コスモ論理番号    */
+ char   uketuke_no[14];   /* 契約先受付番号    */
+} SZTTNJH_KUT_T;
+	</define>
+	<st-name>SZTTNJH_KUT_T</st-name>
+</struct>
+<struct>
+	<name>CU30601 鍵携行ケース受け出し要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ char   course_no[3];   /* コース番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   ukedasi_syain_no[6]; /* 受出者社員番号    */
+ char   ukedasi_tsyain_no[6]; /* 受出立会社員番号    */
+ char   toroku_ring_num[6];  /* 登録リング数     */
+ char   toroku_kagi_num[6];  /* 登録鍵数      */
+ char   ukedasi_ring_num[6]; /* 受出リング数     */
+ char   ukedasi_kagi_num[6]; /* 受出鍵数      */
+ char   youto[2];    /* 用途       */
+ char   youto_other[40];  /* 用途その他     */
+} SZKC_GTINF_RQT;
+	</define>
+	<st-name>SZKC_GTINF_RQT</st-name>
+</struct>
+<struct>
+	<name>CU30601 鍵携行ケース受け出し要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKC_GTINF_RQT data[10];    /* 鍵携行ケース受出情報構造体 */
+} SZTTM_KCGTRQ_T;
+	</define>
+	<st-name>SZTTM_KCGTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵携行ケース返納要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ char   course_no[3];   /* コース番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+ char   hennou_syain_no[6];  /* 返納者社員番号    */
+ char   hennou_tsyain_no[6]; /* 返納立会社員番号    */
+ char   hennou_ring_num[6];  /* 返納リング数     */
+ char   hennou_kagi_num[6];  /* 返納鍵数      */
+ char   ukedasi_date[12];  /* 受出年月日時分    */
+} SZKC_RTINF_RQT;
+	</define>
+	<st-name>SZKC_RTINF_RQT</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵携行ケース返納要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKC_RTINF_RQT data[10];    /* 鍵携行ケース返納情報構造体 */
+} SZTTM_KCRTRQ_T;
+	</define>
+	<st-name>SZTTM_KCRTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵携行ケース返納応答(警備系ＳＶ->待機所端末)</name>
+	<define>
+typedef struct {
+ char   course_no[3];   /* コース番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+} SZKEY_CINF_RTT;
+	</define>
+	<st-name>SZKEY_CINF_RTT</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵携行ケース返納応答(警備系ＳＶ->待機所端末)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_CINF_RTT data[1];    /* 鍵携行ケース応答情報構造体 */
+} SZTTM_KCRT_T;
+	</define>
+	<st-name>SZTTM_KCRT_T</st-name>
+</struct>
+<struct>
+	<name>CU30601 鍵受け出し要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ char   kagi_mronri_no[10];  /* 鍵メイン論理番号    */
+ char   hook_no[3];    /* フック番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   ukedasi_syain_no[6]; /* 受出者社員番号    */
+ char   ukedasi_tsyain_no[6]; /* 受出立会社員番号    */
+ char   toroku_ring_num[6];  /* 登録リング数     */
+ char   toroku_kagi_num[6];  /* 登録鍵数      */
+ char   ukedasi_ring_num[6]; /* 受出リング数     */
+ char   ukedasi_kagi_num[6]; /* 受出鍵数      */
+ char   youto[2];    /* 用途       */
+ char   youto_other[40];  /* 用途その他     */
+} SZKEY_GTINF_RQT;
+	</define>
+	<st-name>SZKEY_GTINF_RQT</st-name>
+</struct>
+<struct>
+	<name>CU30601 鍵受け出し要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_GTINF_RQT data[10];    /* 鍵受出情報構造体    */
+} SZTTM_KEYGTRQ_T;
+	</define>
+	<st-name>SZTTM_KEYGTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵返納要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ char   kagi_mronri_no[10];  /* 鍵メイン論理番号    */
+ char   hook_no[3];    /* フック番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+ char   hennou_syain_no[6];  /* 返納者社員番号    */
+ char   hennou_tsyain_no[6]; /* 返納立会社員番号    */
+ char   hennou_ring_num[6];  /* 返納リング数     */
+ char   hennou_kagi_num[6];  /* 返納鍵数      */
+ char   ukedasi_date[12];  /* 受出年月日時分    */
+} SZKEY_RTINF_RQT;
+	</define>
+	<st-name>SZKEY_RTINF_RQT</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵返納要求(待機所端末->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_RTINF_RQT data[10];    /* 鍵返納情報構造体    */
+} SZTTM_KEYRTRQ_T;
+	</define>
+	<st-name>SZTTM_KEYRTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵返納応答(警備系ＳＶ->待機所端末)</name>
+	<define>
+typedef struct {
+ char   kagi_mronri_no[10];  /* 鍵メイン論理番号    */
+ char   hook_no[3];    /* フック番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+} SZKEY_INF_RTT;
+	</define>
+	<st-name>SZKEY_INF_RTT</st-name>
+</struct>
+<struct>
+	<name>CU30602 鍵返納応答(警備系ＳＶ->待機所端末)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_INF_RTT data[1];    /* 鍵応答情報構造体    */
+} SZTTM_KEYRT_T;
+	</define>
+	<st-name>SZTTM_KEYRT_T</st-name>
+</struct>
+<struct>
+	<name>CU50104 鍵携行ケース受け出し要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKC_GTINF_RQT data[10];    /* 鍵携行ケース受出情報構造体 */
+} SZIM_KCGTRQ_T;
+	</define>
+	<st-name>SZIM_KCGTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU50105 鍵携行ケース引継要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ char   course_no[3];   /* コース番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   hikitugi_syain_no[6]; /* 引継者社員番号    */
+ char   hikitugi_tsyain_no[6]; /* 引継立会社員番号    */
+ char   hikitugi_ring_num[6]; /* 引継リング数     */
+ char   hikitugi_kagi_num[6]; /* 引継鍵数      */
+ char   youto[2];    /* 用途       */
+ char   youto_other[40];  /* 用途その他     */
+ char   ukedasi_date[12];  /* 受出年月日時分    */
+} SZKC_HKINF_RQT;
+	</define>
+	<st-name>SZKC_HKINF_RQT</st-name>
+</struct>
+<struct>
+	<name>CU50105 鍵携行ケース引継要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKC_HKINF_RQT data[10];    /* 鍵携行ケース受出情報構造体 */
+} SZIM_KCHKRQ_T;
+	</define>
+	<st-name>SZIM_KCHKRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU50106 鍵携行ケース返納要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKC_RTINF_RQT data[10];    /* 鍵携行ケース受出情報構造体 */
+} SZIM_KCRTRQ_T;
+	</define>
+	<st-name>SZIM_KCRTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU50106 鍵携行ケース返納応答(警備系ＳＶ->ｉモードＧＷ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_CINF_RTT data[1];    /* 鍵携行ケース応答情報構造体 */
+} SZIM_KCRT_T;
+	</define>
+	<st-name>SZIM_KCRT_T</st-name>
+</struct>
+<struct>
+	<name>CU50101 鍵受け出し要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_GTINF_RQT data[10];    /* 鍵受出情報構造体    */
+} SZIM_KEYGTRQ_T;
+	</define>
+	<st-name>SZIM_KEYGTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU50102 鍵引継要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ char   kagi_mronri_no[10];  /* 鍵メイン論理番号    */
+ char   hook_no[3];    /* フック番号     */
+ char   kagi_syubetu[1];  /* 鍵種別      */
+ char   sub_addr[4];   /* サブアドレス     */
+ char   jigyosho_cd[6];   /* 事業所コード     */
+ char   hikitugi_syain_no[6]; /* 引継者社員番号    */
+ char   hikitugi_tsyain_no[6]; /* 引継立会社員番号    */
+ char   hikitugi_ring_num[6]; /* 引継リング数     */
+ char   hikitugi_kagi_num[6]; /* 引継鍵数      */
+ char   youto[2];    /* 用途       */
+ char   youto_other[40];  /* 用途その他     */
+ char   ukedasi_date[12];  /* 受出年月日時分    */
+} SZKEY_HKINF_RQT;
+	</define>
+	<st-name>SZKEY_HKINF_RQT</st-name>
+</struct>
+<struct>
+	<name>CU50102 鍵引継要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_HKINF_RQT data[10];    /* 鍵受出情報構造体    */
+} SZIM_KEYHKRQ_T;
+	</define>
+	<st-name>SZIM_KEYHKRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU50103 鍵返納要求(ｉモードＧＷ->警備系ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_RTINF_RQT data[10];    /* 鍵受出情報構造体    */
+} SZIM_KEYRTRQ_T;
+	</define>
+	<st-name>SZIM_KEYRTRQ_T</st-name>
+</struct>
+<struct>
+	<name>CU50103 鍵返納応答(警備系ＳＶ->ｉモードＧＷ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ukedasi_cnt[3];   /* 受出情報数     */
+ SZKEY_INF_RTT data[1];    /* 鍵応答情報構造体    */
+} SZIM_KEYRT_T;
+	</define>
+	<st-name>SZIM_KEYRT_T</st-name>
+</struct>
+<struct>
+	<name>??????? 鍵携行ケース履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ DZKEYCASELOG_S keycaselog;    /* 鍵携行ケース履歴Ｆ構造体  */
+} SZKEYCASELOG_T;
+	</define>
+	<st-name>SZKEYCASELOG_T</st-name>
+</struct>
+<struct>
+	<name>??????? 鍵履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ DZKEYLOG_S  keylog;     /* 鍵履歴Ｆ構造体    */
+} SZKEYLOG_T;
+	</define>
+	<st-name>SZKEYLOG_T</st-name>
+</struct>
+<struct>
+	<name>??????? 予約事案発生タイマ</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   youto_id[1];   /* 用途ＩＤ     */
+ char   tou_date[14];   /* 登録日時     */
+ char   yoyaku_jian_no[13];  /* 予約事案番号    */
+ char   keiho_su[2];   /* 監視対象外警報数   */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体  */
+} SZYOYAKU_JHT_T;
+	</define>
+	<st-name>SZYOYAKU_JHT_T</st-name>
+</struct>
+<struct>
+	<name>CU71803 予約隊員削除要求(運用管理)</name>
+	<define>
+typedef struct {
+ char   yoyaku_jian_no[13];  /* 予約事案番号    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   jian_syubetu[1];  /* 事案種別     */
+ char   syutudou_kubun[1];  /* 出動区分     */
+ char   taiin_no[6];   /* 隊員番号     */
+ char   syain_name[40];   /* 氏名      */
+ char   shiji_huka_time[12]; /* 指示不可時間    */
+} SZRSVTS_D_T;
+	</define>
+	<st-name>SZRSVTS_D_T</st-name>
+</struct>
+<struct>
+	<name>CU71803 予約隊員削除要求(運用管理)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   taiin_su[1];   /* 予約隊員数     */
+ SZRSVTS_D_T  rsvt_data[2];   /* 予約隊員情報構造体   */
+} SZRSVTS_UNY_T;
+	</define>
+	<st-name>SZRSVTS_UNY_T</st-name>
+</struct>
+<struct>
+	<name>CU81603 予約隊員削除要求(警備運用端末)</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報   */
+ char   taiin_su[1];   /* 予約隊員数     */
+ SZRSVTS_D_T  rsvt_data[2];   /* 予約隊員情報構造体   */
+} SZRSVTS_KUT_T;
+	</define>
+	<st-name>SZRSVTS_KUT_T</st-name>
+</struct>
+<struct>
+	<name>上番変更ロック要求構造体           2002.07.19</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体   */
+ char   souchi_id[6];   /* 装置ＩＤ     */
+ char   jigyosho_cd[6];   /* 事業所コード    */
+} SZJOBAN_LOCK_T;
+	</define>
+	<st-name>SZJOBAN_LOCK_T</st-name>
+</struct>
+<struct>
+	<name>上番変更ロック解除要求構造体       2002.07.19</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体   */
+ char   souchi_id[6];   /* 装置ＩＤ     */
+} SZJOBAN_UNLOCK_T;
+	</define>
+	<st-name>SZJOBAN_UNLOCK_T</st-name>
+</struct>
+<struct>
+	<name>隊員情報１            2002.07.19</name>
+	<define>
+typedef struct {
+ char   kinmu_sha[6];   /* 勤務者      */
+ char   kinmu_taisei[1];  /* 勤務体制     */
+ char   kinmu_st_time[4];  /* 勤務開始時間    */
+ char   kinmu_ed_time[4];  /* 勤務終了時間    */
+ char   doukou_sha[6];   /* 同行者      */
+ char   car_kanri_no[3];  /* 車両管理番号    */
+ char   taikijo_cd[4];   /* 待機所コード    */
+ char   taiin_shubetu[1];  /* 隊員種別     */
+ char   yusen_gyomu[1];   /* 優先業務     */
+} SZJOBAN_TAIIN_INF_T;
+	</define>
+	<st-name>SZJOBAN_TAIIN_INF_T</st-name>
+</struct>
+<struct>
+	<name>CU71603</name>
+	<define>
+typedef struct {
+ CMN_HEADER   cmn_head;   /* 共通ヘッダ構造体   */
+ char    taiin_num[3];  /* 上番隊員数     */
+ SZJOBAN_TAIIN_INF_T taiin_inf;   /* 隊員情報     */
+} SZJOBAN_IKKATU_UPD_T;
+	</define>
+	<st-name>SZJOBAN_IKKATU_UPD_T</st-name>
+</struct>
+<struct>
+	<name>待機所            CU30401</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報   */
+ char   taiin_num[3];   /* 上番隊員数     */
+ SZJOBAN_TAIIN_INF_T taiin_inf;   /* 隊員情報     */
+} SZJOBAN_IKKATU_TAIKI_UPD_T;
+	</define>
+	<st-name>SZJOBAN_IKKATU_TAIKI_UPD_T</st-name>
+</struct>
+<struct>
+	<name>コース情報１           2002.07.19</name>
+	<define>
+typedef struct {
+ char   course_no[3];   /* コース番号     */
+ char   taikijo_cd[4];   /* 待機所コード    */
+} SZJOBAN_COURSE_T;
+	</define>
+	<st-name>SZJOBAN_COURSE_T</st-name>
+</struct>
+<struct>
+	<name>CU71604</name>
+	<define>
+typedef struct {
+ CMN_HEADER   cmn_head;   /* 共通ヘッダ構造体   */
+ char    course_num[3];  /* コース番号     */
+ SZJOBAN_COURSE_T course_inf;   /* コース情報     */
+} SZJOBAN_COURSE_UPD_T;
+	</define>
+	<st-name>SZJOBAN_COURSE_UPD_T</st-name>
+</struct>
+<struct>
+	<name>待機所            CU30402</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報   */
+ char    course_num[3];  /* コース番号     */
+ SZJOBAN_COURSE_T course_inf;   /* コース情報     */
+} SZJOBAN_COURSE_TAIKI_UPD_T;
+	</define>
+	<st-name>SZJOBAN_COURSE_TAIKI_UPD_T</st-name>
+</struct>
+<struct>
+	<name>連絡機器情報１           2002.07.19</name>
+	<define>
+typedef struct {
+ char   renkiki_id[4];   /* 連絡機器ＩＤ    */
+ char   kinmu_sha[6];   /* 勤務者      */
+} SZJOBAN_RENKIKI_T;
+	</define>
+	<st-name>SZJOBAN_RENKIKI_T</st-name>
+</struct>
+<struct>
+	<name>CU71605</name>
+	<define>
+typedef struct {
+ CMN_HEADER   cmn_head;   /* 共通ヘッダ構造体   */
+ char    renkiki_num[3];  /* 上番連絡機器数    */
+ SZJOBAN_RENKIKI_T renkiki_inf;  /* 連絡機器情報    */
+} SZJOBAN_RENKIKI_UPD_T;
+	</define>
+	<st-name>SZJOBAN_RENKIKI_UPD_T</st-name>
+</struct>
+<struct>
+	<name>待機所            CU30403</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報   */
+ char    renkiki_num[3];  /* 上番連絡機器数    */
+ SZJOBAN_RENKIKI_T renkiki_inf;  /* 連絡機器情報    */
+} SZJOBAN_RENKIKI_TAIKI_UPD_T;
+	</define>
+	<st-name>SZJOBAN_RENKIKI_TAIKI_UPD_T</st-name>
+</struct>
+<struct>
+	<name>隊員位置情報問い合わせ要求(CPU->ナビGW     2002.07.23</name>
+	<define>
+typedef struct {
+ char    navi_ntc_no[4];  /* ナビ通知番号     */
+ char    ichi_info[24];  /* 通知タイプ     */
+} SZNAVI_TISINFO_T;
+	</define>
+	<st-name>SZNAVI_TISINFO_T</st-name>
+</struct>
+<struct>
+	<name>隊員位置情報問い合わせ要求(CPU->ナビGW     2002.07.23</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    ntc_data_flg[1]; /* 通知データフラグ    */
+ char    ntc_type[1];  /* 通知タイプ     */
+ char    ntc_filenm[14];  /* 通知ファイル名称    */
+ SZNAVI_TISINFO_T data[999];   /* 通知データ     */
+} SZNAVI_TIS_T;
+	</define>
+	<st-name>SZNAVI_TIS_T</st-name>
+</struct>
+<struct>
+	<name>20020805 追加</name>
+	<define>
+typedef struct {
+ char    navi_ntc_no[4];  /* ナビ端末番号     */
+ char    kyori[6];   /* 直線距離      */
+} SZNAVI_TIOINFO_T;
+	</define>
+	<st-name>SZNAVI_TIOINFO_T</st-name>
+</struct>
+<struct>
+	<name>20020805 追加</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    ntc_data_flg[1]; /* 通知データフラグ    */
+ char    ntc_type[1];  /* 通知タイプ     */
+ char    ntc_filenm[14];  /* 通知ファイル名称    */
+ SZNAVI_TIOINFO_T data[999];   /* 通知データ     */
+} SZNAVI_TIO_T;
+	</define>
+	<st-name>SZNAVI_TIO_T</st-name>
+</struct>
+<struct>
+	<name>CU88202 コスモ定期点検削除要求</name>
+	<define>
+typedef struct {
+ CMN_HEADER   cmn_head;   /* 共通ヘッダ構造体   */
+ char    sgs_ronri_no[10];  /* ＳＧＳ論理番号   */
+ char    yoyaku_jian_no[13];  /* 予約事案番号   */
+ char    syutu_yousei_date[12]; /* 出動要請日時   */
+ char    upd_s_yousei_date[12]; /* 更新出動要請日時  */
+} SZSCMRSV_MEM_T;
+	</define>
+	<st-name>SZSCMRSV_MEM_T</st-name>
+</struct>
+<struct>
+	<name>CO56001  待機所誘導情報要求(ナビGW->CPU)    2002.07.29</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ SZTBS_HEADER  tbs_head;   /* ＴＢＳヘッダ情報    */
+ char    navi_ntc_no[4];  /* ナビ通知番号     */
+} SZNAVI_TYUDO_REQ;
+	</define>
+	<st-name>SZNAVI_TYUDO_REQ</st-name>
+</struct>
+<struct>
+	<name>CO56001  待機所誘導情報応答(CPU->ナビGW)    2002.07.29</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ SZTBS_HEADER  tbs_head;   /* ＴＢＳヘッダ情報    */
+ char    ichi_info[24];  /* 位置情報      */
+} SZNAVI_TYUDO_RSP;
+	</define>
+	<st-name>SZNAVI_TYUDO_RSP</st-name>
+</struct>
+<struct>
+	<name>CO56000  待機所情報検索要求(CPU->ナビGW)    2002.07.30</name>
+	<define>
+typedef struct {
+ char    navi_ntc_no[4];  /* ナビ端末番号     */
+ char    ichi_info[24];  /* 待機所／警備先位置情報  */
+} SZNAVI_INFOREQ_T;
+	</define>
+	<st-name>SZNAVI_INFOREQ_T</st-name>
+</struct>
+<struct>
+	<name>CO56000  待機所情報検索要求(CPU->ナビGW)    2002.07.30</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ SZTBS_HEADER  tbs_head;   /* ＴＢＳヘッダ情報    */
+ SZNAVI_INFOREQ_T data[5];   /* ナビ検索要求情報構造体  */
+} SZNAVI_TAISEL_REQ;
+	</define>
+	<st-name>SZNAVI_TAISEL_REQ</st-name>
+</struct>
+<struct>
+	<name>CO56000  待機所情報検索応答(ナビGW->CPU)    2002.07.30</name>
+	<define>
+typedef struct {
+ char    navi_ntc_no[4];  /* ナビ端末番号     */
+ char    kyori[6];   /* 直線距離      */
+} SZNAVI_INFORET_T;
+	</define>
+	<st-name>SZNAVI_INFORET_T</st-name>
+</struct>
+<struct>
+	<name>CO56000  待機所情報検索応答(ナビGW->CPU)    2002.07.30</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ SZTBS_HEADER  tbs_head;   /* ＴＢＳヘッダ情報    */
+ SZNAVI_INFORET_T data[5];   /* ナビ検索応答情報構造体  */
+} SZNAVI_TAISEL_RSP;
+	</define>
+	<st-name>SZNAVI_TAISEL_RSP</st-name>
+</struct>
+<struct>
+	<name>??????? 警備先マスタ履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSOPKM_S  hsopkm;    /* 警備先マスタ履歴Ｆ構造体   */
+} SZHSOPKM_T;
+	</define>
+	<st-name>SZHSOPKM_T</st-name>
+</struct>
+<struct>
+	<name>??????? 緊急連絡先マスタ履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSKINREN_S hskinren;   /* 緊急連絡先マスタ履歴Ｆ構造体  */
+} SZHSKINREN_T;
+	</define>
+	<st-name>SZHSKINREN_T</st-name>
+</struct>
+<struct>
+	<name>??????? 警報任務区分マスタ履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSNINMUM_S hsnimmum;   /* 警報任務区分マスタ履歴Ｆ構造体 */
+} SZHSNINMUM_T;
+	</define>
+	<st-name>SZHSNINMUM_T</st-name>
+</struct>
+<struct>
+	<name>??????? ＮＦ情報ファイル履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSNFFILE_S hsnffile;   /* ＮＦ情報ファイル履歴Ｆ構造体  */
+} SZHSNFFILE_T;
+	</define>
+	<st-name>SZHSNFFILE_T</st-name>
+</struct>
+<struct>
+	<name>??????? 発報処置用履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSHISTORY_S hshistory;   /* 発報処置用履歴Ｆ構造体   */
+} SZHSHISTORY_T;
+	</define>
+	<st-name>SZHSHISTORY_T</st-name>
+</struct>
+<struct>
+	<name>??????? 分類名称履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSBUNRUI_S hsbunrui;   /* 分類名称履歴Ｆ構造体   */
+} SZHSBUNRUI_T;
+	</define>
+	<st-name>SZHSBUNRUI_T</st-name>
+</struct>
+<struct>
+	<name>??????? 待機所履歴キュー通知要求(対運用管理ＳＶ)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;   /* 共通ヘッダ構造体     */
+ DZHSTAIKIJO_S hstaikijo;   /* 待機所履歴Ｆ構造体    */
+} SZHSTAIKIJO_T;
+	</define>
+	<st-name>SZHSTAIKIJO_T</st-name>
+</struct>
+<struct>
+	<name>ＳＧＳ事案メッセージ了解確認 内部了解メッセージ構造体</name>
+	<define>
+typedef struct {
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   msg_seq[3];    /* メッセージ通番    */
+ char   misyochi_flg[1];  /* 未処置フラグ     */
+} SZINMSGRYOKAI_T;
+	</define>
+	<st-name>SZINMSGRYOKAI_T</st-name>
+</struct>
+<struct>
+	<name>??????? ＳＧＳ事案メッセージ了解確認</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   ryokaimsg_num[3];  /* 了解メッセージ数    */
+ SZINMSGRYOKAI_T ryokaimsg[1000];  /* 了解メッセージ構造体   */
+} SZRYOKAI_MSG_T;
+	</define>
+	<st-name>SZRYOKAI_MSG_T</st-name>
+</struct>
+<struct>
+	<name>コスモ事案メッセージ了解確認 内部了解メッセージ構造体</name>
+	<define>
+typedef struct {
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   msg_seq[3];    /* メッセージ通番    */
+ char   misyochi_flg[1];  /* 未処置フラグ     */
+} SZINCSMRYOKAI_T;
+	</define>
+	<st-name>SZINCSMRYOKAI_T</st-name>
+</struct>
+<struct>
+	<name>??????? コスモ事案メッセージ了解確認</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   ryokaimsg_num[3];  /* 了解メッセージ数    */
+ SZINCSMRYOKAI_T ryokaimsg[1000];  /* 了解メッセージ構造体   */
+} SZCSMRYOKAI_MSG_T;
+	</define>
+	<st-name>SZCSMRYOKAI_MSG_T</st-name>
+</struct>
+<struct>
+	<name>待機所からの画面登録用 出動隊員情報構造体</name>
+	<define>
+typedef struct {
+ char   taiin_no[6];   /* 直行隊員番号     */
+ char   doukousya[6];   /* 同行者隊員番号    */
+ char   chokkou_time[4];  /* 直行時刻      */
+ char   syoyo_mikomi[3];  /* 所要見込み     */
+ char   syutudou_kubun[1];  /* 出動区分      */
+ char   chokkou_kubun[1];  /* 直行区分      */
+ char   car_no[3];    /* 車輌管理番号     */
+} SZSYUTUDOU_TAIIN_T;
+	</define>
+	<st-name>SZSYUTUDOU_TAIIN_T</st-name>
+</struct>
+<struct>
+	<name>CU30304 待機所からの一括画面登録</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   naibu_date[14];   /* 内部日付・時刻    */
+ char   date_time[12];   /* 年月日時分(YYYYMMDDhhmm)  */
+ char   kubun_cd[2];   /* 画面登録区分コード   */
+ char   gamen_kubun[20];  /* 画面登録区分     */
+ char   uketuke_seki[2];  /* 受付席番      */
+ char   syuryou_y_time[12];  /* 終了予定日時     */
+ char   message_cd[4];   /* メッセージコード    */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_group_code[2]; /* 連絡先グループコード   */
+ char   renrak_code[6];   /* 連絡先コード     */
+ char   syutudou_taiin_num[1]; /* 出動隊員有効数    */
+ SZSYUTUDOU_TAIIN_T syutudou_taiin[2]; /* 出動隊員情報構造体   */
+ char   keiho_su[2];   /* 監視対象外警報数    */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZTAIKIGMNAD_T;
+	</define>
+	<st-name>SZTAIKIGMNAD_T</st-name>
+</struct>
+<struct>
+	<name>CU30303 待機所からの一括画面登録 社内対応コード</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ SZTBS_HEADER  tbs_head;   /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   naibu_date[14];   /* 内部日付・時刻    */
+ char   date_time[12];   /* 年月日時分(YYYYMMDDhhmm)  */
+ char   syanai_cd[4];   /* 社内対応コード    */
+ char   uketuke_seki[2];  /* 受付席番      */
+ char   syuryou_y_time[12];  /* 終了予定日時     */
+ char   message_cd[4];   /* メッセージコード    */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_group_code[2]; /* 連絡先グループコード   */
+ char   renrak_code[6];   /* 連絡先コード     */
+ char   syutudou_taiin_num[1]; /* 出動隊員有効数    */
+ SZSYUTUDOU_TAIIN_T syutudou_taiin[2]; /* 出動隊員情報構造体   */
+ char   keiho_su[2];   /* 監視対象外警報数    */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZTAIKI_STGMNAD_T;
+	</define>
+	<st-name>SZTAIKI_STGMNAD_T</st-name>
+</struct>
+<struct>
+	<name>CU17701 直行指示運用状態変更</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   taiki_code[4];   /* 待機所コード     */
+ char   jidou_unyo_flg[1];  /* 自動運用フラグ    */
+} SZCYOKKOU_UNYO_T;
+	</define>
+	<st-name>SZCYOKKOU_UNYO_T</st-name>
+</struct>
+<struct>
+	<name>CU17702 応援要請運用状態変更(R6.0)</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ char   taiki_code[4];   /* 待機所コード     */
+ char   ouen_unyo_flg[1];  /* 応援運用フラグ    */
+} SZOUEN_UNYO_T;
+	</define>
+	<st-name>SZOUEN_UNYO_T</st-name>
+</struct>
+<struct>
+	<name>xxxxxxx 事案措置落着情報通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ構造体    */
+ DZSOCHIRAKUF_S data;        /* 事案措置落着Ｆ構造体   */
+} SZSOCHIRAKU_NTC_T;
+	</define>
+	<st-name>SZSOCHIRAKU_NTC_T</st-name>
+</struct>
+<struct>
+	<name>CU50201 画面登録要求（i-mode警送入館）</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZKEY_INF_S  key_inf1;    /* 更新系キー情報構造体   */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   naibu_date[14];   /* 内部時刻(YYYYMMDDhhmmss)  */
+ char   date_time[12];   /* 年月日時分(YYYYMMDDhhmm)  */
+ char   kubun_cd[2];   /* 画面登録区分コード   */
+ char   gamen_kubun[20];  /* 画面登録区分     */
+ char   uketuke_seki[2];  /* 受付席番      */
+ char   syuryou_y_time[12];  /* 終了予定日時     */
+ char   msg_cd[4];    /* メッセージコード 2004.03.09 */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_grp_cd[2];  /* 連絡先グループコード   */
+ char   renrak_cd[6];   /* 連絡先コード     */
+ char   nyukan_time[4];   /* 入館時間      */
+ char   jitai_cd[1];   /* 事態コード     */
+ char   keiho_su[2];   /* 監視対象外警報数    */
+ SZKANSHI_T_S kansi_keiho[100];  /* 監視対象外警報構造体   */
+} SZKBGMNAD_KEISOU_T;
+	</define>
+	<st-name>SZKBGMNAD_KEISOU_T</st-name>
+</struct>
+<struct>
+	<name>ＧＣ２次開発追加  入館連絡事案処置</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   nyukan_time[4];   /* 入館時間      */
+} SZNYUKAN_RENRAKU_T;
+	</define>
+	<st-name>SZNYUKAN_RENRAKU_T</st-name>
+</struct>
+<struct>
+	<name>ＧＣ２次開発追加  退館連絡事案処置</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 事案発生日付     */
+ char   taikan_time[4];   /* 退館時間      */
+ char   taikubun[1];   /* 退館区分      */
+} SZTAIKAN_RENRAKU_T;
+	</define>
+	<st-name>SZTAIKAN_RENRAKU_T</st-name>
+</struct>
+<struct>
+	<name>ＧＣ２次開発追加  原因連絡事案処置</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];  /* ＳＧＳ論理番号    */
+ char   hassei_date[14];  /* 最新警報受信時間    */
+ char   sgs_genin_cd[3];  /* ＳＧＳ原因コード    */
+ char   genin_syousai[60];  /* 原因詳細内容     */
+ char   genin_naiyo1[60];  /* 原因内容１     */
+ char   genin_naiyo2[60];  /* 原因内容２     */
+ char   jian_bunrui_cd[1];  /* 事案分類コード    */
+ char   keihou_bunrui_cd[1]; /* 警報分類コード    */
+ char   genin_bunrui_cd[1];  /* 原因分類コード    */
+ char   net_genin_cd[2];  /* ＮＥＴ原因コード    */
+ char   net_genin_naiyo[60]; /* ＮＥＴ原因内容    */
+ char   rakuchakusya_no[6];  /* imode操作者社員番号   */
+ char   rakuchakusya_mei[40]; /* imode操作者社員名   */
+} SZGENIN_RENRAKU_T;
+	</define>
+	<st-name>SZGENIN_RENRAKU_T</st-name>
+</struct>
+<struct>
+	<name>CM56100 ＳＧＳ隊員出動情報</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    sgs_ronri_no[10]; /* ＳＧＳ論理番号    */
+ char    hassei_date[14]; /* 事案発生日付     */
+ char    taiin_no[6];  /* 隊員番号      */
+} SZNAVI_STSIN_T;
+	</define>
+	<st-name>SZNAVI_STSIN_T</st-name>
+</struct>
+<struct>
+	<name>CM56100 ＳＧＳ隊員出動情報（CPU -> ナビＧＷ）</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    sgs_ronri_no[10]; /* ＳＧＳ論理番号    */
+ char    kiki_id[4];   /* 連絡機器ＩＤ     */
+ char    hassei_date[14]; /* 事案発生日付     */
+ char    ichi_joho[24];  /* 位置情報      */
+ char    denkei_no[9];  /* 電計番号      */
+ char    gouki_no[7];  /* 号機番号      */
+ char    hassei_bijikan[8]; /* 発生日時（ナビ）    */
+ char    keibi_sig[20];  /* 警備情報      */
+ char    ryakushou_mei[40]; /* 略称名称      */
+ char    shozaichi1[80];  /* 所在地１      */
+ char    taiin_tokuyaku[1200]; /* 隊員特約     */
+} SZNAVI_STS_T;
+	</define>
+	<st-name>SZNAVI_STS_T</st-name>
+</struct>
+<struct>
+	<name>CM56200 コスモ隊員出動情報</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    sgs_ronri_no[10]; /* ＳＧＳ論理番号    */
+ char    hassei_date[14]; /* 事案発生日付     */
+ char    taiin_no[6];  /* 隊員番号      */
+} SZNAVI_CTSIN_T;
+	</define>
+	<st-name>SZNAVI_CTSIN_T</st-name>
+</struct>
+<struct>
+	<name>CM56200 コスモ隊員出動情報（CPU -> ナビＧＷ）</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    uketuke_no[14];  /* 契約先受付番号    */
+ char    csm_ronri_no[10]; /* コスモ論理番号    */
+ char    syutu_yousei_no[4]; /* 出動要請管理番号    */
+ char    kiki_id[4];   /* 連絡機器ＩＤ     */
+ char    ichi_joho[24];  /* 位置情報      */
+ char    denkei_no[9];  /* 電計番号      */
+ char    gouki_no[7];  /* 号機番号      */
+ char    uketuke_date[12]; /* 受付日時      */
+ char    st_shougai_naiyou[40]; /* 出動障害内容    */
+ char    ryakushou_mei[40]; /* 略称名称      */
+ char    shozaichi1[80];  /* 所在地１      */
+ char    taiin_tokuyaku[1200]; /* 隊員特約     */
+} SZNAVI_CTS_T;
+	</define>
+	<st-name>SZNAVI_CTS_T</st-name>
+</struct>
+<struct>
+	<name>CM56101 ＳＧＳ隊員落着情報</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    sgs_ronri_no[10]; /* ＳＧＳ論理番号    */
+ char    hassei_date[14]; /* 事案発生日付     */
+ char    taiin_no[6];  /* 隊員番号      */
+ char    rakuins_date[14]; /* 落着登録日付     */
+} SZNAVI_STRIN_T;
+	</define>
+	<st-name>SZNAVI_STRIN_T</st-name>
+</struct>
+<struct>
+	<name>CM56101 ＳＧＳ隊員落着情報（CPU -> ナビＧＷ）</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    sgs_ronri_no[10]; /* ＳＧＳ論理番号    */
+ char    kiki_id[4];   /* 連絡機器ＩＤ     */
+ char    hassei_date[14]; /* 事案発生日付     */
+ char    rakuins_date[14]; /* 落着登録日付     */
+} SZNAVI_STR_T;
+	</define>
+	<st-name>SZNAVI_STR_T</st-name>
+</struct>
+<struct>
+	<name>CM56201 コスモ隊員落着情報</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    sgs_ronri_no[10]; /* ＳＧＳ論理番号    */
+ char    hassei_date[14]; /* 事案発生日付     */
+ char    taiin_no[6];  /* 隊員番号      */
+ char    rakuins_date[14]; /* 落着登録日付     */
+} SZNAVI_CTRIN_T;
+	</define>
+	<st-name>SZNAVI_CTRIN_T</st-name>
+</struct>
+<struct>
+	<name>CM56201 コスモ隊員落着情報（CPU -> ナビＧＷ）</name>
+	<define>
+typedef struct {
+ SZNET_HEADER  net_head;   /* ネットワークヘッダ部   */
+ char    uketuke_no[14];  /* 契約先受付番号    */
+ char    csm_ronri_no[10]; /* コスモ論理番号    */
+ char    syutu_yousei_no[4]; /* 出動要請管理番号    */
+ char    kiki_id[4];   /* 連絡機器ＩＤ     */
+ char    rakuins_date[14]; /* 落着登録日付     */
+} SZNAVI_CTR_T;
+	</define>
+	<st-name>SZNAVI_CTR_T</st-name>
+</struct>
+<struct>
+	<name>CU50301 隊員指定無し応援要請要求（応答電文）</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   ouen_taiin_no[6];  /* 応援隊員番号     */
+ char   ouen_taiin_name[40]; /* 応援隊員氏名     */
+} SZTAI_NO_OUEN_RET_T;
+	</define>
+	<st-name>SZTAI_NO_OUEN_RET_T</st-name>
+</struct>
+<struct>
+	<name>CU50502 コスモ事案タイマ情報更新（モバイル）</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   hassei_date[14];   /* 事案発生日付     */
+ char   timer_syubetu[1];  /* タイマ種別     */
+ char   ztime[14];    /* 事態タイムアウト時間   */
+} SZTIMER_UPD_T;
+	</define>
+	<st-name>SZTIMER_UPD_T</st-name>
+</struct>
+<struct>
+	<name>CU10703 ＳＧＳ事案入館処置</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   hassei_date[14];   /* 事案発生日付     */
+ char   nyukan_time[4];   /* 入館時間      */
+ char   jitai_cd[1];   /* 事態コード     */
+} SZSGSJIAN_NYUKAN_T;
+	</define>
+	<st-name>SZSGSJIAN_NYUKAN_T</st-name>
+</struct>
+<struct>
+	<name>CU17902 措置結果更新ロック設定</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   hassei_date[14];   /* 事案発生日付     */
+ char   dev_id[6];    /* 装置ＩＤ      */
+} SZSOCHILOCK_T;
+	</define>
+	<st-name>SZSOCHILOCK_T</st-name>
+</struct>
+<struct>
+	<name>CU17903 措置結果更新ロック解除</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   dev_id[6];    /* 装置ＩＤ      */
+} SZSOCHIKAIJO_T;
+	</define>
+	<st-name>SZSOCHIKAIJO_T</st-name>
+</struct>
+<struct>
+	<name>CM58101 自動化モードの更新</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   taikijyo_cd[4];   /* 待機所コード     */
+ char   taikijyo_mei[48];   /* 待機所名      */
+ char   kaijo_time[14];   /* 解除時間      */
+} SZJIDOUKA_UPD_T;
+	</define>
+	<st-name>SZJIDOUKA_UPD_T</st-name>
+</struct>
+<struct>
+	<name>??????? 通知メッセージ更新</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   hassei_date[14];   /* 事案発生日付     */
+ char   owari[12];    /* 終了日時      */
+ char   msg_cd[4];    /* メッセージコード    */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_group_code[2]; /* 連絡先グループコード   */
+ char   renrak_code[6];   /* 連絡先コード     */
+} SZ_TMSG_UPD_T;
+	</define>
+	<st-name>SZ_TMSG_UPD_T</st-name>
+</struct>
+<struct>
+	<name>??????? 措置結果変更通知</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   hassei_date[14];   /* 事案発生日付     */
+ char   soti_henkou_cd[1];  /* 連絡先コード     */
+} SZ_SOTI_CHANGE_T;
+	</define>
+	<st-name>SZ_SOTI_CHANGE_T</st-name>
+</struct>
+<struct>
+	<name>R6.0 K10 2004</name>
+	<define>
+typedef struct {
+ char   kanshi_taisyogai_keiho[4]; /*  監視対象外警報   */
+} SZKANSHI_TM_S;
+	</define>
+	<st-name>SZKANSHI_TM_S</st-name>
+</struct>
+<struct>
+	<name>R6.0 K10 2004</name>
+	<define>
+typedef struct {
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   youto_id[1];   /* 用途ＩＤ      */
+ char   tou_date[14];   /* 登録日時      */
+ char   kaisi[12];    /* 開始日時      */
+ char   owari[12];    /* 終了日時      */
+ char   ikkatu_flg[1];   /* 一括登録フラグ    */
+ char   keiho_su[3];   /* 監視対象外警報数    */
+ SZKANSHI_TM_S kansi_keiho[100];  /* 監視対象外警報メモ構造体  */
+} SZ_KANSIGAI_MEMO_INF_S;
+	</define>
+	<st-name>SZ_KANSIGAI_MEMO_INF_S</st-name>
+</struct>
+<struct>
+	<name>CU10802 監視対象外メモ登録</name>
+	<define>
+typedef struct {
+ CMN_HEADER  cmn_head;    /* 共通ヘッダ     */
+ SZ_KANSIGAI_MEMO_INF_S kgai_mem_inf; /* 監視対象外メモ情報   */
+} SZ_KANSIGAI_MEMO_T;
+	</define>
+	<st-name>SZ_KANSIGAI_MEMO_T</st-name>
+</struct>
+<struct>
+	<name>CU81506 監視対象外メモ登録</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ情報  */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ SZ_KANSIGAI_MEMO_INF_S kgai_mem_inf; /* 監視対象外メモ情報   */
+} SZKUT_KANSIGAI_MEMO_T;
+	</define>
+	<st-name>SZKUT_KANSIGAI_MEMO_T</st-name>
+</struct>
+<struct>
+	<name>R6.0 K11 2004</name>
+	<define>
+typedef struct {
+ SZNET_HEADER net_head;    /* ネットワークヘッダ部   */
+ SZTBS_HEADER tbs_head;    /* ＴＢＳヘッダ情報    */
+ char   sgs_ronri_no[10];   /* ＳＧＳ論理番号     */
+ char   hassei_date[14];   /* 事案発生日付     */
+ char   owari[12];    /* 終了日時      */
+ char   msg_cd[4];    /* メッセージコード    */
+ char   message[120];   /* メッセージ     */
+ char   syosai_naiyo[240];  /* 詳細内容      */
+ char   renrak_group_code[2]; /* 連絡先グループコード   */
+ char   renrak_code[6];   /* 連絡先コード     */
+} SZ_TAIKI_TMSG_UPD_T;
+	</define>
+	<st-name>SZ_TAIKI_TMSG_UPD_T</st-name>
+</struct>
+</struct-info>

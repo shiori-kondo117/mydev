@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+	"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<title>ＤＶＤ録画記録インポート</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="DvdRecManeger"
+   >
+<SCRIPT type="text/VBScript" src="./script.vbs">
+</SCRIPT>
+<style type="text/css">
+TH {
+	background-color:skyblue;		/* 背景色 */
+}
+</style>
+</HEAD>
+<!--BODY onload="cmdSetup" style="background-color:white"-->
+<BODY style="background-color:white">
+SQL-Command[1]:<br/>
+<textarea name="F_SQLCOMMAND" rows="5" cols="80">select r.* from T_録画記録 as r,(select max(録画記録番号) as maxid from T_録画記録) as m where 録画記録番号 > m.maxid - 10</textarea>
+<br/>
+SQL-Command[2]:<br/>
+<textarea name="F_SQLCOMMAND2" rows="5" cols="80">insert into T_録画記録(ディスクＩＤ,番組名,タイトル名,録画日付,録画時間,メモ) select ディスクＩＤ,番組名,タイトル名,録画日付,録画時間,メモ from l_録画記録</textarea>
+<br/>
+<button onclick="insertData">インポート</button>
+<hr/>
+<button onclick="viewList">SQL-COMMAND実行</button><br/>
+<div id="RESULT_LIST"></div>
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<title>文書検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="文書検索"
+   >
+   <SCRIPT LANGUAGE="VBScript">
+Const adOpenStatic = 3
+Const adLockOptimistic = 3
+Const adCmdText = &H0001
+
+On Error Resume Next
+
+Private Sub cmdSearch_Click
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+	strPathtoTextFile = "C:\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+'//			"path like '%" & KEYWORD.value & "%' " & _
+	strSQL = "SELECT * FROM ファイル一覧.txt " & _
+			"where " & _
+			"filename like '%" & KEYWORD.value & "%' " & _
+			"order by date"
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+
+	strHTML="<table border='1'>" & vbCrLf & _
+		"<tr>" & _
+		"<th>ファイル名</th>" & _
+		"<th>ファイルパス</th>" & _
+		"<th>日付</th>" & _
+		"</tr>"
+	Do Until objRecordset.EOF
+		strFilename = objRecordset.Fields.Item("filename")
+		strPath = objRecordset.Fields.Item("path")
+		strDate = objRecordset.Fields.Item("date")
+		strHTML = strHTML & _
+			"<tr>" & vbCrLf
+
+	    strHTML = strHTML & _
+			"<td>" & _
+			"<a href='" & strPath & strFilename & "'>" & _
+			strFilename & "</a></td>" & _
+			"<td>" & strPath & "</td>" & _
+			"<td>" & strDate & "</td>"
+
+		strHTML = strHTML & _
+			"</tr>" & vbCrLf
+
+	    objRecordset.MoveNext
+	Loop
+	RESULT.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+Private Sub cmdClear_Click
+	KEYWORD.value = ""
+End Sub
+	   </SCRIPT>
+</HEAD>
+<BODY SCROLL="yes">
+<label name="KEYWORD">検索文字列:</label>
+<input type="text" name="KEYWORD" size="40"/>
+<button onclick="cmdSearch_Click">検索</button>|
+<button onclick="cmdClear_Click">クリア</button><br/>
+<hr/>
+<div id="RESULT"></div>
+</BODY>
+</HTML>

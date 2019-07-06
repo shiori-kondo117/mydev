@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<title>テーブル名検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="DEFINES検索"
+   >
+   <SCRIPT LANGUAGE="VBScript">
+Const adOpenStatic = 3
+Const adLockOptimistic = 3
+Const adCmdText = &H0001
+Const DC_CSVFILE_PATH = "c:\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+
+On Error Resume Next
+
+Private Sub cmdSearch_Click
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+	strPathtoTextFile = DC_CSVFILE_PATH
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+	'//-- キー選択チェック
+	for each x in SELECT_KEY
+		if (x.checked) then
+			strSelectType = x.value
+			exit for
+		end if
+	next
+
+	'//-- キー条件チェック
+	strConditionType = KEY_CONDITION.value
+
+	'//-- キー選択による[where]条件分作成
+	Select Case strSelectType
+		case "1"
+			strWhere = _
+				"j.テーブル名称 " & _
+				setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value) & _
+				"or " & _
+				"j.テーブル名 " & _
+				setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value)
+		case "2"
+			strWhere = _
+				"j.テーブル名 " & _
+				setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value)
+		case else
+			strWhere = _
+				"j.テーブル名称 " & _
+				setKeyCondition( _
+					strConditionType, _
+					KEYWORD.value)
+	End Select
+	strJoin = "SELECT a.テーブル名,t.テーブル名称,a.タイプ " & _
+			"FROM " & _
+			"テーブル属性.txt a " & _
+			"LEFT JOIN " & _
+			"(select * from テーブル一覧.txt " & _
+			"union " & _
+			"select * from Ｖｉｅｗ名称.txt) t " & _
+			"ON t.テーブル名 = a.テーブル名"
+	strSQL = "SELECT j.テーブル名,j.テーブル名称,j.タイプ " & _
+			"FROM (" & strJoin & ") j " & _
+			"where " & _
+			strWhere & _
+			"order by j.テーブル名"
+'	strSQL = "SELECT a.テーブル名,t.テーブル名称,a.タイプ " & _
+'			"FROM テーブル一覧.txt t, テーブル属性.txt a " & _
+'			"where " & _
+'			strWhere & _
+'			"and t.テーブル名 = a.テーブル名 " & _
+'			"order by t.テーブル名"
+	TEXT_DATA.innerText = strSQL
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+
+	strHTML="<table border='1' cellspacing='0'>" & vbCrLf & _
+		"<tr style='background-color:skyblue;'>" & _
+		"<th>テーブル名</th>" & _
+		"<th>テーブル名称</th>" & _
+		"<th>テーブルタイプ</th>" & _
+		"</tr>"
+	If (objRecordset.RecordCount > 999) Then
+		'//Msgbox "レコード件数が1000件を超えています。" & _
+		'//"rec-cnt=" & objRecordset.RecordCount
+	End If
+
+	RecCnt=0
+
+	Do Until (objRecordset.EOF)
+		strField_1 = objRecordset.Fields.Item("テーブル名")
+		strField_2 = objRecordset.Fields.Item("テーブル名称")
+		strField_3 = objRecordset.Fields.Item("タイプ")
+		strHTML = strHTML & _
+			"<tr>" & vbCrLf
+
+	    strHTML = strHTML & _
+			"<td nowrap>" & strField_1 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_2 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_3 & "<br/>" & "</td>"
+
+		strHTML = strHTML & _
+			"</tr>" & vbCrLf
+
+	    objRecordset.MoveNext
+		RecCnt = RecCnt + 1
+	Loop
+	RESULT.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+
+Private Function setKeyCondition( _
+		byVal p_strCondType, _
+		byVal p_strKeyword _
+		)
+	strKeyword = UCase(p_strKeyword)
+	Select Case p_strCondType
+		case "1"	'// キーに一致する
+			strKeyCondition = " = '" & _
+				strKeyword & "' "
+		case "2"	'// キーに一致しない
+			strKeyCondition = " not = '" & _
+				strKeyword & "' "
+		case "3"	'// キーで始まる
+			strKeyCondition = " like '" & _
+				strKeyword & "%' "
+		case "4"	'// キーで終わる
+			strKeyCondition = " like '%" & _
+				strKeyword & "' "
+		case "5"	'// キーを含む
+			strKeyCondition = " like '%" & _
+				strKeyword & "%' "
+		case else	'// キーを含まない
+			strKeyCondition = " not like '%" & _
+				strKeyword & "%' "
+	End Select
+
+	setKeyCondition = strKeyCondition
+
+End Function
+
+Private Sub cmdClear_Click
+	KEYWORD.value = ""
+End Sub
+Private Sub body_Load
+
+End Sub
+	   </SCRIPT>
+</HEAD>
+<BODY onload="body_Load">
+<table border="0">
+<tr>
+<th valign="top">
+	<label name="KEYWORD">キー選択:</label>
+</th>
+<td>
+<input type="radio" name="SELECT_KEY" value="1" checked="true">全項目</select><br>
+<input type="radio" name="SELECT_KEY" value="2">テーブル名</select><br>
+<input type="radio" name="SELECT_KEY" value="3">テーブル名称</select><br>
+</td>
+</tr>
+<tr>
+<th>
+	<label name="KEYWORD">検索キー:</label>
+</th>
+<td>
+<input type="text" name="KEYWORD" size="40"/>
+<select name="KEY_CONDITION">
+	<option value="1" selected="true">に一致する</option>
+	<option value="2">に一致しない</option>
+	<option value="3">で始まる</option>
+	<option value="4">で終わる</option>
+	<option value="5">を含む</option>
+	<option value="6">を含まない</option>
+</select>
+<button onClick="cmdSearch_Click">検索</button>
+<button onClick="cmdClear_Click">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果</h3>
+<div id="RESULT"></div>
+<hr/>
+<textarea id="TEXT_DATA" rows="3" cols="80"></textarea>
+</BODY>
+</HTML>

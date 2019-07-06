@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>CPRMキー管理 V0.1</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="CPRMキー管理"
+   >
+<SCRIPT LANGUAGE="VBScript" src="./script.vbs"></SCRIPT>
+</HEAD>
+<BODY onload="body_Load" style="background-color:#ffffff;">
+<h3>登録</h3>
+<table border="0" style="font-size:12;">
+<tr>
+	<th>
+	<label name="F_FOLDER_NAME">フォルダ名：</label>
+	</th>
+	<td>
+	<input type="text" name="F_FOLDER_NAME" size="4"/><br>
+	</td>
+	</tr>
+<tr>
+	<th>
+	<label name="F_CPRM_KEY">CPRM_KEY：</label>
+	</th>
+	<td>
+	<input type="text" name="F_CPRMKEY" size="21"/><br>
+	</td>
+</tr>
+<tr>
+<td>
+<button onclick="cmdResisterData">登録</button>
+<button onclick="cmdListData">一覧</button>
+<button onclick="cmdClearData">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果:</h3>
+<iframe border="0" src="about:blank" id="ID_FRM_CONTENT" height="150" width="280"></iframe>
+<!--div id="RESULT"></div-->
+<hr/>
+<textarea id="DEBUG_VIEW" rows="3" cols="80"></textarea>
+</BODY>
+</HTML>

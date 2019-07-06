@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>番号採番ログ検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="番号採番ログ検索"
+   >
+<SCRIPT LANGUAGE="VBScript" src="../../lib/ObjectControl.vbs"></SCRIPT>
+<SCRIPT LANGUAGE="VBScript" src="../../lib/debug.vbs"></SCRIPT>
+<SCRIPT LANGUAGE="VBScript" src="./OLEDB.vbs"></SCRIPT>
+<SCRIPT LANGUAGE="VBScript" src="./script.vbs"></SCRIPT>
+</HEAD>
+<BODY onload="Setup" style="background-color:#ffff8f;">
+<table border="0" style="font-size:12;">
+<tr>
+<td>
+<label name="FILE_TYPE"><b>ファイル選択：</b></b></label><br/>
+<input type="radio" name="FILE_TYPE" value="numlog.txt" checked="true">マスタファイル</select><br>
+<input type="radio" name="FILE_TYPE" value="tmp_numlog.txt">一時ファイル</select><br>
+</td>
+</tr>
+<tr>
+<td>
+<label name="SELECT_KEY"><b>検索条件：</b></label><br/>
+<select name="SELECT_KEY" id="ID_SELECT_KEY">
+<!--
+<option value="0" selected="true">--キー項目--</option>
+<option value="1">番号</option>
+<option value="2">カレント・ディレクトリ</option>
+<option value="3">日付</option>
+-->
+</select>が
+<input type="text" name="KEYWORD" size="32"/>
+<select name="KEY_CONDITION">
+</select>
+<select name="ORDER_BY" id="ID_ORDER_BY">
+</select>
+<input type="checkbox" name="NONE_EDIT">未編集</input><br/>
+<button onClick="cmdSearch_Click">検索</button>|
+<button onClick="modifyDatabase">更新</button>|
+<button onClick="checkDeleteFolder">照合</button>|
+<!--button onClick="sampGetFolderName 'C:\\home\\kazu\\hta-dev\\cvs-access\\NUMLOG'">テスト</button>|-->
+<button onClick="cmdClear_Click">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果:</h3>
+<div id="RESULT"></div>
+<hr/>
+<textarea id="TEXT_DATA" rows="3" cols="80"></textarea>
+</BODY>
+</HTML>

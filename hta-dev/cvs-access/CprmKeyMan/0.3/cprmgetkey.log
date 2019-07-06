@@ -1,0 +1,9 @@
+
+D:\home\kazu\hta-dev\cvs-access\CprmKeyMan\0.3>pushd d:\cprmgetkey 
+
+D:\cprmgetkey>cprmgetkey.exe e: 
+CPRM ContentsKey Get Ver 0.21 by taku
+Error code: 0
+Error: not disk in drive
+
+D:\cprmgetkey>popd

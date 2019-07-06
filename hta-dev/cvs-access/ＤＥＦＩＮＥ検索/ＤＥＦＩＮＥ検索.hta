@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<title>DEFINE検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="DEFINE検索検索"
+   >
+   <SCRIPT LANGUAGE="VBScript">
+Const adOpenStatic = 3
+Const adLockOptimistic = 3
+Const adCmdText = &H0001
+
+On Error Resume Next
+
+Private Sub cmdSearch_Click
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+'//	strPathtoTextFile = "C:\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+	strPathtoTextFile = "\\pc-lavie01\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+	Select Case KEY_TYPE.value
+		Case "1"
+			strKEYWORD = "= '" & KEYWORD.value & "'"
+		Case "2"
+			strKEYWORD = "not = '" & KEYWORD.value & "'"
+		Case "3"
+			strKEYWORD = "like '" & KEYWORD.value & "%'"
+		Case "4"
+			strKEYWORD = "like '%" & KEYWORD.value & "'"
+		Case "5"
+			strKEYWORD = "like '%" & KEYWORD.value & "%'"
+		Case "6"
+			strKEYWORD = "not like '%" & KEYWORD.value & "%'"
+	End Select
+
+	strSQL = "SELECT * FROM DEFINE一覧.txt " & _
+			"where " & _
+			"(def_name " & strKEYWORD & " or " & _
+			"def_val " & strKEYWORD & ") and " & _
+			"(filename like '%.c' or " & _
+			" filename like '%.h' or " & _
+			" filename like '%.pc') " & _
+			"order by def_val"
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+
+	strHTML="<table border='1' cellspacing='0'>" & vbCrLf & _
+		"<tr style='background-color:skyblue;'>" & _
+		"<th>定義名</th>" & _
+		"<th>値</th>" & _
+		"<th>コメント</th>" & _
+		"<th>ファイル名</th>" & _
+		"<th>パス名</th>" & _
+		"</tr>"
+	If (objRecordset.RecordCount > 999) Then
+		Msgbox "レコード件数が1000件を超えています。" & _
+		"rec-cnt=" & objRecordset.RecordCount
+	End If
+
+	CUR_REC.innerText = 1
+	MAX_REC.innerText = objRecordset.RecordCount
+
+	RecCnt=0
+
+	Do Until (objRecordset.EOF Or _
+		RecCnt > 20)
+		strField_1 = objRecordset.Fields.Item("def_name")
+		strField_2 = objRecordset.Fields.Item("def_val")
+		strField_3 = objRecordset.Fields.Item("comment")
+		strField_4 = objRecordset.Fields.Item("filename")
+		strField_5 = objRecordset.Fields.Item("full-path")
+		strHTML = strHTML & _
+			"<tr>" & vbCrLf
+
+	    strHTML = strHTML & _
+			"<td nowrap>" & strField_1 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_2 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_3 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_4 & "<br/>" & "</td>" & _
+			"<td nowrap>" & strField_5 & "<br/>" & "</td>"
+
+		strHTML = strHTML & _
+			"</tr>" & vbCrLf
+
+	    objRecordset.MoveNext
+		RecCnt = RecCnt + 1
+	Loop
+	RESULT.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+Private Sub cmdClear_Click()
+	KEYWORD.value = ""
+End Sub
+	   </SCRIPT>
+</HEAD>
+<BODY>
+<label name="FIELD_NAME"><b>検索項目:</b></label>
+<ul>
+<input name="FIELD_NAME" type="checkbox" checked="true">定義名</input><br/>
+<input name="FIELD_NAME" type="checkbox" checked="true">値</input><br/>
+<input name="FIELD_NAME" type="checkbox" checked="true">コメント</input><br/>
+<input name="FIELD_NAME" type="checkbox" checked="true">ファイル名</input><br/>
+<input name="FIELD_NAME" type="checkbox" checked="true">パス名</input><br/>
+</ul>
+<label name="KEYWORD"><b>検索文字:</b></label>
+<input type="text" name="KEYWORD" size="40"/>
+<select name="KEY_TYPE">
+<option value="1" selected>に一致する。</option>
+<option value="2">に一致しない。</option>
+<option value="3">に前方一致する。</option>
+<option value="4">に後方一致する。</option>
+<option value="5">を含む。</option>
+<option value="6">を含むまない。</option>
+</select>
+<button onClick="cmdSearch_Click">実行</button>|
+<button onClick="cmdClear_Click">クリア</button>
+<hr/>
+<button>&nbsp;&lt;&lt;&nbsp;</button>|
+<button>&nbsp;&lt;&nbsp;</button>|
+<button>&nbsp;&gt;&nbsp;</button>|
+<button>&nbsp;&gt;&gt;&nbsp;</button>
+<label id="CUR_REC">-</label>/
+<label id="MAX_REC">-</label>
+<div id="RESULT"></div>
+</BODY>
+</HTML>

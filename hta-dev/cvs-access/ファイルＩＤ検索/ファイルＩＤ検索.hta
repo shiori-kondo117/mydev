@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<title>ファイルＩＤ検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="ファイルＩＤ検索"
+   >
+<style type="text/css">
+<!--
+P.type_a {
+	background-color:gray;		/* 背景色:グレイ 	*/
+	font-size:12pt;				/* フォントサイズ 	*/
+}
+TR.type_a {
+	background-color:skyblue;	/* 背景色:グレイ 	*/
+}
+LABEL.type_a {
+	background-color:silver;	/* 背景色:グレイ 	*/
+}
+-->
+</style>
+<script language="javascript" src="../../lib/prototype.js"></script>
+<script language="javascript" src="../../lib/rico.js"></script>
+<script type="text/vbscript" src="../../lib/ado-func.vbs"></script>
+<SCRIPT LANGUAGE="VBScript">
+On Error Resume Next
+
+'//********************************************************//
+'//- クリア・ボタン クリックイベント
+'//********************************************************//
+Sub cmd_Click()
+
+	Set objConnection = CreateADODBConnection()
+	Set objRecordSet = CreateADODBRecordset()
+
+	'// テキストファイルＤＢオープン
+	Call OpenDBTextFile( _
+		objConnection _
+	)
+
+	If (Err) Then
+		Msgbox "ＤＢオープンエラーが発生しました。" & _
+			Err.Description
+		Exit Sub
+	End If
+
+	strKeyword = KEYWORD.value
+	strTableName = "fileid.csv"						'-- CSVFILE
+
+	strSQL = "SELECT * FROM " & _
+			strTableName & " " & _
+			"where " & _
+			"ファイル名称 like '%" & _
+			strKeyword & "%' " & _
+			"order by 定義値"
+
+	SQL_CMD.innerText = strSQL
+
+	Call OpenRecordset( _
+		objConnection, _
+		objRecordset, _
+		strSQL _
+	)
+
+	If (Err) Then
+		Msgbox "ＳＱＬ実行エラーが発生しました。" & _
+			Err.Description
+		Exit Sub
+	End If
+
+	'// テーブルヘッダ部を生成
+	strHTML = CreateHtmlTableHeader(objRecordset)
+
+	'// レコード件数チェック
+	If (objRecordset.RecordCount > 999) Then
+		'//Msgbox "レコード件数が1000件を超えています。" & _
+		'//"rec-cnt=" & objRecordset.RecordCount
+	End If
+
+	'// テーブルボディ部を生成
+	strHTML = strHTML & _
+		CreateHtmlTableBody( _
+			objRecordSet _
+		)
+
+	RESULT.innerHTML = strHTML
+	HTML_TEXT.innerText = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+'//********************************************************//
+'//- クリア・ボタン クリックイベント
+'//********************************************************//
+Sub cmdClear_Click
+	KEYWORD.value = ""
+End Sub
+	   </SCRIPT>
+</HEAD>
+<BODY onload="javascript:bodyonload();">
+<script>
+<!--
+var onloads = new Array();
+function bodyonload() {
+	for(var i=0; i < onloads.length ; i++) {
+		onloads[i]();
+	}
+}
+function accord() {
+	new Rico.Accordion('accordionDiv', { panelHeight:227} );
+}
+//-->
+</script>
+<label name="KEYWORD">ファイルＩＤ:</label>
+<input type="text" name="KEYWORD" size="40"/>
+<button onClick="cmd_Click()">検索</button>|
+<button onClick="cmdClear_Click()">クリア</button>
+<hr/>
+<div id="accordionDiv">
+	<div id="PANEL1">
+		<div id="TITLE1">
+			RESULT:
+		</div>
+		<div id="TITLE2">
+<div id="RESULT"></div>
+		</div>
+	</div>
+	<div id="PANEL2">
+		<div id="TITLE1">
+			SQL:
+		</div>
+		<div id="TITLE2">
+<textarea id="SQL_CMD" rows="3" cols="80"></textarea>
+		</div>
+	</div>
+	<div id="PANEL3">
+		<div id="TITLE1">
+			HTML:
+		</div>
+		<div id="TITLE2">
+<textarea id="HTML_TEXT" rows="10" cols="80"></textarea>
+		</div>
+	</div>
+</div>
+<script>onloads.push( accord );</script>
+</BODY>
+</HTML>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+	"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<title>ＤＶＤ録画管理v0.1.1</title>
+   <HTA:APPLICATION ID="viewData"
+    APPLICATIONNAME="viewData"
+   >
+<SCRIPT type="text/VBScript" src="./script.vbs">
+</SCRIPT>
+<style type="text/css">
+TH {
+	background-color:skyblue;		/* 背景色 */
+}
+</style>
+</HEAD>
+<body onload="cmdSetup">
+<table border="0" cellspacing="3" cellpadding="0">
+<tr>
+	<th>ID</th>
+	<td><div id="ID_REC_LOG_NO"></div></td>
+</tr>
+<tr>
+	<th>フォルダ番号</th>
+	<td><input type="text" name="DVD_NO" size="5"/></td>
+</tr>
+<tr>
+	<th>VOL番号</th>
+	<td><input type="text" name="VOLUME_NO" size="3"/></td>
+</tr>
+<tr>
+	<th>番組名</th>
+	<td><input type="text" name="BANGUMI_NAME" size="50"/></td>
+</tr>
+<tr>
+	<th>タイトル名</th>
+	<td><input type="text" name="TITLE_NAME" size="50"/></td>
+</tr>
+<tr>
+	<th>録画日付</th>
+	<td><div id="ID_REC_DATE"></div></td>
+</tr>
+<tr>
+	<th>録画時間</th>
+	<td id="ID_REC_TIME"></td>
+</tr>
+<tr>
+	<th valign="top">ステータス</th>
+	<td>
+		<lable><b>録画モード</b></lable>
+		<select name="REC_MODE">
+			<option value="SP">SP(標準モード)</option>
+			<option value="LP">LP(長時間)</option>
+		</select><br/>
+		<input type="checkbox" name="COPYONCE"><b>CPRM</b></input>
+		<input type="checkbox" name="DELETE_FLAG"/><b>削除表示</b></input>
+		<input type="checkbox" name="F_EDIT_FLAG"/><b>編集表示</b></input>
+	</td>
+</tr>
+<tr>
+	<th>削除日付</th>
+	<td>
+		<input type="text" name="F_DELETE_DATE" size="13"/>
+	</td>
+</tr>
+<tr>
+	<th>コピー情報</th>
+	<td>
+		【元】DVDディスク名:DVD-<input type="text" name="F_SRC_DISCNO" size="4"/>
+		&nbsp;【先】HDディスク名:HD-<select name="F_DEST_DISCNO">
+		<option value="HD-0010" selected="true">HD-0010</option>
+		<option value="HD-0011">HD-0011</option>
+		<option value="HD-0012">HD-0012</option>
+		<option value="HD-0013">HD-0013</option>
+		<option value="HD-0014">HD-0014</option>
+		<option value="HD-0015">HD-0015</option>
+		<option value="HD-0016">HD-0016</option>
+	</td>
+</tr>
+<tr>
+	<th>メモ</th>
+	<td>
+		<textarea name="F_MEMO" rows="3" cols="60"></textarea>
+	</td>
+</tr>
+</table>
+<button onclick="cmdRegister2_Click">登録</button>|
+<button onclick="cmdUpdate_Click ID_REC_LOG_NO.innerText">更新</button>|
+<button onclick="cmdDelete_Click ID_REC_LOG_NO.innerText">削除</button>
+<button onclick="cmdClear_Click">クリア</button>|
+</body>
+</html>

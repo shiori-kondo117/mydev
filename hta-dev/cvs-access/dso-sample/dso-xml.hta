@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>Data Source Object(.csv) V0.1</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="CPRMキー管理"
+   >
+<SCRIPT type="text/JavaScript"></SCRIPT>
+</HEAD>
+<BODY>
+<APPLET code="com.ms.xml.dso.XMLDSO.class"
+	width="0" height="0" id="MyDSO" MAYSCRIPT="true">
+<PARAM NAME="url" VALUE="test.xml">
+</APPLET>
+<table id="table" border="2" width="100%"
+	datasrc="#MyDSO" cellpadding="5">
+<thead>
+	<th>名前</th>
+	<th>国</th>
+</thead>
+<tr>
+	<td vallign="top"><span datafld="name"></span></td>
+	<td vallign="top"><span datafld="country" dataformatas="html"></span></td>
+</tr>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>DV録画記録</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="DV録画記録"
+   >
+<SCRIPT LANGUAGE="VBScript" src="./script.vbs"></SCRIPT>
+</HEAD>
+<BODY onload="body_Load" style="background-color:#ffffff;">
+<h3>登録</h3>
+<table border="0" style="font-size:12;">
+<tr>
+	<th>
+	<label name="F_DV_NO">ＤＶ番号：</label>
+	</th>
+	<td>
+	<input type="text" name="F_DV_NO" size="4"/><br>
+	</td>
+	</tr>
+<tr>
+	<th>
+	<label name="F_IMP_START_TIME">取込開始位置(hh:mm:ss)：</label>
+	</th>
+	<td>
+	<input type="text" name="F_IMP_START_TIME" size="10"/><br>
+	</td>
+</tr>
+<tr>
+	<th>
+	<label name="F_IMP_END_TIME">取込終了位置(hh:mm:ss)：</label>
+	</th>
+	<td>
+	<input type="text" name="F_IMP_END_TIME" size="10"/><br>
+	</td>
+</tr>
+<tr>
+	<th>
+	<label name="F_REC_DATE">録画日付：</label>
+	</th>
+	<td>
+	<input type="text" name="F_REC_DATE" size="12"/><br>
+	</td>
+</tr>
+<tr>
+<td>
+<button onclick="cmdResisterData">登録</button>
+<button onclick="cmdListData">一覧</button>
+<button onclick="cmdClearData">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<h3>検索結果:</h3>
+<iframe border="0" src="about:blank" id="ID_FRM_CONTENT" height="150" width="590"></iframe>
+<!--div id="RESULT"></div-->
+<hr/>
+<textarea id="DEBUG_VIEW" rows="3" cols="80"></textarea>
+</BODY>
+</HTML>

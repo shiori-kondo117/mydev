@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<title>関数検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="関数検索"
+   >
+   <SCRIPT LANGUAGE="VBScript">
+Const adOpenStatic = 3
+Const adLockOptimistic = 3
+Const adCmdText = &H0001
+
+On Error Resume Next
+
+Private Sub cmdSearch_Click()
+	Dim strField(4)
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+	qw = chr(34)
+
+	arrDB = array( _
+				"関数一覧_ＤＢ共通.csv", _
+				"関数一覧_共通.csv", _
+				"関数一覧_共通.csv C, 関数一覧_ＤＢ共通.csv D" _
+	)
+
+	'// 関数種類をチェック
+	For i=0 to FUNC_TYPE.length - 1
+		if (FUNC_TYPE(i).checked) Then
+			bytFuncType = FUNC_TYPE(i).value
+		End If
+	Next
+
+	strPathtoTextFile = "C:\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+	If (bytFuncType = 3) Then
+		strSQL = _
+			"SELECT * FROM " & arrDB(0) & " " & _
+			"where 関数名 like '%" & KEYWORD.value & "%' " & _
+			"or 関数名称 like '%" & KEYWORD.value & "%' " & _
+			"UNION " & _
+			"SELECT * FROM " & arrDB(1) & " " & _
+			"where 関数名 like '%" & KEYWORD.value & "%' " & _
+			"or 関数名称 like '%" & KEYWORD.value & "%' " & _
+			"order by 関数名"
+
+	Else
+		strSQL = _
+			"SELECT * FROM " & arrDB(bytFuncType - 1) & " " & _
+			"where 関数名 like '%" & KEYWORD.value & "%' " & _
+			"or 関数名称 like '%" & KEYWORD.value & "%' " & _
+			"order by 関数名"
+	End If
+
+	'--DBG-- msgbox strSQL
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+
+	strHTML="<table border='1'>" & vbCrLf & _
+		"<tr>" & _
+		"<th>関数名</th>" & _
+		"<th>関数名称</th>" & _
+		"<th>機能概要</th>" & _
+		"<th>備考</th>" & _
+		"</tr>"
+	Do Until objRecordset.EOF
+		strField(0) = objRecordset.Fields.Item("関数名")
+		strField(1) = objRecordset.Fields.Item("関数名称")
+		strField(2) = objRecordset.Fields.Item("機能概要")
+		strField(3) = objRecordset.Fields.Item("備考")
+		strHTML = strHTML & _
+			"<tr>" & vbCrLf
+
+	    strHTML = strHTML & _
+			"<td>" & _
+			"<span onclick=" & qw & "cmdItem_Click '" & strField(0) & "'" & qw & ">" & _
+			strField(0) & "</span><br/></td>" & _
+			"<td>" & strField(1) & "<br/></td>" & _
+			"<td>" & strField(2) & "<br/></td>" & _
+			"<td>" & strField(3) & "<br/></td>"
+
+		strHTML = strHTML & _
+			"</tr>" & vbCrLf
+
+	    objRecordset.MoveNext
+	Loop
+
+	RESULT.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+Private Sub cmdClear_Click()
+	KEYWORD.value = ""
+End Sub
+Private Sub cmdItem_Click(ByVal p_strFuncName)
+	msgbox "func=" & p_strFuncName
+End Sub
+	   </SCRIPT>
+
+</HEAD>
+<BODY SCROLL="yes">
+<label name="FUNC_TYPE">関数種類:</label><br/>
+<input type="radio" name="FUNC_TYPE" value="1">共通</input><br/>
+<input type="radio" name="FUNC_TYPE" value="2">ＤＢ共通</input><br/>
+<input type="radio" name="FUNC_TYPE" value="3" checked="true">全て</input><br/>
+<label name="KEYWORD">検索文字列:</label>
+<input type="text" name="KEYWORD" size="40"/>
+<button onclick="cmdSearch_Click">検索</button>
+<button onclick="cmdClear_Click">クリア</button><br/-->
+<hr/>
+<div id="RESULT"></div>
+</BODY>
+</HTML>

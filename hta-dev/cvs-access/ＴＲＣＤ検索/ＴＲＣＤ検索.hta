@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<title>Ｔｒコード検索 v0.2</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="Ｔｒコード検索 v0.2"
+   >
+<style type="text/css">
+<!--
+P.type_a {
+	background-color:gray;		/* 背景色:グレイ 	*/
+	font-size:12pt;				/* フォントサイズ 	*/
+}
+TR.type_a {
+	background-color:skyblue;	/* 背景色:グレイ 	*/
+}
+LABEL.type_a {
+	background-color:silver;	/* 背景色:グレイ 	*/
+}
+-->
+</style>
+<script language="javascript" src="../../lib/prototype.js"></script>
+<script language="javascript" src="../../lib/rico.js"></script>
+<script type="text/vbscript" src="../../lib/ado-func.vbs"></script>
+<SCRIPT LANGUAGE="VBScript">
+On Error Resume Next
+
+Sub cmdSearch_Click(byVal p_strType)
+
+	Set objConnection = CreateADODBConnection()
+	Set objRecordSet = CreateADODBRecordset()
+
+	'// ＡＣＣＥＳＳ－ＤＢオープン
+	Call OpenDBAccess( _
+		objConnection _
+	)
+
+	If (Err) Then
+		Msgbox "ＤＢオープンエラーが発生しました。" & _
+			Err.Description
+		Exit Sub
+	End If
+
+	strTableName="L_トランザクションコード"
+
+	If (p_strType = "Search") Then
+		strSQL = "SELECT m.* FROM " & strTableName & " m " & _
+				"where " & _
+				"(m.トランザクションコード like '%" & _
+				KEYWORD.value  & "%') or " & _
+				"(m.定義名 like '%" & _
+				KEYWORD.value  & "%') or " & _
+				"(m.トランザクション名 like '%" & _
+				KEYWORD.value  & "%') " & _
+				"order by トランザクションコード"
+	Else
+		strSQL = "SELECT m.* FROM " & strTableName & " m " & _
+				"order by トランザクションコード"
+	End If
+
+	SQL_CMD.innerText = strSQL
+
+	'// ＳＱＬ実行
+	Call OpenRecordset( _
+		objConnection, _
+		objRecordset, _
+		strSQL _
+	)
+
+	If (Err) Then
+		Msgbox "ＳＱＬ実行エラーが発生しました。" & _
+			Err.Description
+		Exit Sub
+	End If
+
+	'// テーブルヘッダ部を生成
+	strHTML = CreateHtmlTableHeader(objRecordset)
+
+	'// テーブルボディ部を生成
+	strHTML = strHTML & _
+		CreateHtmlTableBody( _
+			objRecordSet _
+		)
+
+	RESULT.innerHTML = strHTML
+	HTML_TEXT.innerText = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+
+Sub cmdClear_Click
+	KEYWORD.value = ""
+End Sub
+</SCRIPT>
+<script>
+<!--
+var onloads = new Array();
+function bodyonload() {
+	for(var i=0; i < onloads.length ; i++) {
+		onloads[i]();
+	}
+}
+function accord() {
+	new Rico.Accordion('accordionDiv', { panelHeight:227} );
+}
+//-->
+</script>
+</HEAD>
+<BODY onload="javascript:bodyonload();">
+<table border="0">
+<tr>
+<th>
+	<label name="KEYWORD">トランザクションコード:</label>
+</th>
+<td>
+<input type="text" name="KEYWORD" size="40"/>
+<button onClick="cmdSearch_Click('Search')">検索</button>
+<button onClick="cmdClear_Click">クリア</button>
+</td>
+</tr>
+</table>
+<hr/>
+<div id="accordionDiv">
+	<div id="PANEL1">
+		<div id="TITLE1">
+			RESULT:
+		</div>
+		<div id="TITLE2">
+<div id="RESULT"></div>
+		</div>
+	</div>
+	<div id="PANEL2">
+		<div id="TITLE1">
+			SQL:
+		</div>
+		<div id="TITLE2">
+<textarea id="SQL_CMD" rows="3" cols="80"></textarea>
+		</div>
+	</div>
+	<div id="PANEL3">
+		<div id="TITLE1">
+			HTML:
+		</div>
+		<div id="TITLE2">
+<textarea id="HTML_TEXT" rows="10" cols="80"></textarea>
+		</div>
+	</div>
+</div>
+<script>onloads.push( accord );</script>
+</BODY>
+</HTML>

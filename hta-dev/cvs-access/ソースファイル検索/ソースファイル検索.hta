@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<title>ソースファイル検索</title>
+   <HTA:APPLICATION ID="oHTA"
+    APPLICATIONNAME="ソースファイル検索"
+   >
+   <SCRIPT LANGUAGE="VBScript">
+Const adOpenStatic = 3
+Const adLockOptimistic = 3
+Const adCmdText = &H0001
+
+On Error Resume Next
+
+Private Sub cmd_Click
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+	strPathtoTextFile = "C:\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+	strSQL = "SELECT * FROM ソースファイル一覧.txt " & _
+			"where service like '%" & KEYWORD.value & "%' " & _
+			"order by filename"
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+
+	strHTML="<table border='1' cellspacing='0'>" & vbCrLf & _
+		"<tr style='background-color:skyblue;'>" & _
+		"<th>サービス名</th>" & _
+		"<th>ファイル名</th>" & _
+		"<th>ファイル名(漢字)</th>" & _
+		"<th>規模(行数)</th>" & _
+		"</tr>"
+	Do Until objRecordset.EOF
+		strService = objRecordset.Fields.Item("service")
+		strFilename = objRecordset.Fields.Item("filename")
+		strFilenameKJ = objRecordset.Fields.Item("filename_kj")
+		strStep = objRecordset.Fields.Item("step")
+		strHTML = strHTML & _
+			"<tr>" & vbCrLf
+
+	    strHTML = strHTML & _
+			"<td>" & strService & "<br/>" & "</td>" & _
+			"<td>" & strFilename & "<br/>" & "</td>" & _
+			"<td>" & strFilenameKJ & "<br/>" & "</td>" & _
+			"<td align='right'>" & strStep & "<br/>" & "</td>"
+
+		strHTML = strHTML & _
+			"</tr>" & vbCrLf
+
+	    objRecordset.MoveNext
+	Loop
+	RESULT.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+Private Sub dispSelect
+
+	Set objConnection = CreateObject("ADODB.Connection")
+	Set objRecordSet = CreateObject("ADODB.Recordset")
+
+	strPathtoTextFile = "C:\home\kondo\ＡＬＳＯＫ\ＧＣシステム\91.ドキュメント管理\"
+
+	objConnection.Open "Provider=Microsoft.Jet.OLEDB.4.0;" & _
+	          "Data Source=" & strPathtoTextFile & ";" & _
+	          "Extended Properties=""text;HDR=YES;FMT=Delimited"""
+
+	strSQL = "SELECT distinct service FROM ソースファイル一覧.txt " & _
+			"order by service"
+
+	objRecordset.Open strSQL, _
+	          objConnection, adOpenStatic, adLockOptimistic, adCmdText
+	
+	strHTML="<select name='KEYWORD' onClick='cmd_Click'>" & vbCrLf
+	Do Until objRecordset.EOF
+		strService = objRecordset.Fields.Item("service")
+		strHTML = strHTML & _
+			"<option " & "value='" & _
+			strService & "'>" & _
+			strService & _
+			"</option>" & vbCrLf
+
+	    objRecordset.MoveNext
+	Loop
+	strLabel="<label name='KEYWORD'>サービス名:</label>"
+	strHTML=strLabel & strHTML & "</select>" & vbCrLf
+	opt.innerHTML = strHTML
+
+	Set objRecordSet = Nothing
+	Set objConnection = Nothing
+End Sub
+	   </SCRIPT>
+</HEAD>
+<BODY SCROLL="yes" onload="dispSelect">
+<div id="opt"></div>
+<hr/>
+<div id="RESULT"></div>
+</BODY>
+</HTML>

@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>構造体検索</title>
+<link rel="stylesheet" href="./default.css" type="text/css"/>
+<XML id="source" src="struct-info2.xml"></XML>
+<XML id="style" src="struct-info-list.xsl"></XML>
+<script language="JavaScript" src="./dom-func.js"></script>
+<script language="JavaScript">
+<!--
+function cmdSearchx_Click()
+{
+	var xmldoc = createDom;
+	var xsldoc = createFtDom;
+	//xmldoc.async = false;
+	//xsldoc.async = false;
+
+	xmldoc.load("struct-info2.xml");
+	xsldoc.load("struct-info-list.xsl");
+	var strHTML = xmldoc.transformNode(xsldoc);
+
+	// HTML表示
+	RESULT.innerHTML = strHTML;
+	DEBUG.innerText = strHTML;
+
+}
+function cmdSearch_Click(x) {
+	var xmldoc = createDOM();
+	var xsldoc = createFTDOM();
+
+	xmldoc.load("struct-info2.xml");
+	xsldoc.load("struct-info-list.xsl");
+
+	// XSLテンプレート生成
+	var tmpdoc = createXSLTmp(xsldoc);
+
+	// XSLProcessorオブジェクト生成
+	var objPrc = tmpdoc.createProcessor();
+
+	objPrc.input=xmldoc;
+	
+	// XSLテンプレートのパラメータ設定
+	objPrc.addParameter("struct_name", x);
+	objPrc.transform();
+
+	// HTML表示
+	RESULT.innerHTML = objPrc.output;
+	DEBUG.innerText = objPrc.output;
+
+}
+
+function cmdSelect_Click(x) {
+	var xmldoc = createDOM();
+	var xsldoc = createFTDOM();
+
+	xmldoc.load("struct-info2.xml");
+	xsldoc.load("struct-info.xsl");
+
+	// XSLテンプレート生成
+	var tmpdoc = createXSLTmp(xsldoc);
+
+	// XSLProcessorオブジェクト生成
+	var objPrc = tmpdoc.createProcessor();
+
+	objPrc.input=xmldoc;
+	
+	// XSLテンプレートのパラメータ設定
+	objPrc.addParameter("struct_name", x);
+	objPrc.transform();
+
+	// HTML表示
+	RESULT2.innerHTML = objPrc.output;
+	DEBUG.innerText = objPrc.output;
+
+}
+
+function cmdClear_Click()
+{
+	KEYWORD.value = "";
+}
+-->
+</script>
+</head>
+<body>
+<h3>構造体検索</h3>
+<label name="SEARCH_FIELD"><b>検索項目:</b></label>
+<dl>
+<input type="checkbox" name="SEARCH_FIELD" checked="true">構造体名</input><br/>
+<input type="checkbox" name="SEARCH_FIELD" checked="true">構造体定義</input><br/>
+<input type="checkbox" name="SEARCH_FIELD" checked="true">ファイル名</input><br/>
+<input type="checkbox" name="SEARCH_FIELD" checked="true">パス名</input><br/>
+</dl>
+<label name="KEYWORD"><b>検索文字:</b></label>
+<input type="text" name="KEYWORD" size="40"/>
+<select name="COND">
+<option value="1">に一致する。</option>
+<option value="2">に一致しない。</option>
+<option value="3">の前方が一致する。</option>
+<option value="4">の後方が一致する。</option>
+<option value="5">を含んでいる。</option>
+<option value="6">を含んいない。</option>]
+</select>
+<!--button onClick="cmdSearch_Click();">実行</button-->
+<button onClick="cmdSearch_Click(KEYWORD.value);">実行</button>
+<button onClick="cmdClear_Click();">クリア</button>
+<hr/>
+<div id="RESULT"></div>
+<hr/>
+<div id="RESULT2"></div>
+<hr/>
+<textarea id="DEBUG" rows="5" cols="80"></textarea>
+</body>
+</html>
